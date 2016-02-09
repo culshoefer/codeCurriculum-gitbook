@@ -1,4 +1,4 @@
-Introduction to python and small-scale game development with PyGame
+Introduction to Python and small-scale game development with PyGame
 =======
 
 ##Use of these resources: Description
@@ -36,6 +36,8 @@ From our own experience, it is very hard to come up with good project ideas by o
 What we want from students is to be able to understand the very core concepts of programming like control flow and branching and to be able to apply them together with more advanced concepts such as classes and modules. Ideally, students should be able to come up with solutions on their own.
 
 ##Installing Python
-Before we can start coding, we have to install Python first. Python can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). There are multiple version available, but for this tutorial we will use `Python 2.7.11`.
+Before we can start coding, we have to install Python first. Python can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). There are multiple version available, but for this tutorial we will use `Python 2.7.11`. 
+
+If you are using *Windows*, simply click at *Download Python 2.7.11*. Once the download has finished, open your **Downloads** folder and further follow the instructions.
 
 ##Installing PyGame
