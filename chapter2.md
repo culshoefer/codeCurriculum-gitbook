@@ -2,7 +2,7 @@
 
 ##Functions 
 
-## Classes
+## Object-oriented programming
 
 As we have seen in previous sections, Python allows us to store data (in variables) and also manipulate data (using functions). What we usually notice (especially when writing larger programs) is that some of our functions "go together" with some of the variables. For example, when making games, we often have code like the following:
 
@@ -29,6 +29,78 @@ In this code, the variables `spaceship_position` and `spaceship_health` are chan
 
 Imagine if we had two spaceships. We would have variables for the position and health of each of them and we'd have to modify the functions `move_spaceship` and `damage_spaceship` so they change the appropriate variable. But then what if we now want three spaceships? We'd have to change everything again. It quickly becomes impractical.
 
-To solve this problem, we introduce the idea of an **object**.
-         
+To solve this problem, we introduce two related ideas: objects and classes.
+
+### What is an object?
+
+Objects are a way of grouping related information (variables) and behaviour (functions) together. A spaceship, to continue with our previous example, can be thought of as an object:
+
+ * it has a set of **attributes** – `position`, `health` – which describe its state
+ * it has a set of **methods** – `move`, `take_damage` – which describe what it can do
+
+It is important to note that both attributes and methods *belong* to the object. We could have many different spaceship objects and each of them would have their own `position` and `health`, as well as `move` or `take_damage` functions.
+
+It's easier to understand the concept of an object when you actually see one being used in practice, so that is wht we are going to do, but we need to introduce one additional concept before that: classes.
+
+### What is a class?
+
+Classes are blueprints for creating objects, or, if you wish, the recipe you use to create a new object. They describe what attributes and methods the objects you want to create will have. For example, we could have a `Spaceship` class, which we can define as follows:
+
+    class Spaceship():
+        name = None
+        position = None
+        health = None
+        
+        def __init__(self, name, position, health):
+            self.name = name
+            self.position = position
+            self.health = health
+        
+        def move(self, delta):
+            spaceship_x, spaceship_y = self.position
+            delta_x, delta_y = delta
+        
+            spaceship_x += delta_x
+            spaceship_y += delta_y
+            
+            self.position = (spaceship_x, spaceship_y)
+       
+        def take_damage(self, damage):
+            self.health -= damage
+        
+
+There are quite a few new things to digest in this example, so let's take them one by one:
+
+`class Spaceship()` – the `class` keyword here tells Python we are declaring a new class called `Spaceship`. Convention dictates that all class names start with an upper-case letter. Later, we will explain what the empty brackets after the name of the class mean.
+
+`name`, `position` and `health` are attributes that all objects of class `Spaceship` will have.
+
+`def __init__(self, name, position, health)` is a special kind of function called a **constructor**. Constructors belong to the class and are used to *instantiate* (create) new objects. Notice the special name. We will see how to use constructors shortly.
+
+Also notice the special name `self`, which is the first argument of every method – Python passes it automatically, you don't have to do it yourself – and is also used to access attributes. `self` is used to reference attributes and methods belonging to the "current object", as oppossed to those belonging to a different object.
+
+### Instantiating objects
+
+To create new objects, we must call the constructor of the class of object we want. For example, to create an object of the `Spaceship` class, we would do something like the following:
+
+    s = Spaceship("USS Enterprise", (30, 220), 100)
+    
+This creates a new object of the `Spaceship` class and assigns it to the variable `s`. Here's a log of us interacting with the `s` object in the Python interpreter:
+
+    >>> print s.name, s.position, s.health
+    USS Enterprise (30, 220) 100
+    
+    >>> s.move((-10, -120))
+    >>> print s.position
+    (20, 100)  
+    
+    >>> s.take_damage(80)
+    >>> print s.health
+    20
+
+### Why is using objects better?
+### Inheritance
+### Private and protected
+### Exercises
+
 ##Modules
