@@ -1,6 +1,6 @@
 # Chapter 1: Python Basics
 Python itself is a programming language. When you run python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
-When you run "python", the so-called IDLE (Integrated Development Environment) opens. 
+When you run "python", the so-called IDLE (Integrated Development Environment) opens.
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
@@ -34,12 +34,11 @@ Interestingly, we can overwrite variables: Type out
 ```
 Who said variable names had to be boring?
 ***
-Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100 000s lines of code!) good naming gets important.
+Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100 000s lines of code!) good naming gets important, so you might just stick to it for now already.
 ***
-In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left.
-In fact, anything executed in Python are so-called *statements*. Here, every statement gets executed once we hit the `Enter` key.
+In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left side.
 
-If you are studying computer science, you don't have much time. So, since all computer scientists don't have much time (and because it is more readable), there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x` (same thing for subtraction - and divison /). It can be abbreviated to:
+If you are studying computer science, you don't have much time. So, because of that (actually mainly because it is more readable), there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x`, i.e. adding variables to itself - like in the example above. These statements can be abbreviated to:
 ```python
 >>> x = 5
 >>> x += 3
@@ -52,20 +51,20 @@ print x
 
 There you go! Now, you saw the `#` after our line of code? This is a so-called *comment*. Comments are useful when you want to write something about the code. The Python interpreter will find the `#` and from that point onwards, it will just ignore everything entered in this line.
 
-Despite the difference to Mathematics, there are still things that apply. Try out multiplication:
+Speaking of the difference to Mathematics, there is another one. Try out multiplication:
 ```python
 >>> print(4 * 5)
 20
 ```
-This works fine. But what is with division?
+This works fine. But what about division?
 ```python
 >>> print(4 / 5)
 0
 ```
-Huh. What happened here? Well. Normal division in Python just slices off what would be after the dot in a division. This is because Python variables have something called *type*. We say a **variable is of a certain type**.
+Huh. What happened here? Well. Normal division in Python simply slices off what would be after the dot in a division. This is because Python variables have something called *type*. We say a **variable is of a certain type**.
 
 ##Python types
-We have already seen the type of whole numbers, i.e. 5, 3, 9, 14275855431 or -3014. These numbers are called **integers**. Similarly, Python has numbers with positions after the dot, so-called **floating-point numbers** (computer scientists call them *float*). The good thing about division with floats is that Python is able to do division with positions after the dot. Already, we see that Python tries to understand the statements that we write and interpret them in the most intelligent way it can: If a variable is of type **integer**, division stops before the dot, otherwise,the result is no integer any more! Similarly with floats: Division with floats will always (actually, only in most cases) ending in floats.
+We have already seen whole numbers, i.e. 5, 3, 9, 14275855431 or -3014. These numbers are of type **integer** (or *int*). Similarly, Python has numbers with positions after the dot, so-called **floating-point numbers** (computer scientists call them *float*). The good thing about division with floats is that Python is able to do division with positions after the dot. Already, we see that Python tries to understand the statements that we write and interpret them in the most intelligent way it can: If a variable is of type **integer**, division stops before the dot, otherwise,the result is no integer any more! Similarly with floats: Division with floats will always (actually, only in most cases) ending in floats.
 ```python
 >>> print(4.0 / 5)
 0.8
@@ -82,7 +81,7 @@ For more complex formulas, in Mathematics, you have learned that we use parenthe
 ```
 ***
 
-There is one more thing with types: When trying to use different types together, we get into a whole different world. One of the other types are so-called **strings**. Strings are defined as a series of characters - sounds too complicated, why not just say a series of letters/words, you say? Well, you see, while we as humans usually have pretty normal sentences like "Buy a house", something like "asdklfnea;sefkanfei383912rn12n52112,5.,125,21.}" is also a valid string, although it may not necessarily be what we as humans see as Strings.
+There is one more thing with types: When trying to use different types together, we get into a whole different world. One of the other types are so-called **strings**. Strings are defined as a series of characters - sounds too complicated, why not just say a series of letters/words, you say? Well, you see, while we as humans usually have pretty normal sentences like "Buy a house", something like "asdklfnea;sefkanfei383912rn12n52112,5.,125,21.}" is also a valid string, although it may not necessarily be what we as humans typically use every day.
 
 Strings are awesome! Try the following:
 ```python
@@ -127,11 +126,13 @@ Solution for the question on parentheses:
 (a) 2 (b) 5 (c) 5
 
 ##Simple Python Scripts and input
-So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window`. A new empty window should open. In this window, you can type commands just like you would in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each statement until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before.
-
-Make a program that displays the following, storing the values of 5 and 58337 internally and then storing the sum, the product and the division in a different variable. After that, print the result to the screen using the newly-learned technique of appending strings:
-
-`The sum of 5 and 58337 is 58342, their product is 291685, and 58337/2 is 29168.5 `
+So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window`. A new empty window should open. In this window, you can type commands, just like in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each line until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before. The last program would look something like this:
+```python
+someChar = ':'
+someOtherChar= 'D'
+print(someChar + someOtherChar)
+```
+Really the same, isn't it? When you want to run your program, go to `Run -> Run Module` or press `F5` on your keyboard.
 
 By the way: Do not be intimidated by the colors in the program. They are just there to support readability of the code you have written and do not add any additional information.
 
@@ -167,24 +168,39 @@ secondInt = int(secondInput)
 print(firstInt + secondInt)
 ```
 Ok, now we can do some exercises. For now, these are not yet games, but do not turn away just yet: As we teach you more, you will be better programmers and able to do more!
-1. Write a program that asks for your friends name (or your name, if you prefer) using `input()` and displays it on screen, together with a message (`print()`). Something like this:
+1. Make a program that displays the following, storing the values of 5 and 58337 internally and then storing the sum, the product and the division in a different variable. After that, print the result to the screen using the newly-learned technique of appending strings:
+
+`The sum of 5 and 58337 is 58342, their product is 291685, and 58337/2 is 29168.5 `
+
+2. Write a program that asks for your friends name (or your name, if you prefer) using `input()` and displays it on screen, together with a message (`print()`). Something like this:
 ```
 Please enter your friend's name!
 Bob
 Hello, Bob! I hope you are feeling good today.
 ```
-2. While some calculations are fine, for bigger numbers, letting a computer do the work is much better (in fact, number crunching is very common in game design, when drawing complex shapes!). Write a program that takes two numbers (via `input()`) and adds them together!
-3. Write a program that takes one number and prints the square of the number.
-4. What is the end value of `x`?
+3. While some calculations are fine, for bigger numbers, letting a computer do the work is much better (in fact, number crunching is very common in game design, when drawing complex shapes!). Write a program that takes two numbers (via `input()`) and adds them together!
+4. Write a program that takes one number and prints the square of the number.
+5. What is the end value of `x`?
 ```python
 x = 5
 y = 5.0 - 3
 x /= y
 z = x * y
-x = x +
+x = x /3 + 3 / 2 * z
 ```
 ... and that's it. You made it through the first part, congratulations! Next up: Conditional statements (for which we definitely need bools and input, so keep these in your head!)
 
+
+*Solution for the teacher*
+```python
+x = 5 # x = 5
+y = 5.0 - 3 # 2.0
+x /= y # x = 2.5
+z = x * y # z = 5.0
+x = x /3 + 3 / 2 * z # x = 35 / 6 = 5.8333333333
+print x # will print 5.833333333333
+```
+(5.83333333333333333 -> 35/6 Computers can only store a finite number of elements and do not store fractions. With bigger numbers, floats can often get inaccurate because they only have a limited amount of space in computers)
 ## Conditional statements
 ##Exercises for Conditionals
 quiz game
