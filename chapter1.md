@@ -87,6 +87,7 @@ We assing a variable `age`, and the person is 18, we print "The person is eighte
 ...     print "the person is eighteen years old"
 ...
 ```
+output:
 ```
 the person is eighteen years old
 ```
@@ -114,6 +115,7 @@ Let's write a small programm, which checks if somebody is allowed to buy alcohol
 ...     print "NOT allowed, you must be at least 18yrs old"
 ...
 ```
+output:
 ```
 NOT allowed, you must be at least 18yrs old
 ```
