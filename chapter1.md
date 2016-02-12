@@ -1,7 +1,6 @@
 # Chapter 1: Python Basics
 Python itself is a programming language. When you run python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
-When you run "python", the so-called IDLE (Integrated Development Environment) opens. It should look like shown in the picture.
-![Python IDLE](/img/Python_shell_home.png)
+When you run "python", the so-called IDLE (Integrated Development Environment) opens. 
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
@@ -16,7 +15,7 @@ Traditionally, in programming, the first thing to do when learning a new program
 
 Congratulations on your (potentially) first program ever written! If you want to, try changing the text inside the `print` statement. What happens if you do `print(Hello, world!)` i.e. leaving out the quotation marks?
 
-## Variables and statements and types
+## Variables and statements
 Now, finally that we have an idea on how to use `print()`, we can advance to nicer programs. A very important aspect of programming are something called **variables**. Just like in Mathematics, we can assign values to things. Try it out, write the following statements, one by one:
 ```python
 >>> x = 5
@@ -73,6 +72,16 @@ We have already seen the type of whole numbers, i.e. 5, 3, 9, 14275855431 or -30
 >>> print(8.5/0.25)
 34.0
 ```
+
+***
+For more complex formulas, in Mathematics, you have learned that we use parentheses to show what to compute first. Computer Science is very much related to Maths and the same convention applies. Take the following example. What will be the output (see end of this part for solution)?
+```python
+>>> print((5 + 3)/4) #(a)
+>>> print(5 + 3 / 4) #(b)
+>>> print(5 + (3 / 4)) #(c)
+```
+***
+
 There is one more thing with types: When trying to use different types together, we get into a whole different world. One of the other types are so-called **strings**. Strings are defined as a series of characters - sounds too complicated, why not just say a series of letters/words, you say? Well, you see, while we as humans usually have pretty normal sentences like "Buy a house", something like "asdklfnea;sefkanfei383912rn12n52112,5.,125,21.}" is also a valid string, although it may not necessarily be what we as humans see as Strings.
 
 Strings are awesome! Try the following:
@@ -91,7 +100,7 @@ However, when we try to do the following:
 >>> myAge = 876
 >>> print(myName + " is " + myAge + " years old")
 ```
-we get an error! That is due to the fact that the `+` does not know what to do in this case: Should it treat the value stored in " is " as a number and literally add it to the integer myAge, or should it treat myAge as a String and append it to " is "? In this case, we have to *tell the operator what to do*. When we want to use numbers (integers, floats) as strings, we put backticks (\`\`) around numbers to convert them to Strings. This procedure of taking a value of one type and chaning it to another type is called `type conversion`. The correct way to do the example above would be:
+we get an error! That is due to the fact that the `+` does not know what to do in this case: Should it treat the value stored in " is " as a number and literally add it to the integer myAge, or should it treat myAge as a String and append it to " is "? In this case, we have to *tell the operator what to do*. When we want to use numbers (integers, floats) as strings, we put backticks (\`\`) around numbers to convert them to Strings. This procedure of taking a value of one type and changing it to another type is called `type conversion`. The correct way to do the example above would be:
 ```python
 >>> myName = "Peter"
 >>> myAge = 876
@@ -107,13 +116,15 @@ One more thing: In Python (and also in may other programming languages), there i
 :D
 ```
 
-The good thing is, because chars are so similar to strings, there is not much
+The good thing is, because chars are so similar to strings, there is not much type conversion to be done, we just append one variable to another. Even `'d' + "iesel"` (character + string) would work fine.
 
 To summarize:
 
 The `print()` function prints results on screen.
 Variables have a *type* such as integer, float or String (in fact, there are many more - even only for numbers), a *name* and hold a *value*.
 
+Solution for the question on parentheses:
+(a) 2 (b) 5 (c) 5
 
 ##Simple Python Scripts and input
 So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window`. A new empty window should open. In this window, you can type commands just like you would in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each statement until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before.
@@ -140,13 +151,49 @@ One last data type: **Boolean** (why this weird name? Because George Boole inven
 iAmCool = True
 youAreCool = False
 ```
-![What did the boolean say to the integer? You can't handle the truth!](http://legacy.nerdywithchildren.com/wp-content/uploads/2013/05/3t5jki.jpg) Another one!
-
+![What did the boolean say to the integer? You can't handle the truth!](http://legacy.nerdywithchildren.com/wp-content/uploads/2013/05/3t5jki.jpg) As integers hold - well - integers and booleans true or false, integers literally cannot handle the truth. HAH!
 
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
+Later more about booleans (or *bools*, in computer science speak). For now, just remember their existence.
+##Exercises on variables and type
+For these exercises, we desperately need two more functions: `int()` and `input()`. `int()` tries to convert a value to an integer (who would have guessed?) and `input()` prompts the user to input something.
+
+A simple program using these two functions which adds two numbers and prints the result:
+```python
+firstInput = input() #the output from input() goes to int() which takes exactly one value
+firstInt = int(firstInput) #convert to integer
+secondInput = input()
+secondInt = int(secondInput)
+print(firstInt + secondInt)
+```
+Ok, now we can do some exercises. For now, these are not yet games, but do not turn away just yet: As we teach you more, you will be better programmers and able to do more!
+1. Write a program that asks for your friends name (or your name, if you prefer) using `input()` and displays it on screen, together with a message (`print()`). Something like this:
+```
+Please enter your friend's name!
+Bob
+Hello, Bob! I hope you are feeling good today.
+```
+2. While some calculations are fine, for bigger numbers, letting a computer do the work is much better (in fact, number crunching is very common in game design, when drawing complex shapes!). Write a program that takes two numbers (via `input()`) and adds them together!
+3. Write a program that takes one number and prints the square of the number.
+4. What is the end value of `x`?
+```python
+x = 5
+y = 5.0 - 3
+x /= y
+z = x * y
+x = x +
+```
+... and that's it. You made it through the first part, congratulations! Next up: Conditional statements (for which we definitely need bools and input, so keep these in your head!)
 
 ## Conditional statements
+##Exercises for Conditionals
+quiz game
+
 ## Loops
+##Exercises for loops
+guessing game
+
+
 ## Arrays and Whack-A-Mole
 There are many more data types in Python. One very widely used data type are lists.
 Lists are nothing more than a collection of items, to which you can add elements, remove some or access particular elements. In Python (in fact in many programming languages), lists are simply created by the following command:
@@ -157,4 +204,4 @@ print(things[0])
 5
 ```
 See the square brackets? They indicate start and end of a list. You separate values in the list by commas. Also note that we access values in a list with square brackets and the index of the value.
-Here's the deal though. So far, you have counted from 1 (one, two, three... ok you know how numbers work). Guess what? Your life was a lie so far, computer scientists typically count from zero. This is why
+Here's the deal though. So far, you have counted from 1 (one, two, three... ok you know how numbers work). Guess what? Your life was a lie so far, computer scientists typically count from zero. This is why....

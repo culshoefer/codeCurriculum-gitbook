@@ -31,9 +31,11 @@ Throughout the course, we aim to move to PyGame as quickly as possible while sti
 
 Continuing in this manner, we do not understand this project to be about theoretical digressions. We want to keep it close to the application, without any additional distraction (apart from the occasional motivational funny picture to loosen up). As the audience is quite old, we do not want to include a framework story, but keep it to the topic and provide guidance throughout. From our perspective, in this age, it is more about **discovering your own capabilities** rather than adapting the given framework. In our opinion students should not be expected to jump directly into coding.
 
-From our own experience, it is very hard to come up with good project ideas by oneself. This is why we include a third and fourth chapter that gradually builds up knowledge and student expectation on how to think about problems and gradually lays the responsibility for program design in the hands of the student.
+From our own experience, it is very hard to come up with good project ideas by oneself. This is why we include a third and fourth chapter that gradually builds up knowledge and student expectation on how to think about problems and slowly lays the responsibility for program design in the hands of the student.
 
 What we want from students is to be able to understand the very core concepts of programming like control flow and branching and to be able to apply them together with more advanced concepts such as classes and modules. Ideally, students should be able to come up with solutions on their own.
+
+After all, computer science is a very important subject having many industrial applications. Apart from that, without it we would not be able to enjoy the lovely games that we play, the apps that we use or even write an email. This wide usage of computer science makes it so compelling to study. A particularly fun application is game development. The simplest way to convey that is via the extremely widely used language `Python` and one of its libraries `PyGame`.
 
 ##Our team
 We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum. Either way, it influenced our decision to study it formally.
@@ -57,3 +59,5 @@ On *Windows*, launch the downloaded file and follow the instructions. After the 
 `import pygame`.
 
 If nothing appears on the screen after you have pressed the Enter key, it has been successfully installed!
+
+##Tutorial for Mac OS X follows

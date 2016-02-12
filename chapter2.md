@@ -40,7 +40,7 @@ Objects are a way of grouping related information (variables) and behaviour (fun
 
 It is important to note that both attributes and methods *belong* to the object. We could have many different spaceship objects and each of them would have their own `position` and `health`, as well as `move` or `take_damage` functions.
 
-It's easier to understand the concept of an object when you actually see one being used in practice, so that is wht we are going to do, but we need to introduce one additional concept before that: classes.
+It's easier to understand the concept of an object when you actually see one being used in practice, so that is what we are going to do, but we need to introduce one additional concept before that: classes.
 
 ### What is a class?
 
@@ -77,7 +77,7 @@ There are quite a few new things to digest in this example, so let's take them o
 
 `def __init__(self, name, position, health)` is a special kind of function called a **constructor**. Constructors belong to the class and are used to *instantiate* (create) new objects. Notice the special name. We will see how to use constructors shortly.
 
-Also notice the special name `self`, which is the first argument of every method – Python passes it automatically, you don't have to do it yourself – and is also used to access attributes. `self` is used to reference attributes and methods belonging to the "current object", as oppossed to those belonging to a different object.
+Also notice the special name `self`, which is the first argument of every method – Python passes it automatically, you don't have to do it yourself – and is also used to access attributes. `self` is used to reference attributes and methods belonging to the "current object", as opposed to those belonging to a different object.
 
 ### Instantiating objects
 
