@@ -86,6 +86,8 @@ We assing a variable `age`, and the person is 18, we print "The person is eighte
 >>> if age == 18:
 ...     print "the person is eighteen years old"
 ...
+```
+```
 the person is eighteen years old
 ```
 Ok, here are a couple of new things:
@@ -111,6 +113,8 @@ Let's write a small programm, which checks if somebody is allowed to buy alcohol
 ... else:
 ...     print "NOT allowed, you must be at least 18yrs old"
 ...
+```
+```
 NOT allowed, you must be at least 18yrs old
 ```
 Yeah... odds are good some of you experienced this before.
