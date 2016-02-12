@@ -151,6 +151,7 @@ File "<stdin>", line 3
 SyntaxError: invalid syntax
 ``` 
 Wait what?
+
 ![But Why?](/img/butwhy.jpg)
 
 
