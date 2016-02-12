@@ -78,7 +78,8 @@ What happens? Well, the result `Peter is friends with Paul` gets printed. As you
 ## Conditional statements
 Let's take a look at one of the fundamental *statements* in programming - *conditional statements*
 But what are conditional statesments?
-A conditional statement is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
+A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
+### if-statements
 Lets jump into the code and try the following:
 We assing a variable `age`, and the person is 18, we print "The person is eighteen years old":
 ```python 
@@ -106,6 +107,8 @@ But what happens if somebody is not 18 years old? Well, in our case nothing happ
 >>>
 ```
 Neat... 
+
+#### else and arithmetic operators
 Let's write a small programm, which checks if somebody is allowed to buy alcohol:
 ```python
 >>> age = 17
@@ -119,10 +122,23 @@ output:
 ```
 NOT allowed, you must be at least 18yrs old
 ```
-Yeah... odds are good some of you experienced this before.
+Yeah... odds are some of you experienced this before.
 And in case you are from the US: We are in Europe...
 
-Here we introduced a new part of *conditions*: the `else` statement. Basicall that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
+Here we introduced a new part of *conditions*: the `else` statement. Basically that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
+Furthermore, take a closer look at the `if statement`:
+Instead of `age == 18` we wrote `age >= 18`. This means `bigger or equal to`. 
+`==` and `>=` are so-called `Arithmetic Operators`, and of course there exists more than just these two:
+* `==` equals to
+* `!=` does not equal to
+* `>` bigger as
+* `<` smaller as
+* `>=` bigger or equal to
+* `<=` smaller or equal to
+
+But what, if you have to differentiate more...?
+Like if somebody is a baby, child, teenager or adult?
+One way to do that is:
 
 
 ## Loops
