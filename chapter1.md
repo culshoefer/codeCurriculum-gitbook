@@ -70,9 +70,55 @@ Strings are awesome! Try the following:
 >>> myFriendsName = "Paul"
 >>> print(myName + " is friends with " + myFriendsName)
 ```
-What happens? Well, the result `Peter is friends with Paul` gets printed. As you can see, we can use the `+` operator for "adding" strings to one another. When Python computes the values in the `print()` statement, it actually first combines the individual elements. We call this procedure of adding things to the end of other things **appending** i.e. `" is friends with " gets appended to myName`.
+What happens? Well, the result `Peter is friends with Paul` gets printed. As you can see, we can use the `+` operator for "adding" strings to one another. When Python computes the values in the `print()` statement, it actually first combines the individual elements.
 
-###todo: lists, dicts? functions on lists? input?
+We call this procedure of adding things to the end of other things **appending** i.e. " is friends with " gets appended to `myName` (If you want to get specifically into the details of programming languages, in the specific case of strings, the process of appending is called *concatenation*, but don't worry about that for now, it is not important).
+
+However, when we try to do the following:
+```python
+>>> myName = "Peter"
+>>> myAge = 876
+>>> print(myName + " is " + myAge + " years old")
+```
+we get an error! That is due to the fact that the `+` does not know what to do in this case: Should it treat the value stored in " is " as a number and literally add it to the integer myAge, or should it treat myAge as a String and append it to " is "? In this case, we have to *tell the operator what to do*. When we want to use numbers (integers, floats) as strings, we put backticks (\`\`) around numbers to convert them to Strings. This procedure of taking a value of one type and chaning it to another type is called `type conversion`. The correct way to do the example above would be:
+```python
+>>> myName = "Peter"
+>>> myAge = 876
+>>> print(myName + " is " + `myAge` + " years old")
+```
+Try it out for yourself!
+
+One more thing: In Python (and also in may other programming languages), there is another data type for individual characters, simply called **characters** (or **chars**). There is a special syntax for chars: Because they are so similar to Strings, we also show them with quotes, but because of their difference, we use single quotes. 
+```python
+>>> someChar = ':'
+>>> someOtherChar= 'D'
+>>> print(someChar + someOtherChar)
+:D
+```
+
+The good thing is, because chars are so similar to strings, there is not much
+
+To summarize:
+
+The `print()` function prints results on screen.
+Variables have a *type* such as integer, float or String (in fact, there are many more - even only for numbers), a *name* and hold a *value*.
+
+
+##Simple Python Scripts and input
+So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window`. A new empty window should open. In this window, you can type commands just like you would in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each statement until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before.
+
+Make a program that displays the following, storing the values of 5 and 58337 internally and then storing the sum, the product and the division in a different variable. After that, print the result to the screen using the newly-learned technique of appending strings:
+
+`The sum of 5 and 58337 is 58342, their product is 291685, and 58337/2 is 29168.5 `
+
+There are many more data types in Python. One very widely used data type are lists.
+Lists are nothing more than a collection of items, to which you can add elements, remove some or access particular elements. In Python (in fact in many programming languages), lists are simply created by the following command:
+```python
+crocodile = 'b'
+things = [5, 1.7, crocodile, ]
+```
+
+###todo: lists, dicts, bools? functions on lists? input?
 
 
 ## Conditional statements
