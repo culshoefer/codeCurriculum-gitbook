@@ -88,7 +88,7 @@ we get an error! That is due to the fact that the `+` does not know what to do i
 ```
 Try it out for yourself!
 
-One more thing: In Python (and also in may other programming languages), there is another data type for individual characters, simply called **characters** (or **chars**). There is a special syntax for chars: Because they are so similar to Strings, we also show them with quotes, but because of their difference, we use single quotes. 
+One more thing: In Python (and also in may other programming languages), there is another data type for individual characters, simply called **characters** (or **chars**). There is a special syntax for chars: Because they are so similar to Strings, we also show them with quotes, but because of their difference, we use single quotes.
 ```python
 >>> someChar = ':'
 >>> someOtherChar= 'D'
@@ -117,8 +117,6 @@ Lists are nothing more than a collection of items, to which you can add elements
 crocodile = 'b'
 things = [5, 1.7, crocodile, ]
 ```
-
-###todo: lists, dicts, bools? functions on lists? input?
 
 
 ## Conditional statements
