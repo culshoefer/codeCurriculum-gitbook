@@ -136,12 +136,11 @@ Instead of `age == 18` we wrote `age >= 18`. This means `bigger or equal to`.
 * `>=` bigger or equal to
 * `<=` smaller or equal to
 
-#### elif
 But what, if you have to differentiate more...?
 Like if somebody is a baby, child, teenager or adult?
 One way to do that is:
 ```python
->>> age = 13
+>>> age = 12
 >>> if age < 7:
 ...     print "baby"
 ... if age < 13:
@@ -153,6 +152,17 @@ SyntaxError: invalid syntax
 Wait what?
 
 ![But Why?](/img/butwhy.jpg)
+
+The reson is, since you are still in the `if` mode, python expects you to use the tabulator for each folling statement. Let's try it:
+```python
+>>> age = 12
+>>> if age < 7:
+...     print "baby"
+...     if age < 13:
+...         print "child"         
+...
+```
+It should print `child` shouldn't it? But it prints... nothing?
 
 
 ## Loops
