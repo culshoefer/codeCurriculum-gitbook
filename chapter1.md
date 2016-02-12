@@ -152,7 +152,7 @@ SyntaxError: invalid syntax
 ``` 
 Wait what?
 
-![But Why?](/img/butwhy.jpg)
+![But Why?](/img/butwhy.jpg =200x241)
 
 
 ## Loops
