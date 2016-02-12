@@ -29,7 +29,7 @@ These resources are different from many other tutorials on Python or PyGame. We 
 
 Throughout the course, we aim to move to PyGame as quickly as possible while still being able to understand what is going on. This is because we believe that students can get quite frustrated quickly if concepts are not properly introduced. At the same time, it means that the learning curve is steep. Finally, this is why this curriculum is intended for **16 years and up**.
 
-Continuing in this manner, we do not understand this project to be about theoretical digressions. We want to keep it close to the application, without any additional distraction. As the audience is quite old, we do not want to include a framework story, but keep it to the topic and provide guidance throughout. From our perspective, in this age, it is more about **discovering your own capabilities** rather than adapting the given framework. In our opinion students should not be expected to jump directly into coding.
+Continuing in this manner, we do not understand this project to be about theoretical digressions. We want to keep it close to the application, without any additional distraction (apart from the occasional motivational funny picture to loosen up). As the audience is quite old, we do not want to include a framework story, but keep it to the topic and provide guidance throughout. From our perspective, in this age, it is more about **discovering your own capabilities** rather than adapting the given framework. In our opinion students should not be expected to jump directly into coding.
 
 From our own experience, it is very hard to come up with good project ideas by oneself. This is why we include a third and fourth chapter that gradually builds up knowledge and student expectation on how to think about problems and gradually lays the responsibility for program design in the hands of the student.
 
@@ -38,9 +38,10 @@ What we want from students is to be able to understand the very core concepts of
 ##Our team
 We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum. Either way, it influenced our decision to study it formally.
 
-However, to study Computer Science, it is not necessary to know programming beforehand. When we were learning programming, however, it was hard for us to start understanding the concepts. Were it not to our discipline, we probably would not have learned programming. 
+However, to study Computer Science, it is not necessary to know programming beforehand. When we were learning programming, however, it was hard for us to start understanding the concepts. Were it not to our discipline, we probably would not have learned programming.
 
 With the new official Computer Science A-Level curriculum, we have a similar problem: On the one hand, teachers have to find appropriate learning resources and want students to be excited about Computer Science. In order to solve this, we propose to provide resources for learning Programming in Python. Similarly, the incentive to program games (covered later in this resource), should make students interested in programming.
+
 #Installing Python
 Before we can start coding, we have to install Python first. Python can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). There are multiple version available, but for this tutorial we will use *Python 2.7.11*.
 

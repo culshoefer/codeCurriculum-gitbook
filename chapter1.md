@@ -38,8 +38,20 @@ Who said variable names had to be boring?
 Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100 000s lines of code!) good naming gets important.
 ***
 In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left.
-
 In fact, anything executed in Python are so-called *statements*. Here, every statement gets executed once we hit the `Enter` key.
+
+If you are studying computer science, you don't have much time. So, since all computer scientists don't have much time (and because it is more readable), there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x` (same thing for subtraction - and divison /). It can be abbreviated to:
+```python
+>>> x = 5
+>>> x += 3
+print x
+8
+>>> y = 13
+>>> y *= x #the same as y = y * x
+104
+```
+
+There you go! Now, you saw the `#` after our line of code? This is a so-called *comment*. Comments are useful when you want to write something about the code. The Python interpreter will find the `#` and from that point onwards, it will just ignore everything entered in this line.
 
 Despite the difference to Mathematics, there are still things that apply. Try out multiplication:
 ```python
@@ -61,8 +73,7 @@ We have already seen the type of whole numbers, i.e. 5, 3, 9, 14275855431 or -30
 >>> print(8.5/0.25)
 34.0
 ```
-There is one more thing with types: When trying to use different types together, we get into a whole different world.
-One of the other types are so-called **strings**. Strings are defined as a series of characters - sounds too complicated, why not just say a series of letters/words, you say? Well, you see, while we as humans usually have pretty normal sentences like "Buy a house", something like "asdklfnea;sefkanfei383912rn12n52112,5.,125,21.}" is also a valid string, although it may not necessarily be what we as humans see as Strings.
+There is one more thing with types: When trying to use different types together, we get into a whole different world. One of the other types are so-called **strings**. Strings are defined as a series of characters - sounds too complicated, why not just say a series of letters/words, you say? Well, you see, while we as humans usually have pretty normal sentences like "Buy a house", something like "asdklfnea;sefkanfei383912rn12n52112,5.,125,21.}" is also a valid string, although it may not necessarily be what we as humans see as Strings.
 
 Strings are awesome! Try the following:
 ```python
@@ -111,14 +122,39 @@ Make a program that displays the following, storing the values of 5 and 58337 in
 
 `The sum of 5 and 58337 is 58342, their product is 291685, and 58337/2 is 29168.5 `
 
-There are many more data types in Python. One very widely used data type are lists.
-Lists are nothing more than a collection of items, to which you can add elements, remove some or access particular elements. In Python (in fact in many programming languages), lists are simply created by the following command:
-```python
-crocodile = 'b'
-things = [5, 1.7, crocodile, ]
-```
+By the way: Do not be intimidated by the colors in the program. They are just there to support readability of the code you have written and do not add any additional information.
 
+Let's cover two more data types, shall we?
+
+The first one is easy: **None**. None is simple. If something has nothing, then it is of type none. No seriously. We typically use `None` when we want to refer to variables that have no value. E.g. say you went out with your buddy to buy ice cream, but only your friend bought some. Then we might have:
+```python
+...
+friendIceFlavour = "Strawberry"
+myIceFlavour = None # :(
+...
+```
+Sad, but true. You might say something like this is useless but in fact, we often need to check if something is None (note that we always use a capital N!). More on this later.
+
+One last data type: **Boolean** (why this weird name? Because George Boole invented this concept!). Boolean is also easy: A value of type Boolean can be either true or false, nothing more. In Python, this looks something like this:
+```python
+iAmCool = True
+youAreCool = False
+```
+![What did the boolean say to the integer? You can't handle the truth!](http://legacy.nerdywithchildren.com/wp-content/uploads/2013/05/3t5jki.jpg) Another one!
+
+
+Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
 
 ## Conditional statements
 ## Loops
 ## Arrays and Whack-A-Mole
+There are many more data types in Python. One very widely used data type are lists.
+Lists are nothing more than a collection of items, to which you can add elements, remove some or access particular elements. In Python (in fact in many programming languages), lists are simply created by the following command:
+```python
+crocodile = 'b'
+things = [5, 1.7, crocodile]
+print(things[0])
+5
+```
+See the square brackets? They indicate start and end of a list. You separate values in the list by commas. Also note that we access values in a list with square brackets and the index of the value.
+Here's the deal though. So far, you have counted from 1 (one, two, three... ok you know how numbers work). Guess what? Your life was a lie so far, computer scientists typically count from zero. This is why
