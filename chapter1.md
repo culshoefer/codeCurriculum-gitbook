@@ -136,9 +136,22 @@ Instead of `age == 18` we wrote `age >= 18`. This means `bigger or equal to`.
 * `>=` bigger or equal to
 * `<=` smaller or equal to
 
+#### elif
 But what, if you have to differentiate more...?
 Like if somebody is a baby, child, teenager or adult?
 One way to do that is:
+```python
+>>> age = 13
+>>> if age < 7:
+...     print "baby"
+... if age < 13:
+File "<stdin>", line 3
+    if age < 13:
+     ^
+SyntaxError: invalid syntax
+``` 
+Wait what?
+![But Why?](/img/butwhy.jpg)
 
 
 ## Loops
