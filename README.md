@@ -1,27 +1,8 @@
 Introduction to Python and small-scale game development with PyGame
 =======
 
-##Use of these resources: Description
 
 This introduction to Programming in Python (and PyGame) is divided into four distinct chapters.
-
-1. Programming basics in Python
-    1. Getting started with Python
-    2. Variables and types
-    3. Conditionals
-    4. Loops
-    5. Arrays/Lists
-
-2. Advanced programming concepts
-    1. Functions
-    2. Classes
-    3. Modules
-
-3. Application of programming skills in PyGame and learning application design
-    1. Tutorial: How to build <Insert game name> from scratch
-    2. Tutorial: Hints at how to turn pseudocode/high-level views into real code
-
-4. Final project intended for exams / voluntary projects for ambitious students
 
 ##Intended audience and learning outcome
 
