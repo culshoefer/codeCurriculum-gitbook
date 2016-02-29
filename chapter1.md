@@ -258,8 +258,49 @@ Now! You might say "oh loops so easy!" (and in fact they are but psssh). It can 
 
 ----------------------------------------------------
 
+####Exercises
+1) Write a program that writes out all of the numbers between two numbers specified by the user. Use the `input()` and the `int()` function to get values. A dialogue should look something like this:
+``` python
+Please enter the lower boundary:
+5
+Please enter the upper boundary:
+7
+Values:
+5
+6
+7
+```
+For this program, note that the loop might not necessarily be executed if the lower boundary is bigger than the upper boundary.
+
+*Challenge*: Use another while-loop to check if the lower boundary is indeed lower than the upper boundary. If it isn't, just display the input dialogue again.
+
+2) Write the `guessing game`! @TODO
+3) Write a program asking people for a number. Then, display all factors of said number
+```
+1) Check if the number is equal to one (or smaller). If not, then continue the loop.
+2) You can calculate the remainder of a division with the % operator.
+E.g. 5 % 3 = 2 (since 5 = 1 * 3 + 2)
+If the remainder is zero, then the current number is a factor. Print it!
+3) In any case, decrease the number by one and check again.
+
+```
+An example interaction would be:
+```python
+Please enter your nice number:
+24
+24 has the following factors:
+24
+12
+8
+6
+4
+3
+2
+1
+```
 ###For loops
-Well well well. While for loops are quite simple, 
+problem: For loops require knowledge about iterators -> lists -> maybe after arrays?
+
 ##Exercises for loops
 guessing game
 
