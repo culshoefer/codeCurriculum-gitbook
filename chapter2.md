@@ -119,8 +119,6 @@ You don't need to know how `append`, `extend` and `sort` work internally or thin
 
 ### Inheritance
 
-### Private and protected
-
 ### Easy exercises
 
 ### Challenging exercises
