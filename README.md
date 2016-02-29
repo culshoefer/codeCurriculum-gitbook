@@ -45,3 +45,12 @@ If nothing appears on the screen after you have pressed the Enter key, it has be
 If you are using *Mac OS X, El Capitan*, you do NOT need to actually install anything - it comes with *Python 2.7* installed already. Otherwise we need to visit Python website, where we can download the installation package. Visit [https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/) and find *Python 2.7.11*, which is the version we will be using for this tutorial. 
 
 Download the *Mac OS X 32-bit i386/PPC* installer - this is the version which runs on every Mac. Afterwards open your **Downloads** folder and open the file you have just downloaded. Then simply follow the instructions.
+
+### PyGame for Mac OS X
+Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/downloads.shtml). Again, there are multiple version available, but for the purpose of this tutorial we will use *Pygame 1.9.1*. Since we are using *Python 2.7.11*, we need download the version of Pygame compatible with our Python version, named `pygame-1.9.1release-python.org-32bit-py2.7-macosx10.3.dmg` (which is Pygame 1.9.1. for Python 2.7).
+
+Launch the downloaded file and follow the instructions. Again, after the installation process had ended, launch Python and type into the interactive shell:
+
+`import pygame`.
+
+If nothing appears on the screen after you have pressed the Enter key, it has been successfully installed!
