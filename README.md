@@ -41,4 +41,7 @@ On *Windows*, launch the downloaded file and follow the instructions. After the 
 
 If nothing appears on the screen after you have pressed the Enter key, it has been successfully installed!
 
-##Tutorial for Mac OS X follows
+##Installation requirements for Mac OS X
+If you are using *Mac OS X, El Capitan*, you do NOT need to actually install anything - it comes with *Python 2.7* installed already. Otherwise we need to visit Python website, where we can download the installation package. Visit [https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/) and find *Python 2.7.11*, which is the version we will be using for this tutorial. 
+
+Download the *Mac OS X 32-bit i386/PPC* installer - this is the version which runs on every Mac. Afterwards open your **Downloads** folder and open the file you have just downloaded. Then simply follow the instructions.
