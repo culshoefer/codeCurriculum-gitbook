@@ -198,14 +198,68 @@ y = 5.0 - 3 # 2.0
 x /= y # x = 2.5
 z = x * y # z = 5.0
 x = x /3 + 3 / 2 * z # x = 35 / 6 = 5.8333333333
-print x # will print 5.833333333333
+print x # will print 5.833333333335
 ```
-(5.83333333333333333 -> 35/6 Computers can only store a finite number of elements and do not store fractions. With bigger numbers, floats can often get inaccurate because they only have a limited amount of space in computers)
+(5.83333333333333333 -> 35/6 Computers can only store a finite number of elements and do not store . With bigger numbers, floats can often get inaccurate because they only have a limited amount of space in computers)
 ## Conditional statements
 ##Exercises for Conditionals
 quiz game
 
 ## Loops
+As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
+
+Similar to conditionals, we can use so-called *loops* to make the computer do more useful things. In Python, we have two basic types of loops. These loops work in the following way: Before each time the code "in" the loop is executed (a so-called iteration), we check if a certain boolean condition is fulfilled (like with conditionals). If it is, then the body of the loop gets executed once more.
+
+### While loops
+The best way to find out what while-loops do is to see a live example. Just copy the code and see it for yourself:
+```python
+i = 1
+sum = 0
+while i < 5:
+  print i
+  i += 1
+  sum += i
+print sum
+```
+
+Generally, while loops follow the following structure:
+```python
+while *expression*:
+  statements
+other code
+```
+
+Important note that the spaces at the beginning of the line show that the code after that belongs to the loop. In other programming languages, you might have different ways to express that you are inside a loop. In Python, however, this is very simple: Just make sure that you have *spaces at the beginning of the line* and that the number of spaces inside the same loop works.
+
+That said, let's analyze what we have written in the first example: The `while` keyword says to python: Alright, the thing after this is a boolean expression. In this case, this is `i < 5`. At the start, `i = 1`. Even if you are not good at Maths, you may find that `1 < 5`, so the boolean expression is `true`, meaning the code after that gets executed. The colon at the end (similarly to conditionals) is just a feature of Python to indicate the end of the statement (think of it as writing headlines).
+
+Now, each time the loop gets executed, the variables `i` and `sum` get updated. Ok. So far so good. Let's look at some special cases (try the examples out for yourself):
+
+```python
+i = 13
+while False:
+  i /= 2
+print i
+```
+This loop never gets executed! Since the statement is `False`, the expression is false and never gets executed.
+```python
+
+while True:
+  str += 'a'
+print str
+```
+![One does not simply leave a while loop](http://www.quickmeme.com/img/bb/bb8251d07e206203238ee27e91f674b269b9f7f00c8fc2eaf015430f24207b69.jpg)
+Well, with this loop, all I can say is...
+
+You see, when you try running the program, obviously it will never end - because of that - never execute `print str`.
+
+-----------
+Now! You might say "oh loops so easy!" (and in fact they are but psssh). It can get quite complicated when we have more complex things inside the loop. By combining boolean expressions, it can get quite complicated (If you are keen on learning more, check out https://en.wikipedia.org/wiki/De_Morgan's_laws)
+
+----------------------------------------------------
+
+###For loops
+Well well well. While for loops are quite simple, 
 ##Exercises for loops
 guessing game
 
