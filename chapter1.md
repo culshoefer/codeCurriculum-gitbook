@@ -163,7 +163,29 @@ The reson is, since you are still in the `if` mode, python expects you to use th
 ...
 ```
 It should print `child` shouldn't it? But it prints... nothing?
+The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible. 
 
+#### elif
+
+Let's change the code slightley:
+
+```python
+>>> age = 12
+>>> if age > 19:
+...     print "adult"
+... elif age < 20 and age >= 13:
+        print "teenager"
+... elif age < 13 and age >=  7:
+...     print "child"
+... else:
+...     print "baby"
+...     
+output
+```
+child
+```
+
+Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`. 
 
 ## Loops
 ## Arrays and Whack-A-Mole
