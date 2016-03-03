@@ -72,7 +72,47 @@ Strings are awesome! Try the following:
 ```
 What happens? Well, the result `Peter is friends with Paul` gets printed. As you can see, we can use the `+` operator for "adding" strings to one another. When Python computes the values in the `print()` statement, it actually first combines the individual elements. We call this procedure of adding things to the end of other things **appending** i.e. `" is friends with " gets appended to myName`.
 
-###todo: lists, dicts? functions on lists? input?
+###todo: lists, functions on lists? input?
+
+### Dictionaries
+A very handy datatype in Python are Dictionaries. As the name suggests, they builded like a regular dictionary. In a dictionary there are `keys` and each key has a corresponding `value`.
+If you have English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
+Basically, that is the same in Python. Let's see an example:
+```python
+>>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
+```
+
+In Python a dictionary is created using the `{` and `}` brackets. The `key` and the `value` is seperated by a `:`.
+How do we access now the data? Pretty like a list:
+```python
+>>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
+>>> dictionary['car']
+```
+output:
+```
+'Auto'
+```
+... which is exactly what we wanted to get.
+
+If we want to add a entry into an existing dictionary we just type a _not_ existing `key` into the `[ ]` like:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> pons['horse'] = 'Pferd' 
+>>> pons['car']
+```
+output:
+```
+'Auto'
+```
+Yay! 
+
+
+
+
+https://docs.python.org/2/tutorial/datastructures.html
+
 
 
 ## Conditional statements
