@@ -152,7 +152,9 @@ One last data type: **Boolean** (why this weird name? Because George Boole inven
 iAmCool = True
 youAreCool = False
 ```
-![What did the boolean say to the integer? You can't handle the truth!](http://legacy.nerdywithchildren.com/wp-content/uploads/2013/05/3t5jki.jpg) As integers hold - well - integers and booleans true or false, integers literally cannot handle the truth. HAH!
+<img src="img/boolean-to-integer.jpg"/>
+
+As integers hold - well - integers and booleans true or false, integers literally cannot handle the truth. HAH!
 
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
 Later more about booleans (or *bools*, in computer science speak). For now, just remember their existence.
@@ -248,7 +250,9 @@ while True:
   str += 'a'
 print str
 ```
-![One does not simply leave a while loop](http://www.quickmeme.com/img/bb/bb8251d07e206203238ee27e91f674b269b9f7f00c8fc2eaf015430f24207b69.jpg)
+
+<img src="img/while-loop.jpg"/>
+
 Well, with this loop, all I can say is...
 
 You see, when you try running the program, obviously it will never end - because of that - never execute `print str`.
