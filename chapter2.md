@@ -1,6 +1,88 @@
 # Second Chapter: Advanced Python
 
 ##Functions
+Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would loops to do that. Similarly, we used if-statements to to select which parts of the code to execute in what cases.
+However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages (and, because of that also in Python), we have functions as well. Instead of consisting of terms like a + b - c, we can just include **code** in functions. However, the basic principle is the same. Here's a little diagram to help you.
+
+![Input -> Function body -> Output](img/functions.png)
+
+Basically, functions are a black box in which something happens. What happens? Well that depends on what we're doing. If we have a number, we could calculate the double of it. Normally, you would write it like:
+```
+f(x) = x * 2
+```
+Here, `f` is our *function name*, `x` our argument (input), and we return `x * 2`, i.e. double the value of the input.
+
+In Python, we create functions by using the `def` keyword. Here is the above example in Python code:
+```python
+def getDouble(number):
+  return number * 2
+```
+Ok. The structure for creating functions is `def <name of function>(argument1, argument2, argument3):`. In general, functions have the following properties:
+* They can take a number of **arguments** specified by parentheses (in the example, `x` is an argument)
+* They can **return** a value (but don't have to). The return type is typically the result of a series of different commands
+* They sum up a **contained unit of code** that sums up a process
+
+To put these aspects more into perspective, here is one more example program:
+
+```python
+'''
+This program provides a simple menu to find out, if a name is in a list.
+Also: These single quotes show comments over multiple lines, if you want to display more stuff. For example when explaining what your program does (which you should do!)
+'''
+names = ["Peter", "Paul", "Mary", "George", "Janos", "Chris", "Jaro"]
+
+def isNameThere(name):
+  for n in names:
+    if n == name:
+      return True
+  return False
+
+def getAction():
+  print("1: See if name is in list")
+  print("2: Quit")
+  return int(input())
+
+def decide(choice):
+  if choice == 1:
+    displayFind()
+    decide(getAction())
+  elif choice == 2:
+    displayQuit()
+  else:
+    displayError()
+    decide(getAction())
+
+def displayFind():
+  print("Please enter a string to see if it is in our list.")
+  n = raw_input()
+  '''we actually use a variant of input here that ALWAYS takes in strings, no matter what happens. We don't want Python to mess around with our input, do we? '''
+  if isNameThere(n):
+    print("It is indeed in our list!")
+  else:
+    print "Sorry, not known to me."
+
+def displayError():
+  print("Sorry, did not quite get that.")
+
+def displayQuit():
+  print("Goodbye!")
+
+decide(getAction())
+'''this is the place where we actually call our custom functions! These function calls are just like the system-provided functions print(), int(), input(), raw_input()...'''
+
+```
+A couple of things here:
+1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
+2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
+
+However, there are a few things to consider:
+* Keep your code styling consistent (Use the same structure for calling functions over and over)
+* Make use of in-built functions: There are more functions in Python than we could ever teach you. For example, in this program, it would be useful to know if python had more functions on lists. Google up on `finding out if element is in list python` (really easy? It is. But you still have to do the extra step!).
+* Choose good names for variables and functions. For a more detailed description, look in Chapter 1.
+
+##Exercises on functions
+
+##Scope
 
 ## Object-oriented programming
 
