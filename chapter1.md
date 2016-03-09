@@ -202,7 +202,7 @@ z = x * y # z = 5.0
 x = x /3 + 3 / 2 * z # x = 35 / 6 = 5.8333333333
 print x # will print 5.833333333335
 ```
-(5.83333333333333333 -> 35/6 Computers can only store a finite number of elements and do not store . With bigger numbers, floats can often get inaccurate because they only have a limited amount of space in computers)
+(5.83333333333333333 -> 35/6 Computers can only store a finite number of decimal spaces. That is the reason why with bigger numbers, floats can often get inaccurate -  they have only a limited amount of space.)
 ## Conditional statements
 ##Exercises for Conditionals
 quiz game
@@ -211,6 +211,36 @@ quiz game
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
 
 Similar to conditionals, we can use so-called *loops* to make the computer do more useful things. In Python, we have two basic types of loops. These loops work in the following way: Before each time the code "in" the loop is executed (a so-called iteration), we check if a certain boolean condition is fulfilled (like with conditionals). If it is, then the body of the loop gets executed once more.
+
+### For loops
+If we want to repeat a specific action in our programme, we can write it over and over - for example, if we would like to create a new variable, and add 1 three times so that its value is 3:
+
+```python
+i = 0
+i += 1
+i += 1
+i += 1
+```
+
+Imagine doing the operation not 3 times, but 10000 times, then the code would look ugly as hell! That is why we have for loops, which look like this:
+
+```python
+for variable in range(begin, end, step):
+  statements
+other code
+```
+
+Even though it might look scary at first, in reality it is really simple - if we want to rewrite the code from above, it would look followingly:
+
+```python
+i = 0
+for step in range(3):
+    i += 1
+```
+
+and after the code has finished its execution, `i` would have value of 3!
+
+Let's analyze the first example though: `for` keyword tells Python that we are going to repeat certain action over and over, `range()` is the function which specifies how many times and `step` is the name of the loop variable - if we are interested in knowing how many repetitions we have done, we can print the value of step (sort of).
 
 ### While loops
 The best way to find out what while-loops do is to see a live example. Just copy the code and see it for yourself:
