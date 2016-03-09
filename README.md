@@ -59,3 +59,15 @@ If nothing appears on the screen after you have pressed the Enter key, it has be
 If you are using *Linux*, *Python 2.7* is preinstalled at 99.9% of Linux computers - which means we can jump directly to installing PyGame!
 
 ### PyGame for Linux
+Now the tedious part starts - there are many different Linux(es) out there, which means different methods to install PyGame!
+
+Open your Terminal and then:
+* If you are using *Ubuntu*, enter `sudo apt-get install python-pygame`. It might ask you for a password; in that case enter it.
+* If you are using *ArchLinx* enter `sudo pacman install python-pygame`. It might (again) ask you for a password; in that case enter it.
+* 
+
+After the installation is done, launch Python and type into the interactive shell:
+
+`import pygame`.
+
+If nothing appears on the screen after you have pressed the Enter key, it has been successfully installed!
