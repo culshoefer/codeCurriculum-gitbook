@@ -25,6 +25,7 @@ However, to study Computer Science, it is not necessary to know programming befo
 
 With the new official Computer Science A-Level curriculum, we have a similar problem: On the one hand, teachers have to find appropriate learning resources and want students to be excited about Computer Science. In order to solve this, we propose to provide resources for learning Programming in Python. Similarly, the incentive to program games (covered later in this resource), should make students interested in programming.
 
+##Installation requirements for Windows
 #Installing Python
 Before we can start coding, we have to install Python first. Python can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). There are multiple version available, but for this tutorial we will use *Python 2.7.11*.
 
