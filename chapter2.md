@@ -1,6 +1,7 @@
 # Second Chapter: Advanced Python
 
 ##Functions
+###Creating more structured code
 Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would loops to do that. Similarly, we used if-statements to to select which parts of the code to execute in what cases.
 However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages (and, because of that also in Python), we have functions as well. Instead of consisting of terms like a + b - c, we can just include **code** in functions. However, the basic principle is the same. Here's a little diagram to help you.
 
@@ -17,11 +18,14 @@ In Python, we create functions by using the `def` keyword. Here is the above exa
 def getDouble(number):
   return number * 2
 ```
+
+###So what exactly is a function?
 Ok. The structure for creating functions is `def <name of function>(argument1, argument2, argument3):`. In general, functions have the following properties:
 * They can take a number of **arguments** specified by parentheses (in the example, `x` is an argument)
 * They can **return** a value (but don't have to). The return type is typically the result of a series of different commands
 * They sum up a **contained unit of code** that sums up a process
 
+###Example
 To put these aspects more into perspective, here is one more example program:
 
 ```python
@@ -75,14 +79,75 @@ A couple of things here:
 1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
 2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
 
-However, there are a few things to consider:
+###More advice on code styling
 * Keep your code styling consistent (Use the same structure for calling functions over and over)
 * Make use of in-built functions: There are more functions in Python than we could ever teach you. For example, in this program, it would be useful to know if python had more functions on lists. Google up on `finding out if element is in list python` (really easy? It is. But you still have to do the extra step!).
 * Choose good names for variables and functions. For a more detailed description, look in Chapter 1.
 
-##Exercises on functions
 
-##Scope
+###Scope
+Functions are very neat because they add decent structure to our programs (and structure is suuuuuuuuper important when we write more complicated programs!!). There is one more idea that we have to discuss when we talk about functions: The idea of scope. Scope is the idea of variables only having a small range in which they are valid. With functions, we would say **variables created in functions are only valid in functions**. If you tried to access a variable outside of a function INSIDE a function, it would be fine.
+
+On the other hand, if you try to access a variable outside of a function that was created in a function, you will get an error (Please try it out for yourself).
+
+Here, we have two notions: **local and global scope**: Everything declared outside a function is called a global variable, anything created inside a function is called local scope.
+An example of this notion:
+```python
+glob = 13
+def addOne(n):
+  one = 1
+  return n + one
+```
+Here, `glob` is a global variable, and `one` is a local variable. Of course, we could access glob inside of `addOne()`, or call `addOne()` on `glob`.
+
+###Recursion
+Ok there needs to be some explaining here.
+Functions can actually call themselves! Important here is that at some point, the function must stop calling itself. Consider the following programs, that calculates the product of all numbers from 1 to n:
+
+```python
+def factorialLoop(n):
+  ret = 1
+  for i in range(1, n + 1): #so that it runs from 1 to n, not 1 to (n-1)
+    ret *= i
+  return ret
+
+def factorialRecursive(n):
+  if n == 0:
+    return 1
+  elif n > 0:
+    return n * factorial(n - 1)
+  else:
+    return 0
+```
+
+These two are actually the same! If we write out the function calls for `factorialSelfCalling(3)`, it would look like this:
+
+```python
+factorialSelfCalling(3)
+3 * factorialSelfCalling(2)
+3 * 2 * factorialSelfCalling(1)
+3 * 2 * 1 * factorialSelfCalling(0)
+3 * 2 * 1 * 1
+6
+```
+
+You see, this is exactly the same as just going through the loop, adding up the factors. This concept of calling the same function over and over is called **recursion** and is an important concept in Computer Science.
+For now, they are a great way to show how functions work in Python :)
+
+###Exercises on functions
+1. Write a function `getRange(lower, upper)` to return a list of all the integers within a range specified by the arguments. E.g. `getRange(5, 13)` should return `[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]`. Use a for-loop to do that. If the "lower" number is higher than the "upper number", return an empty list.
+In order to do this task, start with the empty list (i.e. create a variable in the function to store the empty list: `items = []`), and then use `items.append()` to add items to the list.
+2. Write a function to add up all the numbers from `0` to a number specified by the user, using the function written in exercise 1.
+
+###Exercises on recursion
+4. There's a weird function in Mathematics called the Fibonacci function `fib()`. It works in the following way:
+  Calling `fib(0)` returns `0` and `fib(1)` returns `1`. In all other cases, `fib(n)` returns `fib(n - 1) + fib(n - 2)`. The first few values are:
+  ```
+  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89....
+  ```
+  Ok I cannot be bothered to write more. Let's let the computer do this:   Find `fib(20)` and try out at which value your computer takes more than two minutes to run the program.
+
+5. **Challenge** Write a version of the Fibonacci program that does not rely on recursion, but instead calculates it doing loops.
 
 ## Object-oriented programming
 
@@ -155,7 +220,7 @@ class Spaceship(object):
 
 There are quite a few new things to digest in this example, so let's take them one by one:
 
-`class Spaceship(object)` – the `class` keyword here tells Python we are declaring a new class called `Spaceship`. Convention dictates that all class names start with an upper-case letter. 
+`class Spaceship(object)` – the `class` keyword here tells Python we are declaring a new class called `Spaceship`. Convention dictates that all class names start with an upper-case letter.
 
 `object` written in brackets means that the `Spaceship` class inherits from the `object` class. We'll come back to that when we talk about inheritance, but for now it's enough to know that it simply means that `Spaceship` is a kind of `object`.
 
@@ -212,12 +277,12 @@ class Spaceship(object):
     name = None
     position = None
     health = None
-    
+
     def __init__(self, name, position, health):
         self.name = name
         self.position = position
         self.health = health
-        
+
     def move(self, delta):
         spaceship_x, spaceship_y = self.position
         delta_x, delta_y = delta
@@ -243,26 +308,26 @@ It's easier to give an example and then explain what's going on, so let's inheri
 class StarDestroyer(Spaceship):
     shields_strength = None
     fighters_in_bay = None
-    
+
     def __init__(self, position, health):
         super(StarDestroyer, self).__init__("Star Destroyer", position, health)
         shields_percent = 30000
         fighters_in_bay = 10
-    
+
     def take_damage(self, damage):
         # Damage is absorbed by shields before it begins hurting the ship's hull
         if self.shields_strength >= 0:
             self.shields_strength -= damage
-        
+
         if self.shields_strength < 0:
             damage += self.shields_strength
             self.shields_strength = 0
             self.health -= damage
-            
+
     def launch_fighter(self):
         if self.fighters_in_bay > 0:
             self.fighters_in_bay -= 1
-          
+
 ```
 
 Let's go through this carefully, because there's quite a bit to explain.
