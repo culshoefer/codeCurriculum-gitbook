@@ -25,12 +25,12 @@ However, to study Computer Science, it is not necessary to know programming befo
 
 With the new official Computer Science A-Level curriculum, we have a similar problem: On the one hand, teachers have to find appropriate learning resources and want students to be excited about Computer Science. In order to solve this, we propose to provide resources for learning Programming in Python. Similarly, the incentive to program games (covered later in this resource), should make students interested in programming.
 
-##Installation requirements for Windows
+### Installation requirements for Windows
 Before we can start coding, we have to install Python first. Python can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). There are multiple version available, but for this tutorial we will use *Python 2.7.11*.
 
 If you are using *Windows*, simply click at *Download Python 2.7.11*. Once the download has finished, open your **Downloads** folder and open the file you have just downloaded. Then simply follow the instructions.
 
-##Installing PyGame
+## Installing PyGame
 Later through this course we will use Pygame, a Python `module` or `library` designed for writing games. Pygame allows us to create fully featured games without having to write excessive amount of code and runs almost on every system - those are the main reasons why to use it.
 
 Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/downloads.shtml). Again, there are multiple version available, but for the purpose of this tutorial we will use *Pygame 1.9.1*. Since we are using *Python 2.7.11*, we need download the version of Pygame compatible with our Python version, named `pygame-1.9.1.win32-py2.7.msi` (which is Pygame 1.9.1. for Python 2.7).
@@ -41,12 +41,12 @@ On *Windows*, launch the downloaded file and follow the instructions. After the 
 
 If nothing appears on the screen after you have pressed the Enter key, it has been successfully installed!
 
-##Installation requirements for Mac OS X
+### Installation requirements for Mac OS X
 If you are using *Mac OS X, El Capitan*, you do NOT need to actually install anything - it comes with *Python 2.7* installed already. Otherwise we need to visit Python website, where we can download the installation package. Visit [https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/) and find *Python 2.7.11*, which is the version we will be using for this tutorial. 
 
 Download the *Mac OS X 32-bit i386/PPC* installer - this is the version which runs on every Mac. Afterwards open your **Downloads** folder and open the file you have just downloaded. Then simply follow the instructions.
 
-### PyGame for Mac OS X
+## PyGame for Mac OS X
 Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/downloads.shtml). Again, there are multiple version available, but for the purpose of this tutorial we will use *Pygame 1.9.1*. Since we are using *Python 2.7.11*, we need download the version of Pygame compatible with our Python version, named `pygame-1.9.1release-python.org-32bit-py2.7-macosx10.3.dmg` (which is Pygame 1.9.1. for Python 2.7).
 
 Launch the downloaded file and follow the instructions. Again, after the installation process had ended, launch Python and type into the interactive shell:
@@ -54,3 +54,8 @@ Launch the downloaded file and follow the instructions. Again, after the install
 `import pygame`.
 
 If nothing appears on the screen after you have pressed the Enter key, it has been successfully installed!
+
+##Installation requirements for Linux
+If you are using *Linux*, *Python 2.7* is preinstalled at 99.9% of Linux computers - which means we can jump directly to installing PyGame!
+
+### PyGame for Linux
