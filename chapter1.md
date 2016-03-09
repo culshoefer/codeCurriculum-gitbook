@@ -225,7 +225,7 @@ i += 1
 Imagine doing the operation not 3 times, but 10000 times, then the code would look ugly as hell! That is why we have for loops, which look like this:
 
 ```python
-for variable in range(begin, end, step):
+for variable in xrange(begin, end, step):
   statements
 other code
 ```
@@ -234,13 +234,31 @@ Even though it might look scary at first, in reality it is really simple - if we
 
 ```python
 i = 0
-for step in range(3):
+for step in xrange(3):
     i += 1
 ```
 
 and after the code has finished its execution, `i` would have value of 3!
 
-Let's analyze the first example though: `for` keyword tells Python that we are going to repeat certain action over and over, `range()` is the function which specifies how many times and `step` is the name of the loop variable - if we are interested in knowing how many repetitions we have done, we can print the value of step (sort of).
+Let's analyze the first example though: `for` keyword tells Python that we are going to repeat certain action over and over, `xrange()` is the function which specifies how many times and `step` is the name of the loop variable - if we are interested in knowing how many repetitions we have done, we can print the value of step (sort of).
+
+If you notice, I said that `xrange(...)` takes three arguments, `begin`, `end` and `step` - the last one is voluntary, others are mandatory. Thus if I write a loop like this one:
+
+```python
+for number in xrange(1, 11, 2):
+    print number
+```
+
+We will see that the output will be:
+```python
+1
+3
+5
+7
+9
+```
+
+As you might have noticed, the number 11 has been excluded! That is because `xrange(...)` excludes the last number from the range - in reality the loop runs only from 1 to 10 and within this range we have only numbers 1, 3, 5, 7, 9 which are odd.
 
 ### While loops
 The best way to find out what while-loops do is to see a live example. Just copy the code and see it for yourself:
