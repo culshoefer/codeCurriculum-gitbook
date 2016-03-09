@@ -64,7 +64,6 @@ Now the tedious part starts - there are many different Linux(es) out there, whic
 Open your Terminal and then:
 * If you are using *Ubuntu*, enter `sudo apt-get install python-pygame`. It might ask you for a password; in that case enter it.
 * If you are using *ArchLinx* enter `sudo pacman install python-pygame`. It might (again) ask you for a password; in that case enter it.
-* 
 
 After the installation is done, launch Python and type into the interactive shell:
 
