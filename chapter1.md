@@ -459,12 +459,6 @@ Please enter your nice number:
 2
 1
 ```
-###For loops
-problem: For loops require knowledge about iterators -> lists -> maybe after arrays?
-
-##Exercises for loops
-guessing game
-
 
 ## Arrays and Whack-A-Mole
 There are many more data types in Python. One very widely used data type are lists.

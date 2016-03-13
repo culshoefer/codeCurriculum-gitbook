@@ -261,7 +261,7 @@ reverse([1, 2, 3])
 ```
 For this, append the end of the list to a newly created list, similarly to our Factorial example.
 4. **Challenge** Write a version of the Fibonacci function which works with loops.
->>>>>>> 3b311f55ddabc6f8f5e0e30d603294fc79a1c646
+
 
 ## Object-oriented programming
 
