@@ -14,3 +14,25 @@ The rules of Whack-A-Mole are as follows:
 * New moles should appear at the surrounding holes which are empty
 * If there are already moles, they should disappear
 * The player wins if there are no moles left on the board
+
+```pseudo
+class Mole:
+  initialise(x, y):
+    image = load 'mole.jpg' image
+    rect = get image's rectangle
+    set rect's x and y coordinates to x and y
+    visible = False
+    
+  show(visibility):
+    visible = visibiltiy
+
+check_win():
+  if all moles on the board are not visible:
+    for every row in the board:
+      for every mole in the row:
+        remove mole from all sprites
+    
+    draw winning screen
+    
+initialise pygame engine
+initialise board
