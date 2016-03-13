@@ -34,7 +34,11 @@ Interestingly, we can overwrite variables: Type out
 ```
 Who said variable names had to be boring?
 ***
+<<<<<<< HEAD
 Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100 000s lines of code!) good naming gets important, so you might just stick to it for now already.
+=======
+Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100,000s lines of code!) good naming gets important.
+>>>>>>> janos
 ***
 In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left side.
 
@@ -204,8 +208,120 @@ print x # will print 5.833333333335
 ```
 (5.83333333333333333 -> 35/6 Computers can only store a finite number of decimal spaces. That is the reason why with bigger numbers, floats can often get inaccurate -  they have only a limited amount of space.)
 ## Conditional statements
+<<<<<<< HEAD
 ##Exercises for Conditionals
 quiz game
+=======
+Let's take a look at one of the fundamental *statements* in programming - *conditional statements*
+But what are conditional statesments?
+A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
+### if-statements
+Lets jump into the code and try the following:
+We assing a variable `age`, and the person is 18, we print "The person is eighteen years old":
+```python 
+>>> age = 18
+>>> if age == 18:
+...     print "the person is eighteen years old"
+...
+```
+output:
+```
+the person is eighteen years old
+```
+Ok, here are a couple of new things:
+We write `if age == 18:` 
+The `==` means `equal to`, hence the statement is ` if age equals to 18 then print "the person is eighteen years old`
+You probably also noticed that the print-statement is shifted to the right with the help of a tabulator. This is very important. If you don't do that, python will throw you an error like `IndentationError: expected an indented block`.
+The tabulator tells python, that everything what comes after the `if-statement` is executed if the condition of the `if-statement` holds.
+
+But what happens if somebody is not 18 years old? Well, in our case nothing happens! Just try:
+```python 
+>>> age = 17
+>>> if age == 18:
+...     print "the person is eighteen years old"
+...
+>>>
+```
+Neat... 
+
+#### else and arithmetic operators
+Let's write a small programm, which checks if somebody is allowed to buy alcohol:
+```python
+>>> age = 17
+>>> if age >= 18:
+...     print "allowed to buy alcohol"
+... else:
+...     print "NOT allowed, you must be at least 18yrs old"
+...
+```
+output:
+```
+NOT allowed, you must be at least 18yrs old
+```
+Yeah... odds are some of you experienced this before.
+And in case you are from the US: We are in Europe...
+
+Here we introduced a new part of *conditions*: the `else` statement. Basically that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
+Furthermore, take a closer look at the `if statement`:
+Instead of `age == 18` we wrote `age >= 18`. This means `bigger or equal to`. 
+`==` and `>=` are so-called `Arithmetic Operators`, and of course there exists more than just these two:
+* `==` equals to
+* `!=` does not equal to
+* `>` bigger as
+* `<` smaller as
+* `>=` bigger or equal to
+* `<=` smaller or equal to
+
+But what, if you have to differentiate more...?
+Like if somebody is a baby, child, teenager or adult?
+One way to do that is:
+```python
+>>> age = 12
+>>> if age < 7:
+...     print "baby"
+... if age < 13:
+File "<stdin>", line 3
+    if age < 13:
+     ^
+SyntaxError: invalid syntax
+``` 
+Wait what?
+![But Why?](/img/butwhy.jpg)
+
+The reson is, since you are still in the `if` mode, python expects you to use the tabulator for each folling statement. Let's try it:
+```python
+>>> age = 12
+>>> if age < 7:
+...     print "baby"
+...     if age < 13:
+...         print "child"         
+...
+```
+It should print `child` shouldn't it? But it prints... nothing?
+The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible. 
+
+#### elif
+
+Let's change the code slightley:
+
+```python
+>>> age = 12
+>>> if age > 19:
+...     print "adult"
+... elif age < 20 and age >= 13:
+        print "teenager"
+... elif age < 13 and age >=  7:
+...     print "child"
+... else:
+...     print "baby"
+...     
+output
+```
+child
+```
+
+Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`. 
+>>>>>>> janos
 
 ## Loops
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
