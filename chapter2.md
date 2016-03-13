@@ -5,7 +5,7 @@
 Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would loops to do that. Similarly, we used if-statements to to select which parts of the code to execute in what cases.
 However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages (and, because of that also in Python), we have functions as well. Instead of consisting of terms like a + b - c, we can just include **code** in functions. However, the basic principle is the same. Here's a little diagram to help you.
 
-![Input -> Function body -> Output](img/functions.png)
+![Input -> Function body -> Output](img/function.png =100x)
 
 ###So what are these functions?
 Basically, functions are a black box in which something happens. What happens? Well that depends on what we're doing. If we have a number, we could calculate the double of it. Normally, you would write it like:
@@ -29,11 +29,12 @@ Ok. The structure for creating functions is `def <name of function>(argument1, a
 ###Example
 To put these aspects more into perspective, here is one more example program:
 
-```python
 '''
 This program provides a simple menu to find out, if a name is in a list.
 Also: These single quotes show comments over multiple lines, if you want to display more stuff. For example when explaining what your program does (which you should do!)
 '''
+
+```python
 names = ["Peter", "Paul", "Mary", "George", "Janos", "Chris", "Jaro"]
 
 def isNameThere(name):
@@ -59,8 +60,7 @@ def decide(choice):
 
 def displayFind():
   print("Please enter a string to see if it is in our list.")
-  n = raw_input()
-  '''we actually use a variant of input here that ALWAYS takes in strings, no matter what happens. We don't want Python to mess around with our input, do we? '''
+  n = raw_input() # raw_input always interprets input as strings
   if isNameThere(n):
     print("It is indeed in our list!")
   else:
@@ -72,21 +72,14 @@ def displayError():
 def displayQuit():
   print("Goodbye!")
 
-decide(getAction())
-'''this is the place where we actually call our custom functions! These function calls are just like the system-provided functions print(), int(), input(), raw_input()...'''
-
+decide(getAction()) # actual program that we execute
 ```
+
 A couple of things here:
 1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
 2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
 
-<<<<<<< HEAD
-###More advice on code styling
-=======
-However, there are a few things to consider:
-
 ###Notes on good code style
->>>>>>> 3b311f55ddabc6f8f5e0e30d603294fc79a1c646
 * Keep your code styling consistent (Use the same structure for calling functions over and over)
 * Make use of in-built functions: There are more functions in Python than we could ever teach you. For example, in this program, it would be useful to know if python had more functions on lists. Google up on `finding out if element is in list python` (really easy? It is. But you still have to do the extra step!).
 * Choose good names for variables and functions. For a more detailed description, look in Chapter 1.
@@ -96,6 +89,7 @@ However, there are a few things to consider:
 This is no discussion about politics. Instead, in programming languages, there is the notion of **scope** which is **in which area a variable is valid**.
 What this means is the following:
 1. If you declare a variable outside of a function, it is considered to be **global**. Example:
+
 ```python
 glob = 13
 
@@ -105,14 +99,15 @@ def addMe(n):
 print addMe(glob)
 print glob
 ```
+
 Here, `glob` is a global variable (and `n` local).
 By contrast, here is a function with a local variable:
+
 ```python
 def addNumber(n):
   number = 13
   return n + number
-
-<<<<<<< HEAD
+```
 
 ###Scope
 Functions are very neat because they add decent structure to our programs (and structure is suuuuuuuuper important when we write more complicated programs!!). There is one more idea that we have to discuss when we talk about functions: The idea of scope. Scope is the idea of variables only having a small range in which they are valid. With functions, we would say **variables created in functions are only valid in functions**. If you tried to access a variable outside of a function INSIDE a function, it would be fine.
@@ -179,7 +174,7 @@ In order to do this task, start with the empty list (i.e. create a variable in t
 5. **Challenge** Write a version of the Fibonacci program that does not rely on recursion, but instead calculates it doing loops.
 =======
 print number
-```
+
 Please execute the code! You should get something like the following back:
 ```
 Traceback (most recent call last):
