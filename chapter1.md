@@ -33,9 +33,9 @@ Interestingly, we can overwrite variables: Type out
 3133723678
 ```
 Who said variable names had to be boring?
-***
-Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100 000s lines of code!) good naming gets important, so you might just stick to it for now already.
-***
+
+Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100,000s lines of code!) good naming gets important.
+
 In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left side.
 
 If you are studying computer science, you don't have much time. So, because of that (actually mainly because it is more readable), there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x`, i.e. adding variables to itself - like in the example above. These statements can be abbreviated to:
@@ -202,15 +202,172 @@ z = x * y # z = 5.0
 x = x /3 + 3 / 2 * z # x = 35 / 6 = 5.8333333333
 print x # will print 5.833333333335
 ```
-(5.83333333333333333 -> 35/6 Computers can only store a finite number of elements and do not store . With bigger numbers, floats can often get inaccurate because they only have a limited amount of space in computers)
+(5.83333333333333333 -> 35/6 Computers can only store a finite number of decimal spaces. That is the reason why with bigger numbers, floats can often get inaccurate -  they have only a limited amount of space.)
 ## Conditional statements
-##Exercises for Conditionals
-quiz game
+j
+Let's take a look at one of the fundamental *statements* in programming - *conditional statements*
+But what are conditional statesments?
+A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
+### if-statements
+Lets jump into the code and try the following:
+We assing a variable `age`, and the person is 18, we print "The person is eighteen years old":
+```python 
+>>> age = 18
+>>> if age == 18:
+...     print "the person is eighteen years old"
+...
+```
+output:
+```
+the person is eighteen years old
+```
+Ok, here are a couple of new things:
+We write `if age == 18:` 
+The `==` means `equal to`, hence the statement is ` if age equals to 18 then print "the person is eighteen years old`
+You probably also noticed that the print-statement is shifted to the right with the help of a tabulator. This is very important. If you don't do that, python will throw you an error like `IndentationError: expected an indented block`.
+The tabulator tells python, that everything what comes after the `if-statement` is executed if the condition of the `if-statement` holds.
+
+But what happens if somebody is not 18 years old? Well, in our case nothing happens! Just try:
+```python 
+>>> age = 17
+>>> if age == 18:
+...     print "the person is eighteen years old"
+...
+>>>
+```
+Neat... 
+
+#### else and arithmetic operators
+Let's write a small programm, which checks if somebody is allowed to buy alcohol:
+```python
+>>> age = 17
+>>> if age >= 18:
+...     print "allowed to buy alcohol"
+... else:
+...     print "NOT allowed, you must be at least 18yrs old"
+...
+```
+output:
+```
+NOT allowed, you must be at least 18yrs old
+```
+Yeah... odds are some of you experienced this before.
+And in case you are from the US: We are in Europe...
+
+Here we introduced a new part of *conditions*: the `else` statement. Basically that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
+Furthermore, take a closer look at the `if statement`:
+Instead of `age == 18` we wrote `age >= 18`. This means `bigger or equal to`. 
+`==` and `>=` are so-called `Arithmetic Operators`, and of course there exists more than just these two:
+* `==` equals to
+* `!=` does not equal to
+* `>` bigger as
+* `<` smaller as
+* `>=` bigger or equal to
+* `<=` smaller or equal to
+
+But what, if you have to differentiate more...?
+Like if somebody is a baby, child, teenager or adult?
+One way to do that is:
+```python
+>>> age = 12
+>>> if age < 7:
+...     print "baby"
+... if age < 13:
+File "<stdin>", line 3
+    if age < 13:
+     ^
+SyntaxError: invalid syntax
+``` 
+Wait what?
+![But Why?](/img/butwhy.jpg)
+
+The reson is, since you are still in the `if` mode, python expects you to use the tabulator for each folling statement. Let's try it:
+```python
+>>> age = 12
+>>> if age < 7:
+...     print "baby"
+...     if age < 13:
+...         print "child"         
+...
+```
+It should print `child` shouldn't it? But it prints... nothing?
+The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible. 
+
+#### elif
+
+Let's change the code slightley:
+
+```python
+>>> age = 12
+>>> if age > 19:
+...     print "adult"
+... elif age < 20 and age >= 13:
+        print "teenager"
+... elif age < 13 and age >=  7:
+...     print "child"
+... else:
+...     print "baby"
+...     
+output
+```
+child
+```
+
+Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`. 
+
 
 ## Loops
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
 
 Similar to conditionals, we can use so-called *loops* to make the computer do more useful things. In Python, we have two basic types of loops. These loops work in the following way: Before each time the code "in" the loop is executed (a so-called iteration), we check if a certain boolean condition is fulfilled (like with conditionals). If it is, then the body of the loop gets executed once more.
+
+### For loops
+If we want to repeat a specific action in our programme, we can write it over and over - for example, if we would like to create a new variable, and add 1 three times so that its value is 3:
+
+```python
+i = 0
+i += 1
+i += 1
+i += 1
+```
+
+Imagine doing the operation not 3 times, but 10000 times, then the code would look ugly as hell! That is why we have for loops, which look like this:
+
+```python
+for variable in xrange(begin, end, step):
+  statements
+other code
+```
+
+Even though it might look scary at first, in reality it is really simple - if we want to rewrite the code from above, it would look followingly:
+
+```python
+i = 0
+for step in xrange(3):
+    i += 1
+```
+
+and after the code has finished its execution, `i` would have value of 3!
+
+Let's analyze the first example though: `for` keyword tells Python that we are going to repeat certain action over and over, `xrange()` is the function which specifies how many times and `step` is the name of the loop variable - if we are interested in knowing how many repetitions we have done, we can print the value of step (sort of).
+
+If you notice, I said that `xrange(...)` takes three arguments, `begin`, `end` and `step` - the last one is voluntary, others are mandatory. Thus if I write a loop like this one:
+
+```python
+for number in xrange(1, 11, 2):
+    print number
+```
+
+We will see that the output will be:
+```python
+1
+3
+5
+7
+9
+```
+
+As you might have noticed, the number 11 has been excluded! That is because `xrange(...)` excludes the last number from the range - in reality the loop runs only from 1 to 10 and within this range we have only numbers 1, 3, 5, 7, 9 which are odd.
 
 ### While loops
 The best way to find out what while-loops do is to see a live example. Just copy the code and see it for yourself:

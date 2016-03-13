@@ -7,6 +7,7 @@ However, we might want to reuse some functionality in different parts of the cod
 
 ![Input -> Function body -> Output](img/functions.png)
 
+###So what are these functions?
 Basically, functions are a black box in which something happens. What happens? Well that depends on what we're doing. If we have a number, we could calculate the double of it. Normally, you would write it like:
 ```
 f(x) = x * 2
@@ -79,11 +80,39 @@ A couple of things here:
 1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
 2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
 
+<<<<<<< HEAD
 ###More advice on code styling
+=======
+However, there are a few things to consider:
+
+###Notes on good code style
+>>>>>>> 3b311f55ddabc6f8f5e0e30d603294fc79a1c646
 * Keep your code styling consistent (Use the same structure for calling functions over and over)
 * Make use of in-built functions: There are more functions in Python than we could ever teach you. For example, in this program, it would be useful to know if python had more functions on lists. Google up on `finding out if element is in list python` (really easy? It is. But you still have to do the extra step!).
 * Choose good names for variables and functions. For a more detailed description, look in Chapter 1.
+* Variables should be as local as possible (and as global as necessary)
 
+###Scope: Local vs. global
+This is no discussion about politics. Instead, in programming languages, there is the notion of **scope** which is **in which area a variable is valid**.
+What this means is the following:
+1. If you declare a variable outside of a function, it is considered to be **global**. Example:
+```python
+glob = 13
+
+def addMe(n):
+  return n + 5
+
+print addMe(glob)
+print glob
+```
+Here, `glob` is a global variable (and `n` local).
+By contrast, here is a function with a local variable:
+```python
+def addNumber(n):
+  number = 13
+  return n + number
+
+<<<<<<< HEAD
 
 ###Scope
 Functions are very neat because they add decent structure to our programs (and structure is suuuuuuuuper important when we write more complicated programs!!). There is one more idea that we have to discuss when we talk about functions: The idea of scope. Scope is the idea of variables only having a small range in which they are valid. With functions, we would say **variables created in functions are only valid in functions**. If you tried to access a variable outside of a function INSIDE a function, it would be fine.
@@ -148,6 +177,96 @@ In order to do this task, start with the empty list (i.e. create a variable in t
   Ok I cannot be bothered to write more. Let's let the computer do this:   Find `fib(20)` and try out at which value your computer takes more than two minutes to run the program.
 
 5. **Challenge** Write a version of the Fibonacci program that does not rely on recursion, but instead calculates it doing loops.
+=======
+print number
+```
+Please execute the code! You should get something like the following back:
+```
+Traceback (most recent call last):
+  File "test.py", line 27, in <module>
+    print number
+NameError: name 'number' is not defined
+```
+This is an error by Python that says it does not know the variable `number`. No surprise to us, since we know functions! The scope of variable `number` is local, so from a global context (outside of any function), we cannot access it - it simply doesn't exist anymore.
+
+###Recursion
+Most programming languages (in fact, I would be surprised if you came up with one that doesn't support this) also support **functions calling themselves**. This principle is called **recursion**.
+Let's go through this:
+If we call functions on themselves, we can't go on like this forever, right? At one point we have to stop and reach something called a **base case** - a very simple case, at which we can stop calling functions and actually do other stuff. Every recursive function should have a base case - unless, of course, we want our program to carry on forever...
+So, what does a recursive function look like?
+```python
+def factRecursive(n):
+  if n == 0:
+    return 1
+  else:
+    return n * factRecursive(n - 1)
+```
+Can you figure out what this program does?
+Below is a handy chart showing what happens when we call `factRecursive(3)`:
+```
+factRecursive(3)
+3 * factRecursive(2)
+3 * 2 * factRecursive(1)
+3 * 2 * 1 * factRecursive(0) #now, we reach the base case! Exciting!!
+3 * 2 * 1 * 1 #ok now we just recombine the solutions
+3 * 2 * 1
+3 * 2
+6
+```
+... and that's it! Actually with some functions, recursion is a very bad idea since usually, calling a function over and over is quite slow. Loops are usually much quicker. Below is a the above function using loops:
+```python
+def factLoop(n):
+  ret = 1
+  for i in range(1, n + 1):
+    ret *= i
+  return ret
+```
+
+###Exercises on functions
+1. Write a function `isInRange(lower, upper, value)` that checks if a value is in a specified range(e.g. `isInRange(-13, 13, 0)` is `True`, `isInRange(-13, 13, 14)` is false).
+2. Write a function to show the numbers between the numbers given by the user. E.g. `getRange(7, 13)` would get you `[7, 8, 9, 10, 11, 12, 13]`. You can declare empty lists with e.g. `items = []`, and add elements to its end with e.g. `items.append(1337)`.
+3. Write a function to print out a triangle like so: `triangle(3)` should give you:
+```
+***
+**
+*
+```
+`triangle(2)`
+```
+**
+*
+```
+Use two for loops for this exercise.
+4. Write a program to print triangles of height `n`, `n` times. E.g. `multiTriangles(3)`:
+```
+***
+**
+*
+***
+**
+*
+***
+**
+*
+```
+Use your function `triangle()` to do this task quickly.
+###Exercises on recursion
+1. Write a recursive function `fib(n)` that returns Fibonacci numbers. The Fibonacci function is defined like this:
+  For `fib(0)`, the function should return `0`, for `fib(1)`, the function should return `1`. For all other values, it should return the sum of `fib(n - 1)` and `fib(n - 2)`.
+  The first few Fibonacci numbers are:
+  ```
+  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89
+  ```
+  Calculate `fib(20)`. What is the largest Fibonacci number you can calculate with this funcion that stops running within 30 seconds? (HINT: It is probably quite close to fib(20)).
+2. Write a recursive function of `triangle()` that writes out the triangle.
+3. Write a recursive function that reverses a list. Example:
+```python
+reverse([1, 2, 3])
+[3, 2, 1]
+```
+For this, append the end of the list to a newly created list, similarly to our Factorial example.
+4. **Challenge** Write a version of the Fibonacci function which works with loops.
+>>>>>>> 3b311f55ddabc6f8f5e0e30d603294fc79a1c646
 
 ## Object-oriented programming
 
