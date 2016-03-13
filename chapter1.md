@@ -33,13 +33,9 @@ Interestingly, we can overwrite variables: Type out
 3133723678
 ```
 Who said variable names had to be boring?
-***
-<<<<<<< HEAD
-Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100 000s lines of code!) good naming gets important, so you might just stick to it for now already.
-=======
+
 Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100,000s lines of code!) good naming gets important.
->>>>>>> janos
-***
+
 In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left side.
 
 If you are studying computer science, you don't have much time. So, because of that (actually mainly because it is more readable), there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x`, i.e. adding variables to itself - like in the example above. These statements can be abbreviated to:
@@ -208,10 +204,7 @@ print x # will print 5.833333333335
 ```
 (5.83333333333333333 -> 35/6 Computers can only store a finite number of decimal spaces. That is the reason why with bigger numbers, floats can often get inaccurate -  they have only a limited amount of space.)
 ## Conditional statements
-<<<<<<< HEAD
-##Exercises for Conditionals
-quiz game
-=======
+j
 Let's take a look at one of the fundamental *statements* in programming - *conditional statements*
 But what are conditional statesments?
 A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
@@ -321,7 +314,7 @@ child
 ```
 
 Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`. 
->>>>>>> janos
+
 
 ## Loops
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
