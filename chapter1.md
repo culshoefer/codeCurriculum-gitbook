@@ -460,14 +460,150 @@ Please enter your nice number:
 1
 ```
 
-## Arrays and Whack-A-Mole
-There are many more data types in Python. One very widely used data type are lists.
-Lists are nothing more than a collection of items, to which you can add elements, remove some or access particular elements. In Python (in fact in many programming languages), lists are simply created by the following command:
+## Lists
+
+We've already seen how variables work and looked at some of the types of data they can store: integers, floating-point numbers and strings. But Python has many more data types, and one we will be using very often is **lists**.
+
 ```python
-crocodile = 'b'
-things = [5, 1.7, crocodile]
-print(things[0])
-5
+things = [5, 1.7, 'crocodile']
 ```
-See the square brackets? They indicate start and end of a list. You separate values in the list by commas. Also note that we access values in a list with square brackets and the index of the value.
-Here's the deal though. So far, you have counted from 1 (one, two, three... ok you know how numbers work). Guess what? Your life was a lie so far, computer scientists typically count from zero. This is why....
+
+In this case, `things` is a list made up of three elements. Notice that the elements of a list don't need to have the same type: a list can store anything! In this example, `things` stores an integer, a floating-point number and a string.
+
+Lists are so cool, they can even store other lists:
+
+```python
+cool_list = [[5, 1.7, 'crocodile'], 2, None, 45]
+```
+
+### Indexing
+
+How do we access the first element of a list, then? Or, say, the third? This is a bit surprising, so pay attention:
+
+```python
+things = [5, 1.7, 'crocodile']
+>>> things[0]
+5
+>>> things[2]
+'crocodile'
+```
+
+In Python (and most programming languages), we start numbering elements in a list from 0, rather than 1. There are very good reasons for this, as Edsger Dijkstra, a very influential computer scientist, [famously argued](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html). It takes a while to get used to the idea, though.
+
+Just to drive the point home, the first element of a list is the one at *index* (position) 0, the second is at index 1, the third is at index 2 and so on.
+
+### Looping over lists
+
+You can loop over elements of a loop and do something with them (print them, for example):
+
+```python
+things = [5, 1.7, 'crocodile']
+
+for el in things:
+    print el
+```
+
+You can also loop over the indices of the elements, using the `range` function (we'll look at what a function is in a later chapter):
+
+```python
+things = [5, 1.7, 134]
+
+for i in range(len(things)):
+    things[i] += 5
+    
+>>> things
+[10, 6.7, 139]
+```
+
+`range(n)` gives you back a list with the numbers [0, 1, ..., n-1]. `len(list)` returns how many elements that particular list has, so `len(things)` is 3, because `things` has three elements.
+
+### Slicing
+
+Just as you can slice a cake, you can also slice a Python list. What do we mean by slicing, though? Say we have a list with 6 elements:
+
+```python
+big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
+```
+
+We can refer to a *slice* (portion) of this list, as follows:
+
+```python
+big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
+
+# Elements from index 0 up to index 3 (non-inclusive)
+>>> big_list[:3] 
+[3, 45, 'flip flops']
+
+# Elements from index 2 up to index 6 (non-inclusive)
+>>> big_list[2:6]
+['flip flops', 2.5, 'crocodile', -5.34]
+
+# Elements from index 4 up to the end of the list
+>>> big_list[4:]
+['crocodile', -5.34]
+```
+
+Changing a slice of the list calso changes the original list:
+
+```python
+big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
+
+>>> big_list[:2] = ['i like', 'cake']
+>>> big_list
+['i like', 'cake', 'flip flops', 2.5, 'crocodile', -5.34]
+```
+
+### Adding and removing from lists
+
+Lists have a couple of *methods* (functions; we'll explain later what that means) that make it easier to work it them. For now, it's enough to think of a method as something you do to a list.
+
+From the [Python documentation](https://docs.python.org/2/tutorial/datastructures.html#more-on-lists):
+
+* **list.append(x)** – Add an item to the end of the list; equivalent to a[len(a):] = [x].
+* **list.extend(L)** – Extend the list by appending all the items in the given list; equivalent to a[len(a):] = L.
+* **list.remove(x)** – Remove the first item from the list whose value is x. It is an error if there is no such item.
+* **list.index(x)** – Return the index in the list of the first item whose value is x. It is an error if there is no such item.
+* **list.reverse()** – Reverse the elements of the list, in place.
+
+Example of using these methods:
+
+```python
+>>> a = []
+>>> a.append('test')
+>>> a.append(1)
+>>> a.append(4)
+>>> a
+['test', 1, 4]
+>>> a.extend(['i am learning', 'python'])
+>>> a
+['test', 1, 4, 'i am learning', 'python']
+>>> a.remove(4)
+>>> a
+['test', 1, 'i am learning', 'python']
+>>> a.reverse()
+>>> a
+['python', 'i am learning', 1, 'test']
+>>> a.index(1)
+2
+```
+
+### Tuples
+
+Tuples in Python are **immutable** lists. You will probably not use them very often, but it's good to know about them. Basically, the difference between tuples and lists is that tuples cannot be changed, and tuples uses parentheses, while lists use square brackets.
+
+```python
+tup = (4, 5, 'crocodile')
+
+>>> tup[0]
+4
+>>> tup[:2]
+(4, 5)
+```
+
+Note that to define a tuple with just one element, you have to put a comma after the element:
+
+```python
+tup = (3,)
+```
+
+This is because otherwise, Python would have a hard time understanding whether you mean a tuple with one element, or just a number in brackets.
