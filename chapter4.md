@@ -14,6 +14,10 @@ The rules of Whack-A-Mole are as follows:
 * New moles should appear at the surrounding holes which are empty
 * If there are already moles, they should disappear
 * The player wins if there are no moles left on the board
+* 
+
+## Solution
+Below is the solution written in pseudocode - the game logic is split into 3 parts: we have our Mole object, which represents each mole on the board, then `check_win()` function which checks if all the moles are gone from the board and lastly we have 
 
 ```pseudo
 class Mole:
@@ -36,3 +40,31 @@ check_win():
     
 initialise pygame engine
 initialise board
+for every row in the board
+  for every column in the board
+    if random value is higher than our threshold
+      initialise a Mole at the position
+      add it into pygame sprites
+      
+while True:
+  for each event received from pygame:
+    if we placed a mole (check for left mouse button):
+      get the position of the click on the board
+      get the closest field there
+      
+      if the position is occupied by a mole:
+        remove it
+        
+      check if we won
+      if yeS:
+        show end game screen
+      else:
+        for neighbors around current mole:
+          if neighbouring field is filled by a mole:
+            remove it
+          else:
+            add a mole there
+  
+  check if we won
+  redraw all changes
+
