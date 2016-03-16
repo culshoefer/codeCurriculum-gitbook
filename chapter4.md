@@ -14,10 +14,9 @@ The rules of Whack-A-Mole are as follows:
 * New moles should appear at the surrounding holes which are empty
 * If there are already moles, they should disappear
 * The player wins if there are no moles left on the board
-* 
 
 ## Solution
-Below is the solution written in pseudocode - the game logic is split into 3 parts: we have our Mole object, which represents each mole on the board, then `check_win()` function which checks if all the moles are gone from the board and lastly we have 
+Below is the solution written in pseudocode - the game logic is split into 3 parts: we have our Mole object, which represents each mole on the board, then `check_win()` function which checks if all the moles are gone from the board and lastly we have the actual main loop: we check for the place where user clicks and carry out an appropiate action based on that - if the place is taken by a mole, we remove it and check if it is surrounded by any moles - if yes, we remove it, if not we add one there.
 
 ```pseudo
 class Mole:
