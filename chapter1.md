@@ -607,3 +607,24 @@ tup = (3,)
 ```
 
 This is because otherwise, Python would have a hard time understanding whether you mean a tuple with one element, or just a number in brackets.
+
+
+### Exercises
+
+1. Given `a = range(5)` and `b = range(10)`, should `a == b[:5]` evauluate to `True` or `False`? Think about it, then try it in the Python interpreter.
+
+2. Given a list of numbers like `[2, 5.4, -1.7, 45, 13]`, write a Python program to calculate the sum of the numbers. **Challenge**: calculate the average.
+
+3. Write a Python program that takes a list of lists (a matrix) like `[[1,2,3],[4,5,6],[7,8,9]]` and prints it on screen in the following way:
+```
+      1 2 3  
+      4 5 6  
+      7 8 9
+```
+
+4. Write a Python program that takes two matrixes of the same size, adds their elements together and prints the result on screen. **Challenge**: print the matrices along with their result like this:
+```
+      1 2 3     4 0 3     5 2 6
+      4 5 6  +  1 2 2  =  5 7 8
+      7 8 9     1 0 0     8 8 9
+```
