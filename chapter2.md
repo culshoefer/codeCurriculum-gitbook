@@ -88,41 +88,7 @@ A couple of things here:
 1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
 2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
 
-### Notes on good code style
-In order to make our code readable and easily understandable by others as well, we need to adopt and adhere to a certain coding style. The coding conventions for Python are in a document called [PEP8](https://www.python.org/dev/peps/pep-0008/), which specifies the most common conventions:
-
- * Indentation: Use 4 spaces per indentation level.
- * Maximum Line Length: Limit all lines to 79 characters per line
- * Operators: Add space before and after operators, e.g. `3 + 4` instead of `3+4`.
- * Whitespace: Avoid extraneous whitespace inside parentheses, brackets or braces; before a comma, semicolon, or colon.
- * Naming: Try to avoid using single character variables; function names should be lowercase, with words separated by underscores.
- * Scoping: The less global variables you have, the better - they can be accessed anywhere from your code, which makes the code harder to understand and debug.
-
-###Scope: local vs. global
-In programming languages there is a notion of **scope** which is **the area in which a variable is valid**.
-What this means is the following:
-1. If you declare a variable outside of a function, it is considered to be **global**. Example:
-
-```python
-glob = 13
-
-def addMe(n):
-  return n + 5
-
-print addMe(glob)
-print glob
-```
-
-Here, `glob` is a global variable (and `n` local).
-By contrast, here is a function with a local variable:
-
-```python
-def addNumber(n):
-  number = 13
-  return n + number
-```
-
-###Recursion
+### Recursion
 Functions can actually call themselves! However, at some point, the function has to stop calling itself. Consider the following functions, which calculate the product of all numbers from 1 to n:
 
 ```python
@@ -213,6 +179,40 @@ reverse([1, 2, 3])
 For this, append the end of the list to a newly created list, similarly to our Factorial example.
 
 4. **Challenge** Write a version of the Fibonacci function which works with loops.
+
+### Notes on good code style
+In order to make our code readable and easily understandable by others as well, we need to adopt and adhere to a certain coding style. The coding conventions for Python are in a document called [PEP8](https://www.python.org/dev/peps/pep-0008/), which specifies the most common conventions:
+
+ * Indentation: Use 4 spaces per indentation level.
+ * Maximum Line Length: Limit all lines to 79 characters per line
+ * Operators: Add space before and after operators, e.g. `3 + 4` instead of `3+4`.
+ * Whitespace: Avoid extraneous whitespace inside parentheses, brackets or braces; before a comma, semicolon, or colon.
+ * Naming: Try to avoid using single character variables; function names should be lowercase, with words separated by underscores.
+ * Scoping: The less global variables you have, the better - they can be accessed anywhere from your code, which makes the code harder to understand and debug.
+
+###Scope: local vs. global
+In programming languages there is a notion of **scope** which is **the area in which a variable is valid**.
+What this means is the following:
+1. If you declare a variable outside of a function, it is considered to be **global**. Example:
+
+```python
+glob = 13
+
+def addMe(n):
+  return n + 5
+
+print addMe(glob)
+print glob
+```
+
+Here, `glob` is a global variable (and `n` local).
+By contrast, here is a function with a local variable:
+
+```python
+def addNumber(n):
+  number = 13
+  return n + number
+```
 
 ## Object-oriented programming
 
