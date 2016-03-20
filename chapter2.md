@@ -1,7 +1,8 @@
 # Chapter 2: Advanced Python
 
-##Functions
-###Creating more structured code
+## Functions
+### Writing better structured code
+
 Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would loops to do that. Similarly, we used if-statements to to select which parts of the code to execute in what cases.
 However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages (and, because of that also in Python), we have functions as well. Instead of consisting of terms like a + b - c, we can just include **code** in functions. However, the basic principle is the same. Here's a little diagram to help you.
 
@@ -454,7 +455,7 @@ Inheritance makes programming easier in a few ways:
 * it enables **polymorphism**: for example, if we have an array of `Spaceships`, we can just do `for ship in ships: ship.take_damage(10)`, and it will work and do the right thing even if some of them are `Spaceship`s, some are `StarDestroyer`s and some are `TieFighter`s (since all of those are a kind of `Spaceship`, so they must have a `take_damage` method)
 
 
-# Public, private, protected
+### Public, private, protected
 
 In Python, there are three different kinds of **visibility** for class attributes and methods. These are:
 
@@ -486,7 +487,9 @@ Another way of saying "create a new object" is saying **instantiate** a new obje
 
 **Public**, **private**, **protected** – different levels of visibility in Python
 
-### Easy exercises
+### Exercises
+
+#### Easy exercises
 
 1. Write a `Song` class that is initialised using an array of lines called `lyrics` and has a method called `play` which prints the lyrics of the song, line by line.
 
@@ -496,7 +499,7 @@ Another way of saying "create a new object" is saying **instantiate** a new obje
 
 4. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and eatable by the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her.
 
-### Challenging exercises
+#### Challenging exercises
 
 `level.py` contains the `Level` class, which constructs the level in memory using the image in the `levels/` folder. The code in this file can be quite difficult to understand.
 
