@@ -1,4 +1,4 @@
-# Fourth Chapter: Capstone project
+# Chapter 4: Capstone project
 Welcome to chapter four! If you made it until here, you already know
 a lot about programming in python with PyGame (yay!)
 In this final chapter, you will implement your own version of the
