@@ -279,7 +279,7 @@ File "<stdin>", line 3
 SyntaxError: invalid syntax
 ``` 
 Wait what?
-![But Why?](/img/butwhy.jpg)
+![But Why?](img/butwhy.jpg)
 
 The reson is, since you are still in the `if` mode, python expects you to use the tabulator for each folling statement. Let's try it:
 ```python

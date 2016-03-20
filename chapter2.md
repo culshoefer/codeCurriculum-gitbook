@@ -1,11 +1,11 @@
-# Second Chapter: Advanced Python
+# Chapter 2: Advanced Python
 
 ##Functions
 ###Creating more structured code
 Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would loops to do that. Similarly, we used if-statements to to select which parts of the code to execute in what cases.
 However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages (and, because of that also in Python), we have functions as well. Instead of consisting of terms like a + b - c, we can just include **code** in functions. However, the basic principle is the same. Here's a little diagram to help you.
 
-![Input -> Function body -> Output](img/function.png =100x)
+![Input -> Function body -> Output](img/function.png)
 
 ###So what are these functions?
 Basically, functions are a black box in which something happens. What happens? Well that depends on what we're doing. If we have a number, we could calculate the double of it. Normally, you would write it like:
@@ -172,17 +172,7 @@ In order to do this task, start with the empty list (i.e. create a variable in t
   Ok I cannot be bothered to write more. Let's let the computer do this:   Find `fib(20)` and try out at which value your computer takes more than two minutes to run the program.
 
 5. **Challenge** Write a version of the Fibonacci program that does not rely on recursion, but instead calculates it doing loops.
-=======
-print number
 
-Please execute the code! You should get something like the following back:
-```
-Traceback (most recent call last):
-  File "test.py", line 27, in <module>
-    print number
-NameError: name 'number' is not defined
-```
-This is an error by Python that says it does not know the variable `number`. No surprise to us, since we know functions! The scope of variable `number` is local, so from a global context (outside of any function), we cannot access it - it simply doesn't exist anymore.
 
 ###Recursion
 Most programming languages (in fact, I would be surprised if you came up with one that doesn't support this) also support **functions calling themselves**. This principle is called **recursion**.
