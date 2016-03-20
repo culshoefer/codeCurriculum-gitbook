@@ -757,3 +757,8 @@ output
 ```
 window : Fenster
 ```
+
+## Exercise Chapter One - Hangman
+
+In this exercise we are going build a small, simple version of 
+hangman. We'll provide you with the basic code and you have to complete the code in the end of the file. Download the [file](hangman.py) and complete the code after line 47.
