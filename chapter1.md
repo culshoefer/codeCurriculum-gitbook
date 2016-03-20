@@ -336,123 +336,6 @@ Note: `in` can also be used for iterating as in `for x in range(10)`.
 
 ## Loops
 
-### Dictionaries
-A very handy datatype in Python are Dictionaries. As the name suggests, they builded like a regular dictionary. In a dictionary there are `keys` and each key has a corresponding `value`.
-If you have English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
-Basically, that is the same in Python. Let's see an example:
-```python
->>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
-```
-
-In Python a dictionary is created using the `{` and `}` brackets. The `key` and the `value` is seperated by a `:`.
-How do we access now the data? Pretty like a list:
-```python
->>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
->>> dictionary['car']
-```
-output:
-```
-'Auto'
-```
-... which is exactly what we wanted to get.
-
-If we want to add a entry into an existing dictionary we just type a _not_ existing `key` into the `[ ]` like:
-```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> pons['horse'] = 'Pferd' 
->>> pons['car']
-```
-output:
-```
-'Auto'
-```
-Yay! 
-
-#### Loop through a dictionary
-In order to loop through a dictionary we can just use a `for`:
-```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> pons['horse'] = 'Pferd' 
->>> for key in pons:
-...     print key, ":", pons[key]
-...
-
-```
-output
-``` 
-Auto
-Fenster
-Pferd
-```
-
-#### Checking if a key is in a dictionary
-Next let's try to find out if a specific `key` is in the dictionary.
-We can simply check this by writing `key in dict`:
-```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> 
->>> 'car' in pons
-```
-output
-```
-True
-```
-
-As you can see, using dictionary is very straightforward.
-
-#### Delete an entry
-In order to delete a key in a pons we just use the `del` command:
-
-```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> del pons['car']
->>> pons['car']
-```
-output
-```
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-KeyError: 'car'
-```
-
-As you can see, after trying to access the deleted key `'car'` we get an error. The same can happen if we try to delete a non-existing key:
-```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> del pons['university']
-```
-output
-```
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-KeyError: 'university'
-```
-This could crash your program, sit might be good to check if the key exists before deleting it:
-```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> if 'window' in pons:
-...     del pons['window']
-...
->>> for key in pons:
-...     print key, ':', pons[key]
-...
-```
-output
-```
-window : Fenster
-```
-
-## Loops
-
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
 
 Similar to conditionals, we can use so-called *loops* to make the computer do more useful things. In Python, we have two basic types of loops. These loops work in the following way: Before each time the code "in" the loop is executed (a so-called iteration), we check if a certain boolean condition is fulfilled (like with conditionals). If it is, then the body of the loop gets executed once more.
@@ -759,4 +642,118 @@ This is because otherwise, Python would have a hard time understanding whether y
       4 5 6  +  1 2 2  =  5 7 8
       7 8 9     1 0 0     8 8 9
 ```
->>>>>>> master
+
+### Dictionaries
+A very handy datatype in Python are Dictionaries. As the name suggests, they builded like a regular dictionary. In a dictionary there are `keys` and each key has a corresponding `value`.
+If you have English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
+Basically, that is the same in Python. Let's see an example:
+```python
+>>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
+```
+
+In Python a dictionary is created using the `{` and `}` brackets. The `key` and the `value` is seperated by a `:`.
+How do we access now the data? Pretty like a list:
+```python
+>>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
+>>> dictionary['car']
+```
+output:
+```
+'Auto'
+```
+... which is exactly what we wanted to get.
+
+If we want to add a entry into an existing dictionary we just type a _not_ existing `key` into the `[ ]` like:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> pons['horse'] = 'Pferd' 
+>>> pons['car']
+```
+output:
+```
+'Auto'
+```
+Yay! 
+
+#### Loop through a dictionary
+In order to loop through a dictionary we can just use a `for`:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> pons['horse'] = 'Pferd' 
+>>> for key in pons:
+...     print key, ":", pons[key]
+...
+
+```
+output
+``` 
+Auto
+Fenster
+Pferd
+```
+
+#### Checking if a key is in a dictionary
+Next let's try to find out if a specific `key` is in the dictionary.
+We can simply check this by writing `key in dict`:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> 
+>>> 'car' in pons
+```
+output
+```
+True
+```
+
+As you can see, using dictionary is very straightforward.
+
+#### Delete an entry
+In order to delete a key in a pons we just use the `del` command:
+
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> del pons['car']
+>>> pons['car']
+```
+output
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'car'
+```
+
+As you can see, after trying to access the deleted key `'car'` we get an error. The same can happen if we try to delete a non-existing key:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> del pons['university']
+```
+output
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'university'
+```
+This could crash your program, sit might be good to check if the key exists before deleting it:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> if 'window' in pons:
+...     del pons['window']
+...
+>>> for key in pons:
+...     print key, ':', pons[key]
+...
+```
+output
+```
+window : Fenster
+```
