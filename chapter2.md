@@ -35,13 +35,10 @@ def function_name(argument1, argument2, ...):
   return
 ```
 
-###Example
 To put these aspects more into perspective, here is one more example program:
 
-'''
 This program provides a simple menu to find out, if a name is in a list.
 Also: These single quotes show comments over multiple lines, if you want to display more stuff. For example when explaining what your program does (which you should do!)
-'''
 
 ```python
 names = ["Peter", "Paul", "Mary", "George", "Janos", "Chris", "Jaro"]
