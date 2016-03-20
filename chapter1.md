@@ -643,7 +643,7 @@ This is because otherwise, Python would have a hard time understanding whether y
       7 8 9     1 0 0     8 8 9
 ```
 
-### Dictionaries
+## Dictionaries
 A very handy datatype in Python are Dictionaries. As the name suggests, they builded like a regular dictionary. In a dictionary there are `keys` and each key has a corresponding `value`.
 If you have English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
 Basically, that is the same in Python. Let's see an example:
@@ -677,7 +677,7 @@ output:
 ```
 Yay! 
 
-#### Loop through a dictionary
+### Loop through a dictionary
 In order to loop through a dictionary we can just use a `for`:
 ```python
 >>> pons = {}
@@ -696,7 +696,7 @@ Fenster
 Pferd
 ```
 
-#### Checking if a key is in a dictionary
+### Checking if a key is in a dictionary
 Next let's try to find out if a specific `key` is in the dictionary.
 We can simply check this by writing `key in dict`:
 ```python
@@ -713,7 +713,7 @@ True
 
 As you can see, using dictionary is very straightforward.
 
-#### Delete an entry
+### Delete an entry
 In order to delete a key in a pons we just use the `del` command:
 
 ```python
