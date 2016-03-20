@@ -49,4 +49,4 @@ Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/down
 Open your Terminal and then:
 
  * If you are using *Ubuntu*, enter `sudo apt-get install python-pygame`. It might ask you for a password; in that case enter it.
- * If you are using *ArchLinx* enter `sudo pacman install python-pygame`. It might (again) ask you for a password; in that case enter it.
+ * If you are using *ArchLinux*, enter `sudo pacman install python-pygame`. It might (again) ask you for a password; in that case enter it.
