@@ -401,11 +401,6 @@ Well, with this loop, all I can say is...
 
 You see, when you try running the program, obviously it will never end - because of that - never execute `print str`.
 
------------
-Now! You might say "oh loops so easy!" (and in fact they are but psssh). It can get quite complicated when we have more complex things inside the loop. By combining boolean expressions, it can get quite complicated (If you are keen on learning more, check out https://en.wikipedia.org/wiki/De_Morgan's_laws)
-
-----------------------------------------------------
-
 ####Exercises
 1) Write a program that writes out all of the numbers between two numbers specified by the user. Use the `input()` and the `int()` function to get values. A dialogue should look something like this:
 ``` python
@@ -422,8 +417,8 @@ For this program, note that the loop might not necessarily be executed if the lo
 
 *Challenge*: Use another while-loop to check if the lower boundary is indeed lower than the upper boundary. If it isn't, just display the input dialogue again.
 
-2) Write the `guessing game`! @TODO
-3) Write a program asking people for a number. Then, display all factors of said number
+2) Write the `guessing game`! 
+3) Write a program which asks person for a number and then will display all divisors of the number.
 ```
 1) Check if the number is equal to one (or smaller). If not, then continue the loop.
 2) You can calculate the remainder of a division with the % operator.
@@ -481,7 +476,7 @@ Just to drive the point home, the first element of a list is the one at *index* 
 
 ### Looping over lists
 
-You can loop over elements of a loop and do something with them (print them, for example):
+You can loop over elements of a list and do something with them (print them, for example):
 
 ```python
 things = [5, 1.7, 'crocodile']
@@ -530,7 +525,7 @@ big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
 ['crocodile', -5.34]
 ```
 
-Changing a slice of the list calso changes the original list:
+Changing a slice of the list also changes the original list:
 
 ```python
 big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
@@ -542,15 +537,15 @@ big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
 
 ### Adding and removing from lists
 
-Lists have a couple of *methods* (functions; we'll explain later what that means) that make it easier to work it them. For now, it's enough to think of a method as something you do to a list.
+Lists have a few *methods* (functions; we'll explain later what that means) that make it easier to work it them. For now, it's enough to think of a method as something you do to a list.
 
 From the [Python documentation](https://docs.python.org/2/tutorial/datastructures.html#more-on-lists):
 
-* **list.append(x)** – Add an item to the end of the list; equivalent to a[len(a):] = [x].
-* **list.extend(L)** – Extend the list by appending all the items in the given list; equivalent to a[len(a):] = L.
-* **list.remove(x)** – Remove the first item from the list whose value is x. It is an error if there is no such item.
-* **list.index(x)** – Return the index in the list of the first item whose value is x. It is an error if there is no such item.
-* **list.reverse()** – Reverse the elements of the list, in place.
+* **list.append(x)** – Adds an item to the end of the list.
+* **list.extend(L)** – Extends the list by appending all the items in the given list.
+* **list.remove(x)** – Removes the first item from the list whose value is x. It is an error if there is no such item.
+* **list.index(x)** – Returns the index in the list of the first item whose value is x. It is an error if there is no such item.
+* **list.reverse()** – Reverses the elements of the list, in place.
 
 Example of using these methods:
 

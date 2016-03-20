@@ -8,8 +8,9 @@ However, we might want to reuse some functionality in different parts of the cod
 
 ![Input -> Function body -> Output](img/function.png)
 
-###So what are these functions?
-Basically, functions are a black box in which something happens. What happens? Well that depends on what we're doing. If we have a number, we could calculate the double of it. Normally, you would write it like:
+### What is a function?
+A function is a black box in which something happens. For example, if we want to calculate a double of a number, we can write it as:
+
 ```
 f(x) = x * 2
 ```

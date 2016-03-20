@@ -27,7 +27,7 @@ With the new official Computer Science A-Level curriculum, we have a similar pro
 
 ### Installing Python and Pygame
 
-## Windows
+## Installation Requirements for Windows
 Before we can start coding, we have to install Python first. Python can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). There are multiple version available, but for this tutorial we will use *Python 2.7.11*.
 
 If you are using *Windows*, simply click at *Download Python 2.7.11*. Once the download has finished, open your **Downloads** folder and open the file you have just downloaded. Then simply follow the instructions.
@@ -36,14 +36,14 @@ Later through this course we will use Pygame, a Python `module` or `library` des
 
 Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/downloads.shtml). Again, there are multiple version available, but for the purpose of this tutorial we will use *Pygame 1.9.1*. Since we are using *Python 2.7.11*, we need download the version of Pygame compatible with our Python version, named `pygame-1.9.1.win32-py2.7.msi` (which is Pygame 1.9.1. for Python 2.7).
 
-### Installation requirements for Mac OS X
+## Installation requirements for Mac OS X
 If you are using *Mac OS X, El Capitan*, you do NOT need to actually install anything - it comes with *Python 2.7* installed already. Otherwise we need to visit Python website, where we can download the installation package. Visit [https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/) and find *Python 2.7.11*, which is the version we will be using for this tutorial. 
 
 Download the *Mac OS X 32-bit i386/PPC* installer - this is the version which runs on every Mac. Afterwards open your **Downloads** folder and open the file you have just downloaded. Then simply follow the instructions.
 
 Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/downloads.shtml). Again, there are multiple version available, but for the purpose of this tutorial we will use *Pygame 1.9.1*. Since we are using *Python 2.7.11*, we need download the version of Pygame compatible with our Python version, named `pygame-1.9.1release-python.org-32bit-py2.7-macosx10.3.dmg` (which is Pygame 1.9.1. for Python 2.7).
 
-### Installation requirements for Linux
+## Installation requirements for Linux
 *Python 2.7* is preinstalled at all Linux computers, therefore we can directly install PyGame.
 
 Open your Terminal and then:
