@@ -22,11 +22,18 @@ def getDouble(number):
   return number * 2
 ```
 
-###So what exactly is a function?
-Ok. The structure for creating functions is `def <name of function>(argument1, argument2, argument3):`. In general, functions have the following properties:
-* They can take a number of **arguments** specified by parentheses (in the example, `x` is an argument)
-* They can **return** a value (but don't have to). The return type is typically the result of a series of different commands
-* They sum up a **contained unit of code** that sums up a process
+Functions have the following properties:
+
+  * They take a number of **arguments** specified by parentheses (in the example, `x` is an argument)
+  * They may **return** a value (but don't have to). The return type is typically the result of a series of different commands
+  * They sum up a **contained unit of code** that sums up a process
+
+```python
+def function_name(argument1, argument2, ...):
+  do_something()
+  
+  return
+```
 
 ###Example
 To put these aspects more into perspective, here is one more example program:
@@ -89,6 +96,7 @@ In order to make our code readable and easily understandable by others as well, 
  * Operators: Add space before and after operators, e.g. `3 + 4` instead of `3+4`.
  * Whitespace: Avoid extraneous whitespace inside parentheses, brackets or braces; before a comma, semicolon, or colon.
  * Naming: Try to avoid using single character variables; function names should be lowercase, with words separated by underscores.
+ * Scoping: The less global variables you have, the better - they can be accessed anywhere from your code, which makes the code harder to understand and debug.
 
 ###Scope: local vs. global
 In programming languages there is a notion of **scope** which is **the area in which a variable is valid**.
@@ -163,7 +171,7 @@ In order to do this task, start with the empty list (i.e. create a variable in t
 5. **Challenge** Write a version of the Fibonacci program that does not rely on recursion, but instead calculates it doing loops.
 
 
-###Recursion
+### Recursion
 Most programming languages (in fact, I would be surprised if you came up with one that doesn't support this) also support **functions calling themselves**. This principle is called **recursion**.
 Let's go through this:
 If we call functions on themselves, we can't go on like this forever, right? At one point we have to stop and reach something called a **base case** - a very simple case, at which we can stop calling functions and actually do other stuff. Every recursive function should have a base case - unless, of course, we want our program to carry on forever...
@@ -197,20 +205,27 @@ def factLoop(n):
 ```
 
 ###Exercises on functions
+
 1. Write a function `isInRange(lower, upper, value)` that checks if a value is in a specified range(e.g. `isInRange(-13, 13, 0)` is `True`, `isInRange(-13, 13, 14)` is false).
+
 2. Write a function to show the numbers between the numbers given by the user. E.g. `getRange(7, 13)` would get you `[7, 8, 9, 10, 11, 12, 13]`. You can declare empty lists with e.g. `items = []`, and add elements to its end with e.g. `items.append(1337)`.
+
 3. Write a function to print out a triangle like so: `triangle(3)` should give you:
 ```
 ***
 **
 *
 ```
+
 `triangle(2)`
+
 ```
 **
 *
 ```
+
 Use two for loops for this exercise.
+
 4. Write a program to print triangles of height `n`, `n` times. E.g. `multiTriangles(3)`:
 ```
 ***
@@ -224,7 +239,8 @@ Use two for loops for this exercise.
 *
 ```
 Use your function `triangle()` to do this task quickly.
-###Exercises on recursion
+
+### Exercises on recursion
 1. Write a recursive function `fib(n)` that returns Fibonacci numbers. The Fibonacci function is defined like this:
   For `fib(0)`, the function should return `0`, for `fib(1)`, the function should return `1`. For all other values, it should return the sum of `fib(n - 1)` and `fib(n - 2)`.
   The first few Fibonacci numbers are:
