@@ -1,10 +1,13 @@
 # Chapter 1: Python Basics
-Python is a programming language. When you run python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
+
+Python is a programming language. When you run Python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
 When you run `python`, the so-called IDLE (Integrated Development Environment) opens.
+
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
+
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
-## Hello, world! or getting started with Python
+## Hello, world! 
 Traditionally, in programming, the first thing to do when learning a new programming language is `Hello, world!`. In Python, this is very simple (you do not have to copy `>>>`, that is just to indicate that it is written in the Python interpreter). Just type
 ```python
 >>> print "Hello, world!"
@@ -17,6 +20,7 @@ Congratulations on your (potentially) first program ever written! If you want to
 
 ## Variables and statements
 Now, finally that we have an idea on how to use `print`, we can advance to more interesting programs. A very important aspect of programming are something called **variables**. Just like in Mathematics, we can assign values to things. Try it out, write the following statements, one by one:
+
 ```python
 >>> x = 5
 >>> y = 3
@@ -25,6 +29,7 @@ Now, finally that we have an idea on how to use `print`, we can advance to more 
 ```
 As you probably expected, this will print out `8`. No surprise so far.
 Interestingly, we can overwrite variables: Type out
+
 ```python
 >>> x = 5
 >>> superBigNumber = 3133723666
@@ -149,6 +154,7 @@ As integers hold - well - integers and booleans true or false, integers literall
 
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
 Later more about booleans (or *bools*, in computer science speak). For now, just remember their existence.
+
 ##Exercises on variables and type
 For these exercises, we desperately need two more functions: `int()` and `input()`. `int()` tries to convert a value to an integer (who would have guessed?) and `input()` prompts the user to input something.
 
@@ -194,12 +200,12 @@ x = x /3 + 3 / 2 * z # x = 35 / 6 = 5.8333333333
 print x # will print 5.833333333335
 ```
 (5.83333333333333333 -> 35/6 Computers can only store a finite number of decimal spaces. That is the reason why with bigger numbers, floats can often get inaccurate -  they have only a limited amount of space.)
+
 ## Conditional statements
-j
-Let's take a look at one of the fundamental *statements* in programming - *conditional statements*
-But what are conditional statesments?
-A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
-### if-statements
+
+Let's take a look at one of the fundamental *statements* in programming - **conditional statements**. But what are conditional statesments? A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
+
+### `if` statements
 Lets jump into the code and try the following:
 We assing a variable `age`, and the person is 18, we print "The person is eighteen years old":
 ```python 
@@ -228,8 +234,8 @@ But what happens if somebody is not 18 years old? Well, in our case nothing happ
 ```
 Neat... 
 
-#### else and arithmetic operators
-Let's write a small programm, which checks if somebody is allowed to buy alcohol:
+### `else` statements
+Let's write a small program that checks if somebody is allowed to buy alcohol:
 ```python
 >>> age = 17
 >>> if age >= 18:
@@ -238,21 +244,13 @@ Let's write a small programm, which checks if somebody is allowed to buy alcohol
 ...     print "NOT allowed, you must be at least 18yrs old"
 ...
 ```
-output:
+
+Output:
 ```
 NOT allowed, you must be at least 18yrs old
 ```
 
 Here we introduced a new part of *conditions*: the `else` statement. Basically that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
-Furthermore, take a closer look at the `if statement`:
-Instead of `age == 18` we wrote `age >= 18`. This means `bigger or equal to`. 
-`==` and `>=` are so-called `Arithmetic Operators`, and of course there exists more than just these two:
-* `==` equals to
-* `!=` does not equal to
-* `>` bigger as
-* `<` smaller as
-* `>=` bigger or equal to
-* `<=` smaller or equal to
 
 But what, if you have to differentiate more...?
 Like if somebody is a baby, child, teenager or adult?
@@ -282,7 +280,7 @@ The reason is, since you are still in the `if` mode, Python expects you to use t
 It should print `child` shouldn't it? But it prints... nothing?
 The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible. 
 
-#### elif
+#### `elif` statements
 
 Let's change the code slightly:
 
@@ -301,14 +299,47 @@ Let's change the code slightly:
 
 Output: `child`
 
-Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`. 
+Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`.
+
+#### Operators
+
+**Comparison operators**:
+
+ * `==` – equals (`7 == 7`)
+ * `!=` – not equal to (`3 != 5`)
+ * `>` – larger than (`9 > 5`)
+ * `<` – smaller than (`2.5 < 10`)
+ * `>=` – larger than or equal to (`2 >= 2`)
+ * `<=` – smaller than or equal to ('6 <= 7`)
+ 
+**Boolean operators**:
+
+ * `and` – logical and  (`True and False == False`)
+ * `or` – logical or (`True or False == True`)
+ * `not` – logical not (`not True == False`)
+
+**Arithmethic operators**:
+
+ * `+` – addition (`3 + 5 == 8`)
+ * `-` – substraction (`9 - 1 == 8`)
+ * `*` – multiplication (`3 * 4 == 12`)
+ * `/` – division (`14 / 3 == 4`)
+ * `%` – modulus/remainder (`14 % 3 == 2`)
+ * `**` – exponent (`2**3 == 8`)
+
+**Membership operators**:
+
+ * `in` – member in collection (`3 in [3, 4, 5] == True`)
+ * `not in` – not a member in collection
+ 
+Note: `in` can also be used for iterating as in `for x in range(10)`.
 
 ## Loops
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
 
 Similar to conditionals, we can use so-called *loops* to make the computer do more useful things. In Python, we have two basic types of loops. These loops work in the following way: Before each time the code "in" the loop is executed (a so-called iteration), we check if a certain boolean condition is fulfilled (like with conditionals). If it is, then the body of the loop gets executed once more.
 
-### For loops
+### `for` loops
 If we want to repeat a specific action in our programme, we can write it over and over - for example, if we would like to create a new variable, and add 1 three times so that its value is 3:
 
 ```python
@@ -356,7 +387,7 @@ We will see that the output will be:
 
 As you might have noticed, the number 11 has been excluded! That is because `xrange(...)` excludes the last number from the range - in reality the loop runs only from 1 to 10 and within this range we have only numbers 1, 3, 5, 7, 9 which are the odd ones.
 
-### While loops
+### `while` loops
 The best way to find out what while-loops do is to see a live example. Just copy the code and see it for yourself:
 ```python
 i = 1
