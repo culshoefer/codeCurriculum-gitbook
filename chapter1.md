@@ -1,26 +1,26 @@
 # Chapter 1: Python Basics
-Python itself is a programming language. When you run python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
-When you run "python", the so-called IDLE (Integrated Development Environment) opens.
+Python is a programming language. When you run python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
+When you run `python`, the so-called IDLE (Integrated Development Environment) opens.
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
 ## Hello, world! or getting started with Python
 Traditionally, in programming, the first thing to do when learning a new programming language is `Hello, world!`. In Python, this is very simple (you do not have to copy `>>>`, that is just to indicate that it is written in the Python interpreter). Just type
 ```python
->>> print("Hello, world!")
+>>> print "Hello, world!"
 ```
-... and that is it! In order to run your program, hit `Enter`. Already, for this simple program to work, a lot of things are going on. `print()` does a very simple thing. It just tries to display the contents inside the parentheses. More about this in later exercises.
+... and that is it! In order to run your program, hit `Enter`. Already, for this simple program to work, a lot of things are going on. `print` does a very simple thing. It just tries to display the contents inside the parentheses. More about this in later exercises.
 
 **Try it out!**
 
-Congratulations on your (potentially) first program ever written! If you want to, try changing the text inside the `print` statement. What happens if you do `print(Hello, world!)` i.e. leaving out the quotation marks?
+Congratulations on your (potentially) first program ever written! If you want to, try changing the text inside the `print` statement. What happens if you do `print "Hello, world!"` i.e. leaving out the quotation marks?
 
 ## Variables and statements
-Now, finally that we have an idea on how to use `print()`, we can advance to nicer programs. A very important aspect of programming are something called **variables**. Just like in Mathematics, we can assign values to things. Try it out, write the following statements, one by one:
+Now, finally that we have an idea on how to use `print`, we can advance to more interesting programs. A very important aspect of programming are something called **variables**. Just like in Mathematics, we can assign values to things. Try it out, write the following statements, one by one:
 ```python
 >>> x = 5
 >>> y = 3
->>> print(x+y)
+>>> print x + y
 8
 ```
 As you probably expected, this will print out `8`. No surprise so far.
@@ -29,7 +29,7 @@ Interestingly, we can overwrite variables: Type out
 >>> x = 5
 >>> superBigNumber = 3133723666
 >>> x = 7 + x
->>> print(x + superBigNumber)         
+>>> print x + superBigNumber
 3133723678
 ```
 Who said variable names had to be boring?
@@ -42,23 +42,23 @@ If you are studying computer science, you don't have much time. So, because of t
 ```python
 >>> x = 5
 >>> x += 3
-print x
+>>> print x
 8
 >>> y = 13
->>> y *= x #the same as y = y * x
+>>> y *= x  # the same as y = y * x
 104
 ```
 
-There you go! Now, you saw the `#` after our line of code? This is a so-called *comment*. Comments are useful when you want to write something about the code. The Python interpreter will find the `#` and from that point onwards, it will just ignore everything entered in this line.
+There you go! The `#` after our line of code is called *comment*. Comments are useful when you want to write something about the code. The Python interpreter will find the `#` and from that point onwards, it will just ignore everything entered in this line.
 
 Speaking of the difference to Mathematics, there is another one. Try out multiplication:
 ```python
->>> print(4 * 5)
+>>> print 4 * 5
 20
 ```
 This works fine. But what about division?
 ```python
->>> print(4 / 5)
+>>> print 4 / 5
 0
 ```
 Huh. What happened here? Well. Normal division in Python simply slices off what would be after the dot in a division. This is because Python variables have something called *type*. We say a **variable is of a certain type**.
@@ -66,18 +66,18 @@ Huh. What happened here? Well. Normal division in Python simply slices off what 
 ##Python types
 We have already seen whole numbers, i.e. 5, 3, 9, 14275855431 or -3014. These numbers are of type **integer** (or *int*). Similarly, Python has numbers with positions after the dot, so-called **floating-point numbers** (computer scientists call them *float*). The good thing about division with floats is that Python is able to do division with positions after the dot. Already, we see that Python tries to understand the statements that we write and interpret them in the most intelligent way it can: If a variable is of type **integer**, division stops before the dot, otherwise,the result is no integer any more! Similarly with floats: Division with floats will always (actually, only in most cases) ending in floats.
 ```python
->>> print(4.0 / 5)
+>>> print 4.0 / 5
 0.8
->>> print(8.5/0.25)
+>>> print 8.5 / 0.25
 34.0
 ```
 
 ***
 For more complex formulas, in Mathematics, you have learned that we use parentheses to show what to compute first. Computer Science is very much related to Maths and the same convention applies. Take the following example. What will be the output (see end of this part for solution)?
 ```python
->>> print((5 + 3)/4) #(a)
->>> print(5 + 3 / 4) #(b)
->>> print(5 + (3 / 4)) #(c)
+>>> print (5 + 3) / 4  # (a)
+>>> print 5 + 3 / 4  # (b)
+>>> print 5 + (3 / 4)  # (c)
 ```
 ***
 
@@ -87,7 +87,7 @@ Strings are awesome! Try the following:
 ```python
 >>> myName = "Peter"
 >>> myFriendsName = "Paul"
->>> print(myName + " is friends with " + myFriendsName)
+>>> print myName + " is friends with " + myFriendsName
 ```
 What happens? Well, the result `Peter is friends with Paul` gets printed. As you can see, we can use the `+` operator for "adding" strings to one another. When Python computes the values in the `print()` statement, it actually first combines the individual elements.
 
@@ -97,29 +97,19 @@ However, when we try to do the following:
 ```python
 >>> myName = "Peter"
 >>> myAge = 876
->>> print(myName + " is " + myAge + " years old")
+>>> print myName + " is " + myAge + " years old"
 ```
 we get an error! That is due to the fact that the `+` does not know what to do in this case: Should it treat the value stored in " is " as a number and literally add it to the integer myAge, or should it treat myAge as a String and append it to " is "? In this case, we have to *tell the operator what to do*. When we want to use numbers (integers, floats) as strings, we put backticks (\`\`) around numbers to convert them to Strings. This procedure of taking a value of one type and changing it to another type is called `type conversion`. The correct way to do the example above would be:
 ```python
 >>> myName = "Peter"
 >>> myAge = 876
->>> print(myName + " is " + `myAge` + " years old")
+>>> print myName + " is " + `myAge` + " years old"
 ```
 Try it out for yourself!
 
-One more thing: In Python (and also in may other programming languages), there is another data type for individual characters, simply called **characters** (or **chars**). There is a special syntax for chars: Because they are so similar to Strings, we also show them with quotes, but because of their difference, we use single quotes.
-```python
->>> someChar = ':'
->>> someOtherChar= 'D'
->>> print(someChar + someOtherChar)
-:D
-```
-
-The good thing is, because chars are so similar to strings, there is not much type conversion to be done, we just append one variable to another. Even `'d' + "iesel"` (character + string) would work fine.
-
 To summarize:
 
-The `print()` function prints results on screen.
+The `print` statement prints results on screen.
 Variables have a *type* such as integer, float or String (in fact, there are many more - even only for numbers), a *name* and hold a *value*.
 
 Solution for the question on parentheses:
@@ -127,10 +117,11 @@ Solution for the question on parentheses:
 
 ##Simple Python Scripts and input
 So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window`. A new empty window should open. In this window, you can type commands, just like in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each line until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before. The last program would look something like this:
+
 ```python
-someChar = ':'
-someOtherChar= 'D'
-print(someChar + someOtherChar)
+someString = ':'
+someOtherString= 'D'
+print someString + someOtherString
 ```
 Really the same, isn't it? When you want to run your program, go to `Run -> Run Module` or press `F5` on your keyboard.
 
@@ -178,7 +169,7 @@ Ok, now we can do some exercises. For now, these are not yet games, but do not t
 ```
 Please enter your friend's name!
 Bob
-Hello, Bob! I hope you are feeling good today.
+Hello, Bob! I hope you are feeling well today.
 ```
 3. While some calculations are fine, for bigger numbers, letting a computer do the work is much better (in fact, number crunching is very common in game design, when drawing complex shapes!). Write a program that takes two numbers (via `input()`) and adds them together!
 4. Write a program that takes one number and prints the square of the number.
@@ -188,7 +179,7 @@ x = 5
 y = 5.0 - 3
 x /= y
 z = x * y
-x = x /3 + 3 / 2 * z
+x = x / 3 + 3 / 2 * z
 ```
 ... and that's it. You made it through the first part, congratulations! Next up: Conditional statements (for which we definitely need bools and input, so keep these in your head!)
 
@@ -251,8 +242,6 @@ output:
 ```
 NOT allowed, you must be at least 18yrs old
 ```
-Yeah... odds are some of you experienced this before.
-And in case you are from the US: We are in Europe...
 
 Here we introduced a new part of *conditions*: the `else` statement. Basically that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
 Furthermore, take a closer look at the `if statement`:
