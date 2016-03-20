@@ -22,11 +22,18 @@ def getDouble(number):
   return number * 2
 ```
 
-###So what exactly is a function?
-Ok. The structure for creating functions is `def <name of function>(argument1, argument2, argument3):`. In general, functions have the following properties:
-* They can take a number of **arguments** specified by parentheses (in the example, `x` is an argument)
-* They can **return** a value (but don't have to). The return type is typically the result of a series of different commands
-* They sum up a **contained unit of code** that sums up a process
+Functions have the following properties:
+
+  * They take a number of **arguments** specified by parentheses (in the example, `x` is an argument)
+  * They may **return** a value (but don't have to). The return type is typically the result of a series of different commands
+  * They sum up a **contained unit of code** that sums up a process
+
+```python
+def function_name(argument1, argument2, ...):
+  do_something()
+  
+  return
+```
 
 ###Example
 To put these aspects more into perspective, here is one more example program:
@@ -81,6 +88,96 @@ A couple of things here:
 1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
 2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
 
+### Recursion
+Functions can actually call themselves! However, at some point, the function has to stop calling itself. Consider the following functions, which calculate the product of all numbers from 1 to n:
+
+```python
+def factorialLoop(n):
+  ret = 1
+  for i in range(1, n + 1):  # so that it runs from 1 to n, not 1 to (n - 1)
+    ret *= i
+  return ret
+
+def factorialRecursive(n):
+  if n == 0:
+    return 1
+  elif n > 0:
+    return n * factorial(n - 1)
+  else:
+    return 0
+```
+
+These two are actually the same! If we write out the function calls for `factorialRecursive(3)`, it would look like this:
+
+```python
+factorialRecursive(3)
+3 * factorialRecursive(2)
+3 * 2 * factorialRecursive(1)
+3 * 2 * 1 * factorialRecursive(0)
+3 * 2 * 1 * 1
+6
+```
+
+Recursion has its advantages and disadvantages - it allows us to solve certain problems easily, calling a function over and over adds overhead to our program (and if our base case is wrong, we will recurse indefinitely).
+
+###Exercises on functions
+
+1. Write a function `isInRange(lower, upper, value)` that checks if a value is in a specified range(e.g. `isInRange(-13, 13, 0)` is `True`, `isInRange(-13, 13, 14)` is false).
+
+2. Write a function to show the numbers between the numbers given by the user. E.g. `getRange(7, 13)` would get you `[7, 8, 9, 10, 11, 12, 13]`. You can declare empty lists with e.g. `items = []`, and add elements to its end with e.g. `items.append(1337)`.
+
+3. Write a function to print out a triangle like so: `triangle(3)` should give you:
+
+```pseudo
+***
+**
+*
+```
+
+`triangle(2)`
+
+```pseudo
+**
+*
+```
+
+Use two for loops for this exercise.
+
+4. Write a program to print triangles of height `n`, `n` times. E.g. `multiTriangles(3)`:
+
+```pseudo
+***
+**
+*
+***
+**
+*
+***
+**
+*
+```
+
+Use your function `triangle()` to do this task quickly.
+
+### Exercises on recursion
+
+1. Write a recursive function `fib(n)` that returns Fibonacci numbers. The Fibonacci function is defined like this:
+  For `fib(0)`, the function should return `0`, for `fib(1)`, the function should return `1`. For all other values, it should return the sum of `fib(n - 1)` and `fib(n - 2)`.
+  The first few Fibonacci numbers are:
+  ```
+  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89
+  ```
+  Calculate `fib(20)`. What is the largest Fibonacci number you can calculate with this funcion that stops running within 30 seconds? (HINT: It is probably quite close to fib(20)).
+
+2. Write a recursive function of `triangle()` that writes out the triangle.
+
+3. Write a recursive function that reverses a list. Example:
+```python
+reverse([1, 2, 3])
+[3, 2, 1]
+```
+For this, append the end of the list to a newly created list, similarly to our Factorial example.
+
 ### Notes on good code style
 In order to make our code readable and easily understandable by others as well, we need to adopt and adhere to a certain coding style. The coding conventions for Python are in a document called [PEP8](https://www.python.org/dev/peps/pep-0008/), which specifies the most common conventions:
 
@@ -89,6 +186,7 @@ In order to make our code readable and easily understandable by others as well, 
  * Operators: Add space before and after operators, e.g. `3 + 4` instead of `3+4`.
  * Whitespace: Avoid extraneous whitespace inside parentheses, brackets or braces; before a comma, semicolon, or colon.
  * Naming: Try to avoid using single character variables; function names should be lowercase, with words separated by underscores.
+ * Scoping: The less global variables you have, the better - they can be accessed anywhere from your code, which makes the code harder to understand and debug.
 
 ###Scope: local vs. global
 In programming languages there is a notion of **scope** which is **the area in which a variable is valid**.
@@ -113,134 +211,6 @@ def addNumber(n):
   number = 13
   return n + number
 ```
-
-###Recursion
-Functions can actually call themselves! Important here is that at some point, the function must stop calling itself. Consider the following programs, that calculates the product of all numbers from 1 to n:
-
-```python
-def factorialLoop(n):
-  ret = 1
-  for i in range(1, n + 1): #so that it runs from 1 to n, not 1 to (n-1)
-    ret *= i
-  return ret
-
-def factorialRecursive(n):
-  if n == 0:
-    return 1
-  elif n > 0:
-    return n * factorial(n - 1)
-  else:
-    return 0
-```
-
-These two are actually the same! If we write out the function calls for `factorialSelfCalling(3)`, it would look like this:
-
-```python
-factorialSelfCalling(3)
-3 * factorialSelfCalling(2)
-3 * 2 * factorialSelfCalling(1)
-3 * 2 * 1 * factorialSelfCalling(0)
-3 * 2 * 1 * 1
-6
-```
-
-You see, this is exactly the same as just going through the loop, adding up the factors. This concept of calling the same function over and over is called **recursion** and is an important concept in Computer Science.
-For now, they are a great way to show how functions work in Python :)
-
-###Exercises on functions
-1. Write a function `getRange(lower, upper)` to return a list of all the integers within a range specified by the arguments. E.g. `getRange(5, 13)` should return `[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]`. Use a for-loop to do that. If the "lower" number is higher than the "upper number", return an empty list.
-In order to do this task, start with the empty list (i.e. create a variable in the function to store the empty list: `items = []`), and then use `items.append()` to add items to the list.
-2. Write a function to add up all the numbers from `0` to a number specified by the user, using the function written in exercise 1.
-
-###Exercises on recursion
-4. There's a weird function in Mathematics called the Fibonacci function `fib()`. It works in the following way:
-  Calling `fib(0)` returns `0` and `fib(1)` returns `1`. In all other cases, `fib(n)` returns `fib(n - 1) + fib(n - 2)`. The first few values are:
-  ```
-  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89....
-  ```
-  Ok I cannot be bothered to write more. Let's let the computer do this:   Find `fib(20)` and try out at which value your computer takes more than two minutes to run the program.
-
-5. **Challenge** Write a version of the Fibonacci program that does not rely on recursion, but instead calculates it doing loops.
-
-
-###Recursion
-Most programming languages (in fact, I would be surprised if you came up with one that doesn't support this) also support **functions calling themselves**. This principle is called **recursion**.
-Let's go through this:
-If we call functions on themselves, we can't go on like this forever, right? At one point we have to stop and reach something called a **base case** - a very simple case, at which we can stop calling functions and actually do other stuff. Every recursive function should have a base case - unless, of course, we want our program to carry on forever...
-So, what does a recursive function look like?
-```python
-def factRecursive(n):
-  if n == 0:
-    return 1
-  else:
-    return n * factRecursive(n - 1)
-```
-Can you figure out what this program does?
-Below is a handy chart showing what happens when we call `factRecursive(3)`:
-```
-factRecursive(3)
-3 * factRecursive(2)
-3 * 2 * factRecursive(1)
-3 * 2 * 1 * factRecursive(0) #now, we reach the base case! Exciting!!
-3 * 2 * 1 * 1 #ok now we just recombine the solutions
-3 * 2 * 1
-3 * 2
-6
-```
-... and that's it! Actually with some functions, recursion is a very bad idea since usually, calling a function over and over is quite slow. Loops are usually much quicker. Below is a the above function using loops:
-```python
-def factLoop(n):
-  ret = 1
-  for i in range(1, n + 1):
-    ret *= i
-  return ret
-```
-
-###Exercises on functions
-1. Write a function `isInRange(lower, upper, value)` that checks if a value is in a specified range(e.g. `isInRange(-13, 13, 0)` is `True`, `isInRange(-13, 13, 14)` is false).
-2. Write a function to show the numbers between the numbers given by the user. E.g. `getRange(7, 13)` would get you `[7, 8, 9, 10, 11, 12, 13]`. You can declare empty lists with e.g. `items = []`, and add elements to its end with e.g. `items.append(1337)`.
-3. Write a function to print out a triangle like so: `triangle(3)` should give you:
-```
-***
-**
-*
-```
-`triangle(2)`
-```
-**
-*
-```
-Use two for loops for this exercise.
-4. Write a program to print triangles of height `n`, `n` times. E.g. `multiTriangles(3)`:
-```
-***
-**
-*
-***
-**
-*
-***
-**
-*
-```
-Use your function `triangle()` to do this task quickly.
-###Exercises on recursion
-1. Write a recursive function `fib(n)` that returns Fibonacci numbers. The Fibonacci function is defined like this:
-  For `fib(0)`, the function should return `0`, for `fib(1)`, the function should return `1`. For all other values, it should return the sum of `fib(n - 1)` and `fib(n - 2)`.
-  The first few Fibonacci numbers are:
-  ```
-  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89
-  ```
-  Calculate `fib(20)`. What is the largest Fibonacci number you can calculate with this funcion that stops running within 30 seconds? (HINT: It is probably quite close to fib(20)).
-2. Write a recursive function of `triangle()` that writes out the triangle.
-3. Write a recursive function that reverses a list. Example:
-```python
-reverse([1, 2, 3])
-[3, 2, 1]
-```
-For this, append the end of the list to a newly created list, similarly to our Factorial example.
-4. **Challenge** Write a version of the Fibonacci function which works with loops.
-
 
 ## Object-oriented programming
 
