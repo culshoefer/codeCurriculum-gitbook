@@ -178,8 +178,6 @@ reverse([1, 2, 3])
 ```
 For this, append the end of the list to a newly created list, similarly to our Factorial example.
 
-4. **Challenge** Write a version of the Fibonacci function which works with loops.
-
 ### Notes on good code style
 In order to make our code readable and easily understandable by others as well, we need to adopt and adhere to a certain coding style. The coding conventions for Python are in a document called [PEP8](https://www.python.org/dev/peps/pep-0008/), which specifies the most common conventions:
 
