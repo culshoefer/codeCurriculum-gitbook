@@ -280,7 +280,7 @@ The reason is, since you are still in the `if` mode, Python expects you to use t
 It should print `child` shouldn't it? But it prints... nothing?
 The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible. 
 
-#### `elif` statements
+### `elif` statements
 
 Let's change the code slightly:
 
@@ -301,9 +301,9 @@ Output: `child`
 
 Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`.
 
-#### Operators
+## Operators
 
-**Comparison operators**:
+### Comparison operators
 
  * `==` – equals (`7 == 7`)
  * `!=` – not equal to (`3 != 5`)
@@ -312,13 +312,13 @@ Nice, it works... Here we'll introduced a new keywords, `elif`, which is short f
  * `>=` – larger than or equal to (`2 >= 2`)
  * `<=` – smaller than or equal to ('6 <= 7`)
  
-**Boolean operators**:
+### Boolean operators
 
  * `and` – logical and  (`True and False == False`)
  * `or` – logical or (`True or False == True`)
  * `not` – logical not (`not True == False`)
 
-**Arithmethic operators**:
+### Arithmethic operators
 
  * `+` – addition (`3 + 5 == 8`)
  * `-` – substraction (`9 - 1 == 8`)
@@ -327,12 +327,12 @@ Nice, it works... Here we'll introduced a new keywords, `elif`, which is short f
  * `%` – modulus/remainder (`14 % 3 == 2`)
  * `**` – exponent (`2**3 == 8`)
 
-**Membership operators**:
+Membership operators:
 
  * `in` – member in collection (`3 in [3, 4, 5] == True`)
  * `not in` – not a member in collection
  
-Note: `in` can also be used for iterating as in `for x in range(10)`.
+**Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`.
 
 ## Loops
 
