@@ -281,7 +281,7 @@ SyntaxError: invalid syntax
 Wait what?
 ![But Why?](img/butwhy.jpg)
 
-The reson is, since you are still in the `if` mode, python expects you to use the tabulator for each folling statement. Let's try it:
+The reason is, since you are still in the `if` mode, Python expects you to use the tabulator for each folling statement. Let's try it:
 ```python
 >>> age = 12
 >>> if age < 7:
@@ -295,7 +295,7 @@ The reason is, that we first checked, if the age is less than 7 years, and than 
 
 #### elif
 
-Let's change the code slightley:
+Let's change the code slightly:
 
 ```python
 >>> age = 12
@@ -308,13 +308,11 @@ Let's change the code slightley:
 ... else:
 ...     print "baby"
 ...     
-output
 ```
-child
-```
+
+Output: `child`
 
 Nice, it works... Here we'll introduced a new keywords, `elif`, which is short for `else if`. This condition will just be checked, if the `if` condition before is not `True`. 
-
 
 ## Loops
 As we have seen in the previous section, conditionals are very important in something called *control flow*, the idea of changing what the program does, depending on what we want it to do. Sounds simple? Well, it is.
@@ -343,7 +341,7 @@ Even though it might look scary at first, in reality it is really simple - if we
 
 ```python
 i = 0
-for step in xrange(3):
+for iteration in xrange(3):
     i += 1
 ```
 
@@ -351,7 +349,7 @@ and after the code has finished its execution, `i` would have value of 3!
 
 Let's analyze the first example though: `for` keyword tells Python that we are going to repeat certain action over and over, `xrange()` is the function which specifies how many times and `step` is the name of the loop variable - if we are interested in knowing how many repetitions we have done, we can print the value of step (sort of).
 
-If you notice, I said that `xrange(...)` takes three arguments, `begin`, `end` and `step` - the last one is voluntary, others are mandatory. Thus if I write a loop like this one:
+If you notice, I said that `xrange(...)` takes three arguments, `begin`, `end` and `step` - the last one is optional, others are mandatory. Thus if I write a loop like this one:
 
 ```python
 for number in xrange(1, 11, 2):
@@ -367,7 +365,7 @@ We will see that the output will be:
 9
 ```
 
-As you might have noticed, the number 11 has been excluded! That is because `xrange(...)` excludes the last number from the range - in reality the loop runs only from 1 to 10 and within this range we have only numbers 1, 3, 5, 7, 9 which are odd.
+As you might have noticed, the number 11 has been excluded! That is because `xrange(...)` excludes the last number from the range - in reality the loop runs only from 1 to 10 and within this range we have only numbers 1, 3, 5, 7, 9 which are the odd ones.
 
 ### While loops
 The best way to find out what while-loops do is to see a live example. Just copy the code and see it for yourself:
