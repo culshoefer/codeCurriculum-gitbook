@@ -155,7 +155,7 @@ As integers hold - well - integers and booleans true or false, integers literall
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
 Later more about booleans (or *bools*, in computer science speak). For now, just remember their existence.
 
-##Exercises on variables and type
+## Exercises on variables and type
 For these exercises, we desperately need two more functions: `int()` and `input()`. `int()` tries to convert a value to an integer (who would have guessed?) and `input()` prompts the user to input something.
 
 A simple program using these two functions which adds two numbers and prints the result:
@@ -433,7 +433,7 @@ Well, with this loop, all I can say is...
 
 You see, when you try running the program, obviously it will never end - because of that - never execute `print str`.
 
-####Exercises
+#### Exercises
 1) Write a program that writes out all of the numbers between two numbers specified by the user. Use the `input()` and the `int()` function to get values. A dialogue should look something like this:
 ``` python
 Please enter the lower boundary:
