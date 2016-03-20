@@ -81,14 +81,17 @@ A couple of things here:
 1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
 2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
 
-###Notes on good code style
-* Keep your code styling consistent (Use the same structure for calling functions over and over)
-* Make use of in-built functions: There are more functions in Python than we could ever teach you. For example, in this program, it would be useful to know if python had more functions on lists. Google up on `finding out if element is in list python` (really easy? It is. But you still have to do the extra step!).
-* Choose good names for variables and functions. For a more detailed description, look in Chapter 1.
-* Variables should be as local as possible (and as global as necessary)
+### Notes on good code style
+In order to make our code readable and easily understandable by others as well, we need to adopt and adhere to a certain coding style. The coding conventions for Python are in a document called [PEP8](https://www.python.org/dev/peps/pep-0008/), which specifies the most common conventions:
 
-###Scope: Local vs. global
-This is no discussion about politics. Instead, in programming languages, there is the notion of **scope** which is **in which area a variable is valid**.
+ * Indentation: Use 4 spaces per indentation level.
+ * Maximum Line Length: Limit all lines to 79 characters per line
+ * Operators: Add space before and after operators, e.g. `3 + 4` instead of `3+4`.
+ * Whitespace: Avoid extraneous whitespace inside parentheses, brackets or braces; before a comma, semicolon, or colon.
+ * Naming: Try to avoid using single character variables; function names should be lowercase, with words separated by underscores.
+
+###Scope: local vs. global
+In programming languages there is a notion of **scope** which is **the area in which a variable is valid**.
 What this means is the following:
 1. If you declare a variable outside of a function, it is considered to be **global**. Example:
 
@@ -111,23 +114,7 @@ def addNumber(n):
   return n + number
 ```
 
-###Scope
-Functions are very neat because they add decent structure to our programs (and structure is suuuuuuuuper important when we write more complicated programs!!). There is one more idea that we have to discuss when we talk about functions: The idea of scope. Scope is the idea of variables only having a small range in which they are valid. With functions, we would say **variables created in functions are only valid in functions**. If you tried to access a variable outside of a function INSIDE a function, it would be fine.
-
-On the other hand, if you try to access a variable outside of a function that was created in a function, you will get an error (Please try it out for yourself).
-
-Here, we have two notions: **local and global scope**: Everything declared outside a function is called a global variable, anything created inside a function is called local scope.
-An example of this notion:
-```python
-glob = 13
-def addOne(n):
-  one = 1
-  return n + one
-```
-Here, `glob` is a global variable, and `one` is a local variable. Of course, we could access glob inside of `addOne()`, or call `addOne()` on `glob`.
-
 ###Recursion
-Ok there needs to be some explaining here.
 Functions can actually call themselves! Important here is that at some point, the function must stop calling itself. Consider the following programs, that calculates the product of all numbers from 1 to n:
 
 ```python
