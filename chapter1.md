@@ -74,6 +74,15 @@ What happens? Well, the result `Peter is friends with Paul` gets printed. As you
 
 ###todo: lists, functions on lists? input?
 
+
+
+
+
+## Conditional statements
+## Loops
+## Arrays and Whack-A-Mole
+
+
 ### Dictionaries
 A very handy datatype in Python are Dictionaries. As the name suggests, they builded like a regular dictionary. In a dictionary there are `keys` and each key has a corresponding `value`.
 If you have English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
@@ -108,13 +117,83 @@ output:
 ```
 Yay! 
 
+#### Loop through a dictionary
+In order to loop through a dictionary we can just use a `for`:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> pons['horse'] = 'Pferd' 
+>>> for key in pons:
+...     print key, ":", pons[key]
+...
 
+```
+output
+``` 
+Auto
+Fenster
+Pferd
+```
 
+#### Checking if a key is in a dictionary
+Next let's try to find out if a specific `key` is in the dictionary.
+We can simply check this by writing `key in dict`:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> 
+>>> 'car' in pons
+```
+output
+```
+True
+```
 
-https://docs.python.org/2/tutorial/datastructures.html
+As you can see, using dictionary is very straightforward.
 
+#### Delete an entry
+In order to delete a key in a pons we just use the `del` command:
 
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> del pons['car']
+>>> pons['car']
+```
+output
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'car'
+```
 
-## Conditional statements
-## Loops
-## Arrays and Whack-A-Mole
+As you can see, after trying to access the deleted key `'car'` we get an error. The same can happen if we try to delete a non-existing key:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> del pons['university']
+```
+output
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'university'
+```
+This could crash your program, sit might be good to check if the key exists before deleting it:
+```python
+>>> pons = {}
+>>> pons['car'] = 'Auto'
+>>> pons['window'] = 'Fenster'
+>>> if 'window' in pons:
+...     del pons['window']
+...
+>>> for key in pons:
+...     print key, ':', pons[key]
+...
+```
+output
+```
+window : Fenster
+```
