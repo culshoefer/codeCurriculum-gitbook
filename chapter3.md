@@ -346,4 +346,111 @@ pygame.quit()
 ```
 You see the part after `print("END")`? This part just displays a nice end message to the user. Feel free to customize everything.
 
-##Todo: Shots, Display, ShotEngine
+##Modify our Game class to work with the player
+Since we now have the Player ready, we can modify our Game class to pass on keyboard presses and to control the player ...would you think! But in fact, we don't have to because we have overridden the `update()` function, which automatically deals with everything..
+
+... so no need to do anything
+
+##Time for some more randomness
+If you want to look up in this document, you will find out that every once in a while, we want an alien to come up in our game and to sweep right at a high speed. For this, we add things to our Game class:
+In our constructor, we add
+```python
+self.specialAlien = AliveEntity(0, 0, 0, 0, 0, "img/shot.png", 0, width, height) #this is just a dummy assignment..
+self.specialAlien.consider = False
+```
+More down in the code, let's add one more method:
+```python
+def spawnSpecialAlien(self):
+  print("SPECIALALIEN")
+  self.specialAlien = AliveEntity(100, 100, 90, 2, 0, "img/sprite8.png", 1, self.width, self.height)
+  self.specialAlien.posBoundaryRight = self.width + 40
+```
+In this method, we just set the instance variable to a new entity with the following properties:
+```
+score: 100
+position x: 100
+position y: 90
+dx: 2
+dy: 0
+image: "img/sprite8.png"
+lives: 1
+width: width of game
+height: height of game
+```
+Easy! In addition to that, if it moves further right than `width + 40`, will it stop? Yes, according to how we specified in our AliveEntity class, as soon as it goes out of bounds.
+
+As you can see, this is quite basic here. This is because we have done all the hard work before, now we just need to fill in the blanks.
+
+Now, we can create a function in our Game class that combines both functions:
+```python
+def dealWithSpecialAlien():
+  self.specialAlien.updateWithMove()
+  self.specialAlien.draw()
+```
+In our `update()` function, we have to call this function after we draw the player.
+
+One last thing: So far, we don't add the special alien at all. To adjust this, we add more code at the end of our `update()` function to call our `spawnSpecialAlien()` function if we are lucky. Let's do this, add:
+```python
+if(self.isLucky(0.99999)):
+    self.spawnSpecialAlien()
+```
+Done!! Feel free to set the value in parentheses to a lower value, if you want the special alien to spawn more often.
+
+##Now, let's add some bang to our application
+###Shooting player
+Let's start with the following rules:
+* The player can shoot shots which can hit aliens and destroy them
+* The aliens randomly shoot at the player and can reduce the amount of lives the player has
+For this, we don't need a whole class to encapsulate a shot.
+It is enough that we just use our existing `Entity` class. Convenient! In our player class, let's add a couple of functions.
+
+1. We have to account for shooting quickly: We only want the player to be able to shoot say every 200 ticks, so we have to keep track of the previous shot. We do so, by adding a simple instance variable in the Player class. To our constructor, add
+```python
+self.last_shot = 0
+```
+2. We need a separate function to check for if the player should shoot because we need to pass the current ticks from the game. This gives us the function
+```
+def checkShoot(self, pressed_keys, ticks):
+  shot = None
+  if pressed_keys[pygame.K_SPACE] and ticks > self.last_shot + 200
+    create shot
+  return shot
+```
+For now, just do `print("Shooting!")` to check if your code is working correctly.
+3. Add the code for creating a shot. This means we create two functions: One for all of the business around shooting and one for actually creating the shot. This leaves us with two functions, `shoot()` and `makeShot()`.
+For shoot, the function should look like this (add in the blanks!)
+```python
+def shoot(self, ticks):
+  shot = self.makeShot()
+  set last shot to the ticks specified
+  return shot
+```
+For actually shooting, we have to specify what we want our Shot to actually look like. We want it to have the following properties:
+```
+x position: self.x
+y position: self.y
+dx: 0
+dy: -1.25
+image: "img/shot.png"
+width: self.gameWidth
+height: self.gameHeight
+```
+Now, we can specify the `makeShot()` function. If you can figure it out yourself, please don't look at the code below!
+```python
+def makeShot(self):
+  shot = Entity(self.x, self.y, 0, -1.25, "img/shot.png", self.gameWidth, self.gameHeight)
+  return shot
+```
+Back in our function `checkShoot()`, we can now call the `shoot()` function with the correct arguments.
+
+ONE MORE THING THOUGH!
+In our `Game` class, let's add code to (maybe) shoot in our `computeInput()` function:
+At the bottom, add
+```python
+shot = self.player.checkShoot(pressed_keys, self.ticks)
+```
+... else it doesn't work!
+
+###Shooting aliens (oh noooooo!)
+```
+##Todo: ShotEngine (Shooting aliens), Display,
