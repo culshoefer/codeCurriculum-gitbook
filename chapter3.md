@@ -124,3 +124,25 @@ class AliveEntity(Entity):
         self.lives = lives
 ```
 If you know say "wow that is weird", just bare with me one more moment. Because now, we can **overwrite** the `update()` method from the `Entity` class:
+
+Since for aliens, we don't want them to move around too often, we need to leave out the moving and instead create another method responsible for updating WITH moving. There is really no way around it than to copy all the code for updating an entity from the Entity class (what a shame).
+Nevertheless, we also add a check if the number of lives is smaller than zero. If so, we do not consider the entity.
+ However, we add another method for updating the AliveEntity AND moving it. Lastly, we add an option to remove a life (this might seem superfluous, but it helps us focus on the more important bits).
+
+ Here's the rest of the pseudocode for AliveEntity:
+
+ ```
+ def update(self):
+   check boundaries
+   set the rectangle to the position
+   if it is not in screen or if it has less than zero lives,
+    do not consider the entity
+
+def updateWithMove(self):
+    update
+    move
+
+def removeLife(self):
+    subtract 1 from lives
+ ```
+ ...that's it!
