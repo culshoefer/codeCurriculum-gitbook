@@ -452,5 +452,81 @@ shot = self.player.checkShoot(pressed_keys, self.ticks)
 ... else it doesn't work!
 
 ###Shooting aliens (oh noooooo!)
+This is some serious business, when aliens shoot. Let's create a class for it. Since this won't be the only time that we have to perform functions on the shots, we just summarise it as **ShotEngine**.
+The class (including imports) looks like this (again, fill in the blanks!):
+```python
+import pygame
+import random
+from Entity import Entity
+
+class ShotEngine():
+    def __init__(self, gameWidth, gameHeight):
+        self.alienShots = []
+        self.gameWidth = gameWidth
+        self.gameHeight = gameHeight
+
+    def isLucky(self, chance):
+        return random.random() > chance
+
+    def doesAlienShoot(self):
+        return self.isLucky(0.997)
+
+    def makeShot(self, x, y, speed):
+        shot = Entity(x, y, 0, speed, "img/shot.png", self.gameWidth, self.gameHeight)
+        return shot
+
+    def addAlienShot(self, x, y):
+        shot = self.makeShot(x, y, 0.75)
+        self.alienShots.append(shot)
+
+    def deleteAlienShot(self, shot):
+        self.alienShots.remove(shot)
+
+    def makeRandomShots(self, aliens):
+        if(alien does shoot):
+            row = random.randint(0, 4)
+            col = random.randint(0, 10)
+            while not aliens[col][row].consider: #skip aliens that are not visible
+                row = random.randint(0, 4)
+                col = random.randint(0, 10)
+            x = aliens[col][row].x
+            y = aliens[col][row].y
+            add alienshot to (x,y)
+
+    def considerAlienShot(self, shot, player):
+        score = 0
+        if player is hit by shot:
+          self.alienShots.remove(shot)
+          remove life from player
+          add score of player to the score
+        return score
+
+    def computeAlienShots(self, player):
+        score = 0
+        for shot in self.alienShots:
+            score += self.considerAlienShot(shot, player)
+        return score
+
+    def drawAlienShots(self, screen):
+        for shot in self.alienShots:
+            if not shot.isInScreen():
+                self.deleteAlienShot(shot)
+            else:
+                shot.update()
+                shot.draw(screen)
+
+    def computeShots(self, player, specialAlien, aliens):
+        score += self.computeAlienShots(player)
+        return score
+
+    def update(self, aliens, screen):
+        make random shots
+        draw alien shots on screen
+```
+Back in our `Game` class, we just add the following line in the constructor:
+```python
+self.shotEngine = ShotEngine(width, height)
+```
+
 ```
 ##Todo: ShotEngine (Shooting aliens), Display,
