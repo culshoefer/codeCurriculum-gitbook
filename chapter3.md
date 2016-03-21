@@ -145,4 +145,205 @@ def updateWithMove(self):
 def removeLife(self):
     subtract 1 from lives
  ```
- ...that's it!
+ ...that's it! Now, up for an exercise:
+
+ ##Exercise!
+ Use the AliveEntity class to create a multidimensional array. In a new file called `spaceinvaders.py`, import pygame and the new class by
+ ```python
+ from AliveEntity import AliveEntity
+ ```
+ and then create said array. In each element, there should be an entity. Just download some image from the internet to represent the entities. The goal of this exercise is to successfully render the entities on screen how they show up in your array. See below picture for help.
+
+ ![Array indeces](img/array_indeces.png)
+ The "lowest" element should be on the top-left, then right to it, [0][1]... etc. In order to do this, create two for-loops: The first one just goes through all the "rows", the second one through all the elements in that row.
+
+ Make sure that you position the elements correctly, with enough spacing. For drawing, just loop through the entire array, each time calling `draw()` on each element.
+
+##Keyboard input in Python and the Player class
+
+Now, we create the class representing the player. Why a special class for player, you ask? Well, the player has some special responsibilities:
+* If the user presses the left key, the player moves left
+* If the user presses the right key, the player moves right
+* Each time the player updates, it has to reset its speed to 0, if no button is pressed
+
+Here we go! Player inherits from AliveEntity. Here is the class in Pseudocode:
+
+```python
+import pygame
+from AliveEntity import AliveEntity
+
+class Player(AliveEntity):
+    def __init__(self, score, lives, gameWidth, gameHeight):
+        super(Player, self).__init__(score, gameWidth/2, 400, 0, 0, "img/player.png", lives, gameWidth, gameHeight)
+
+    def checkKeyboardInput(self, pressed_keys):
+        self.checkGoLeft(pressed_keys)
+        self.checkGoRight(pressed_keys)
+
+    def checkGoLeft(self, pressed_keys):
+        if pressed_keys[pygame.K_a] or pressed_keys[pygame.K_LEFT]:
+            set dx to -1
+
+    def checkGoRight(self, pressed_keys):
+        if pressed_keys[pygame.K_d] or pressed_keys[pygame.K_RIGHT]:
+            set dx to one
+
+    def update(self):
+        call the update function of the super class
+        move the player
+        set dx to zero
+```
+
+
+ ##Continuing our game: The "Game" class
+ Now, let's create the main class of our Game, logically called Game. In here, all the basic functionality is carried out:
+ * We draw all of our entities
+ * We compute input
+ * We see if the game is over
+ * We carry out all the other game rules
+
+ So, for this, create a new file called (you wouldn't have guessed) Game.py
+
+At the top, we import the following modules:
+```python
+import pygame
+import random
+from AliveEntity import AliveEntity
+```
+Here's the pseudocode:
+```python
+
+class Game():
+    def __init__(self, startScore, aliens, player, width, height, size):
+        self.score = startScore
+        self.ticks = 0
+        self.player= player
+        self.aliens= aliens
+        self.running = True
+        self.aliensExist = True
+        self.screen = pygame.display.set_mode(size)
+        self.width = width
+        self.height = height
+
+    def addScore(self, toAdd):
+        add the amount there to the score
+
+    def isLucky(self, chance):
+        see if random.random() is greater than change, If you want to find out what random.random() does, google it!
+
+    def checkGameStop(self, event):
+        if event.type == pygame.QUIT:
+            self.running = False
+        There is really no explaining for this: We come to this later
+
+    def computeInput(self):
+        for event in pygame.event.get():
+            self.checkGameStop(event)
+        same here
+
+    def drawAlien(self, alien):
+        if self.ticks % 200 == 0:
+          update the alien and move it
+        else:
+            just update it
+        in any case, draw the alien
+
+    def drawAliens(self):
+        self.aliensExist = False
+        loop through all the aliens, just as described in the exercise before.
+        for each alien, decide:
+          If alien is not None:
+            self.aliensExist = True
+            self.drawAlien(alien)
+
+    def update(self):
+        self.player.draw(self.screen)
+        self.drawAliens()
+        self.computeInput()
+        self.player.update()
+        self.ticks += 1
+        if self.isGameOver():
+            self.running = False
+
+    def isGameOver(self):
+        return true if the player doesnt have any more lives or if there are no more aliens
+
+    def isRunning(self):
+        return self.running
+```
+Please complete the pseudocode accordingly.
+##Exercise
+In order to use this game, we expand our spaceinvaders.py a bit.
+
+```python
+import pygame
+import sys
+from AliveEntity import AliveEntity
+from Player import Player
+from Game import Game
+
+pygame.init()
+
+size = width, height = 448, 512
+white = 255, 255, 255
+
+def spawnNewAlien(xpos, ypos):
+    startPosx = width/2 -1400 + 30 * xpos
+    startPosy = height/2 - 130 + 30 * ypos
+    imageName = "img/sprite" + str(ypos + 1) + ".png"
+    score = 5 * (6 - ypos)
+    newAlien = AliveEntity(score, startPosx, startPosy, 4, 0, imageName, 1, width, height)
+    newAlien.posBoundaryLeft = 50 + 30 * xpos
+    newAlien.posBoundaryRight= width -50 - 30 * (10 - xpos)
+    return newAlien
+
+def createAliens(cols, rows):
+    here the code for creating the array of aliens. For every alien, it should create the alien and add it to the array. We do this to pass the array to our Game class later. The code below should look similar to the one above, except for one point:
+    aliens = []
+    for i in range(cols):
+        row = []
+        for j in range(rows):
+            newAlien = spawnNewAlien(i, j)
+            row.append(newAlien)
+        aliens.append(row)
+    return aliens
+
+def printEndMessage(message):
+    text = game.display.font.render(message, 1, white)
+    textRect = text.get_rect()
+    textRect.x = width/2
+    textRect.y = height/2
+    game.screen.blit(text, textRect)
+    pygame.display.flip()
+
+def runGame(game, clock):
+    while game is running,
+      call game.update()
+      do pygame.display.flip()
+      clock.tick(300)
+
+clock = pygame.time.Clock()
+aliens = createAliens(11, 5) #we create 11x5 = 55 aliens
+player = Player(-100, 3, width, height) #the player is a special class.
+game = Game(0, aliens, player, width, height, size)
+
+runGame(game, clock)
+
+print("END")
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            break
+    pressed_keys = pygame.key.get_pressed()
+    if pressed_keys[pygame.K_SPACE]:
+        break
+    if no aliens exist,
+        printEndMessage("YOU WON!")
+    else:
+        printEndMessage("YOU LOST.")
+    clock.tick(300)
+pygame.quit()
+```
+You see the part after `print("END")`? This part just displays a nice end message to the user. Feel free to customize everything.
+
+##Todo: Shots, Display, ShotEngine
