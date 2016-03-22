@@ -7,8 +7,8 @@ In practice, we have the following rules:
 2) Aliens move from right to left as well but not as often as the player
 3) The player can shoot from time to time to take out the aliens and score points
 4) The aliens shoot randomly and may harm the player (who has three lives)
-5) The game ends if either no aliens are present any more or the player doesn't have any lives
-6) If you're lucky, a different kind of alien can appear, moving fast but earning you loads of points
+5) The game ends if either no more aliens are present or the player doesn't have any more lives
+6) If you're lucky, a different kind of alien can appear, moving fast but earning you loads of points if you shoot it
 
 ##So how do we start?
 In this tutorial, I will only provide you with so-called *pseudocode*, that is code that looks almost like full-on code, but you have to do all the coding yourself. We have done all the thinking for you.
@@ -17,7 +17,8 @@ Let me first explain a bit how PyGame works.
 In PyGame, we use something called **sprites** and a **display**. We draw sprites on the display (our screen).
 Let's start with some example code:
 ```python
-#from http://www.pygame.org/docs/tut/intro/intro.html, yes I know shamelessly copied
+#from http://www.pygame.org/docs/tut/intro/intro.html,
+#yes I know shamelessly copied
 import sys, pygame
 
 pygame.init()
@@ -25,7 +26,7 @@ size = width, height = 320, 240
 speed = [2, 2]
 black = 0, 0, 0
 screen = pygame.display.set_mode(size)
-ball = pygame.image.load("ball.bmp")
+ball = pygame.image.load("ball.bmp") #self-explanatory
 ballrect = ball.get_rect()
 while 1:
   for event in pygame.event.get():
@@ -41,11 +42,11 @@ while 1:
   screen.blit(ball, ballrect)
   pygame.display.flip()
 ```
-A couple of things here. You might have noticed that there is a `pygame` object which we modify, when we load images etc. Also notice the big `while`-loop, that goes forever (seemingly). So how does pygame draw stuff? Look at the last three lines: We first fill the screen black, then we draw the ball (`blit` is a very weird function, just be fine with passing the image and its rectangle and position to it). Finally, the `flip()` method: This finally accepts all changes and presents them to the viewer.
+A couple of things here. You might have noticed that there is a `pygame` object which we modify when we load images etc. Also notice the big `while`-loop, that goes forever (seemingly). So how does pygame draw stuff? Look at the last three lines: We first fill the screen black, then we draw the ball (`blit()` is a very weird function, just be fine with passing the image and its rectangle and position to it). Finally, the `flip()` method: This finally accepts all changes and presents them to the viewer.
 
 If we did not have the flip function, we would be unable to see our changes. Since it is very expensive to always draw stuff on the screen, it is better to have a lot of changes and then call `flip()` only once to set them free.
 
-##Our first class for space invaders
+##Entity: Our first class for space invaders
 ![The video game classic](img/space_invaders.png)
 We start with a **Entity** class, that is responsible for one, well, entity (so aliens, player...).
 It has the following attributes:
@@ -54,12 +55,13 @@ x, y, #the entities position as coordinates
 dx, dy, #the change in coordinates in one update
 image, #the image of the entity
 width, height, #width and height of the entity
-rect, #just an instance variable for the rect of the image, because we need that quite often
-posBoundaryLeft, posBoundaryRight, #left and right boundaries in which the entity is restricted to move in
-
-
+rect, #just an instance variable for the rect of the image
+# because we need that quite often
+posBoundaryLeft, posBoundaryRight,
+#left and right boundaries in which the entity is restricted to move in
 consider, #whether we actually draw the entity or not
-gameWidth, gameHeight #for orientation the game's width and height.
+gameWidth, gameHeight
+#for orientation the game's width and height.
 ```
 The following is the constructor for class `Entity`:
 ```python
@@ -81,14 +83,21 @@ b        super(Entity, self).__init__()
     self.gameWidth = gameWidth
     self.gameHeight = gameHeight
 ```
-Ok, so far so good, don't leave me just yet! As you can see, posBoundaryLeft and posBoundaryRight are by default set to be 20 pixels from the edges of the screen (plus half of the Entity's width). Please do go to the PyGame example and rewrite it using the Entity class. There, we will now add more methods:
+Ok, so far so good, don't leave me just yet! As you can see, posBoundaryLeft and posBoundaryRight are by default set to be 20 pixels from the edges of the screen (plus half of the Entity's width). Please do go to the PyGame example (with the ball) and rewrite it using the Entity class.
+
+There, we will now add more methods. Please do fill in the blanks where necessary:
 ```python
 def update(self):
-  '''this is just a function to both move the entity, check for its boundaries and to set self.rect.center = (self.x, self.y), in other words to adjust the rect to the entity's position'''
+  '''this is just a function to both move the entity,
+  check for its boundaries and to set
+  self.rect.center = (self.x, self.y),
+  in other words to adjust the rect to the entity's position'''
 
 def intersects(self, entity):
-  return self.rect.colliderect(Rect of another entity)
-  '''this is a function that is built-in by default, but not so elegantly. This checks if the rect of one entity collides with another'''
+  #return self.rect.colliderect(Rect of another entity)
+  '''this is a function that is built-in by default,
+  but it is not elegant. So we write a nicer version.
+  This checks if the rect of one entity collides with another'''
 
 def move(self):
   #adds dx to the variable x of the object and dy to y
@@ -97,25 +106,32 @@ def checkBoundaries(self):
   if self.x < self.posBoundaryLeft:
     self.x = self.posBoundaryLeft
     self.dx = - self.dx
-  '''checks if the position is too far left: Is x smaller than posBoundaryLeft? If so, set the position of the object to the boundary and revert the direction in x-dimension (dx), similarly for the right side!'''
+  '''checks if the position is too far left:
+  Is x smaller than posBoundaryLeft?
+  If so, set the position of the object to the boundary
+  and revert the direction in x-dimension (dx),
+  similarly for the right side! Fill in this part!'''
 
 def isInScreen(self):
-  return True if y > 0 and x > 0 and y < gameheight and x < gamewidth
   #return true if it is in screen (within game dimensions)
+  '''almost the same like the intersects function above,
+  just checks if both entities are considered or not'''
 
-'''almost the same like the intersects function above, just checks if both entities are considered or not'''
 def isHit(self, entity):
-        return self.consider and entity.consider and self.intersects(entity)
+  '''return True if we consider the object,
+  and if we consider the other entity and they intersect.
+  In all other cases, return False'''
 
 def draw(self, screen):
-  if to consider the object and it is inscreen then
-    call screen.blit on the objects image and its rect
+  '''if to consider the object and it is inscreen then
+    call screen.blit on the objects image and its rect'''
 ```
-###Exercise time!
+###Exercise: Ball collision
 With this new class, start writing a small game in which we have two balls. For this, use the example code above and start shaping it with our fresh Entity class. If the two balls should collide, print "Oh no!" on the screen!
 
-##Well, that's nice and fine, but I want a game!
-Don't worry just for now! Let's add ANOTHER class, just for the sake of it to **inherit** from our Entity class, let's call it AliveEntity. Since we have both entities that need scores and those which don't, we need two separate classes for them. Although we essentially don't add much more to it, we still need different classes. Here is the constructor of `AliveEntity`:
+##AliveEntity: Adding scores and lives to Entity
+Well, that's nice and fine, but I want a game!
+Don't worry just for now! Let's add ANOTHER class, just for the sake of it to **inherit** from our Entity class, let's call it AliveEntity. Since we have both entities that need scores and those which don't, we need have two separate classes for them. Although we essentially don't add much more to it, we still need different classes. Here is the constructor of `AliveEntity` (and the start of the class):
 ```python
 class AliveEntity(Entity):
     def __init__(self, score, x, y, dx, dy, image, lives, gameWidth, gameHeight):
@@ -123,18 +139,19 @@ class AliveEntity(Entity):
         self.score = score
         self.lives = lives
 ```
-If you know say "wow that is weird", just bare with me one more moment. Because now, we can **overwrite** the `update()` method from the `Entity` class:
+If you know say "wow that is weird", just bare with me one more moment. Because now, we can **override** the `update()` method from the `Entity` class:
 
-Since for aliens, we don't want them to move around too often, we need to leave out the moving and instead create another method responsible for updating WITH moving. There is really no way around it than to copy all the code for updating an entity from the Entity class (what a shame).
-Nevertheless, we also add a check if the number of lives is smaller than zero. If so, we do not consider the entity.
- However, we add another method for updating the AliveEntity AND moving it. Lastly, we add an option to remove a life (this might seem superfluous, but it helps us focus on the more important bits).
+Since for aliens, we don't want them to move around too often, hence we need one method where the objects update and one method where the objects update AND where they move.
 
- Here's the rest of the pseudocode for AliveEntity:
+Additionally, we also add a check if the number of lives is smaller than zero. If so, we do not consider the entity.
+Lastly, we add an option to remove a life (this might seem superfluous to you, but it helps us focus on the more important bits later on).
+
+ Here's the rest of the pseudocode for AliveEntity, for you to fill in:
 
  ```
  def update(self):
-   check boundaries
-   set the rectangle to the position
+   check boundaries of objects
+   set the object's rectangle to the position (like above)
    if it is not in screen or if it has less than zero lives,
     do not consider the entity
 
@@ -147,7 +164,7 @@ def removeLife(self):
  ```
  ...that's it! Now, up for an exercise:
 
- ##Exercise!
+ ##Exercise: Displaying an array of entities
  Use the AliveEntity class to create a multidimensional array. In a new file called `spaceinvaders.py`, import pygame and the new class by
  ```python
  from AliveEntity import AliveEntity
@@ -159,14 +176,32 @@ def removeLife(self):
 
  Make sure that you position the elements correctly, with enough spacing. For drawing, just loop through the entire array, each time calling `draw()` on each element.
 
-##Keyboard input in Python and the Player class
+ It should look like this. Please do expand the code so that you end up with moving entities between specified boundaries, similar to how original space invaders works:
+ ```Python
+def createAliens(cols, rows):
+    aliens = []
+    for i in range(cols):
+        row = []
+        for j in range(rows):
+            newAlien = AliveEntity... create object in the right way
+            row.append(newAlien)
+        aliens.append(row)
+    return aliens
+
+def drawAliens(self, aliens):
+    for row in aliens:
+        for alien in row:
+            if alien is not None:
+                alien.draw
+ ```
+
+##PyGame keyboard input and the Player class
 
 Now, we create the class representing the player. Why a special class for player, you ask? Well, the player has some special responsibilities:
 * If the user presses the left key, the player moves left
 * If the user presses the right key, the player moves right
 * Each time the player updates, it has to reset its speed to 0, if no button is pressed
-
-Here we go! Player inherits from AliveEntity. Here is the class in Pseudocode:
+These functions will be separate methods. Obviously, Player inherits from AliveEntity. Here is the class in Pseudocode:
 
 ```python
 import pygame
