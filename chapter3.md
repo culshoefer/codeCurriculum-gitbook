@@ -1,4 +1,4 @@
-# Third Chapter: Programming games in PyGame
+#Chapter 3: Programming games in PyGame
 
 ##Space invaders!
 Now, let's start with proper game development, shall we? Let's start with one of the greatest games ever invented: SPACE INVADERS!

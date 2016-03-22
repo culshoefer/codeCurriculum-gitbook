@@ -658,15 +658,16 @@ This is because otherwise, Python would have a hard time understanding whether y
 ```
 
 ## Dictionaries
-A very handy datatype in Python are Dictionaries. As the name suggests, they builded like a regular dictionary. In a dictionary there are `keys` and each key has a corresponding `value`.
-If you have English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
+A very handy datatype in Python are dictionaries. As the name suggests, they work like a regular dictionary (in real life): In a dictionary there are `keys` and each key has a corresponding `value`.
+If you have an English - German dictionary and you look up the word *car* you get the answer *Auto*, which is German for car..
 Basically, that is the same in Python. Let's see an example:
 ```python
 >>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
 ```
+Who knew that not only we are learning Python, but also German?
 
-In Python a dictionary is created using the `{` and `}` brackets. The `key` and the `value` is seperated by a `:`.
-How do we access now the data? Pretty like a list:
+In Python a dictionary is created using `{` and `}` - the curly braces. The `key` is separated from the `value` by a `:`.
+How do we access now the data? Pretty much the same way like a list:
 ```python
 >>> dictionary = {'car' : 'Auto', 'horse' : 'Pferd', 'window' : 'Fenster'}
 >>> dictionary['car']
@@ -675,15 +676,15 @@ output:
 ```
 'Auto'
 ```
-... which is exactly what we wanted to get.
+... which is exactly what we wanted to get. **WROOM WROOM**. Ok enough of the jokes, back to business.
 
-If we want to add a entry into an existing dictionary we just type a _not_ existing `key` into the `[ ]` like:
+If we want to add a entry into an existing dictionary we just type some `key` not already in the dictionary in square brackets `[ ]` like so:
 ```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> pons['horse'] = 'Pferd'
->>> pons['car']
+>>> oxfordDict = {} #the empty dictionary!
+>>> oxfordDict['car'] = 'Auto'
+>>> oxfordDict['window'] = 'Fenster'
+>>> oxfordDict['horse'] = 'Pferd'
+>>> oxfordDict['car']
 ```
 output:
 ```
@@ -692,49 +693,49 @@ output:
 Yay!
 
 ### Loop through a dictionary
-In order to loop through a dictionary we can just use a `for`:
+In order to loop through a dictionary we can just use a `for`-loop:
 ```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> pons['horse'] = 'Pferd'
->>> for key in pons:
-...     print key, ":", pons[key]
+>>> oxfordDict = {}
+>>> oxfordDict['car'] = 'Auto'
+>>> oxfordDict['window'] = 'Fenster'
+>>> oxfordDict['horse'] = 'Pferd'
+>>> for key in oxfordDict:
+...     print key, ":", oxfordDict[key]
 ...
 
 ```
 output
 ```
-Auto
-Fenster
-Pferd
+car : Auto
+window : Fenster
+horse : Pferd
 ```
 
 ### Checking if a key is in a dictionary
 Next let's try to find out if a specific `key` is in the dictionary.
-We can simply check this by writing `key in dict`:
+We can simply check this by writing `key in <dict>`:
 ```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
+>>> oxfordDict = {}
+>>> oxfordDict['car'] = 'Auto'
+>>> oxfordDict['window'] = 'Fenster'
 >>>
->>> 'car' in pons
+>>> 'car' in oxfordDict
 ```
 output
 ```
 True
 ```
 
-As you can see, using dictionary is very straightforward.
+As you can see, using dictionaries is very straightforward.
 
 ### Delete an entry
-In order to delete a key in a pons we just use the `del` command:
+In order to delete a key-value pair in a dictionary we just use the `del` command:
 
 ```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> del pons['car']
->>> pons['car']
+>>> oxfordDict = {}
+>>> oxfordDict['car'] = 'Auto'
+>>> del oxfordDict['car']
+>>> oxfordDict['car']
 ```
 output
 ```
@@ -745,9 +746,9 @@ KeyError: 'car'
 
 As you can see, after trying to access the deleted key `'car'` we get an error. The same can happen if we try to delete a non-existing key:
 ```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> del pons['university']
+>>> oxfordDict = {}
+>>> oxfordDict['car'] = 'Auto'
+>>> del oxfordDict['university']
 ```
 output
 ```
@@ -755,21 +756,21 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'university'
 ```
-This could crash your program, sit might be good to check if the key exists before deleting it:
+This could crash your program, so it might be good to check if the key exists before deleting it:
 ```python
->>> pons = {}
->>> pons['car'] = 'Auto'
->>> pons['window'] = 'Fenster'
->>> if 'window' in pons:
-...     del pons['window']
+>>> oxfordDict = {}
+>>> oxfordDict['car'] = 'Auto'
+>>> oxfordDict['window'] = 'Fenster'
+>>> if 'window' in oxfordDict:
+...     del oxfordDict['window']
 ...
->>> for key in pons:
-...     print key, ':', pons[key]
+>>> for key in oxfordDict:
+...     print key, ':', oxfordDict[key]
 ...
 ```
 output
 ```
-window : Fenster
+car : Auto
 ```
 
 ## Exercise Chapter One - Hangman
