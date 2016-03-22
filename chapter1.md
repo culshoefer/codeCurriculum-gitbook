@@ -30,8 +30,7 @@ Now, finally that we have an idea on how to use `print`, we can advance to more 
 8
 ```
 As you probably expected, this will print out `8`. No surprise so far.
-Interestingly, we can overwrite variables: Type out
-
+Interestingly, we can overwrite variables:
 ```python
 >>> x = 5
 >>> superBigNumber = 3133723666
@@ -39,16 +38,18 @@ Interestingly, we can overwrite variables: Type out
 >>> print x + superBigNumber
 3133723678
 ```
+...nice!
+
 Who said variable names had to be boring?
 
 Despite all humour, variable names should be useful. For example if your program is storing your height, you might actually call it `height`. People sometimes use useless names for their variables - do not be like these people. Sooner or later, as programs get more complex (commercial applications often have 100,000s lines of code!) good naming gets important.
 
 In this example, multiple things are happening at once. First of all, in Mathematics, something like `x = y + x` does not make much sense: The two statements at each side have different values. However, in Computer Science, things are not necessarily how they are in Mathematics. Actually, when Python tries to understand what you have written, it first tries to find out the value on the *right side of the equation* before assigning the value to the left side.
 
-If you are studying computer science, you don't have much time. So, because of that (actually mainly because it is more readable), there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x`, i.e. adding variables to itself - like in the example above. These statements can be abbreviated to:
+If you are studying Computer Science, you are lazy. So, because of that, there is an abbreviation when you want to do things like `x = x + 3` or `x = x * x`, i.e. adding variables to itself - like in the example above. These statements can be abbreviated to:
 ```python
 >>> x = 5
->>> x += 3
+>>> x += 3 # the same as x = x + 3
 >>> print x
 8
 >>> y = 13
@@ -56,7 +57,7 @@ If you are studying computer science, you don't have much time. So, because of t
 104
 ```
 
-There you go! The `#` after our line of code is called *comment*. Comments are useful when you want to write something about the code. The Python interpreter will find the `#` and from that point onwards, it will just ignore everything entered in this line.
+There you go! The `#` after our line of code is called a *comment*. Comments are useful when you want to write something about the code. The Python interpreter will find the `#` and from that point onwards, it will just ignore everything entered in this line.
 
 Speaking of the difference to Mathematics, there is another one. Try out multiplication:
 ```python
