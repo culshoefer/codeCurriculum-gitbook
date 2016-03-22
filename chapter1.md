@@ -1,9 +1,11 @@
 # Chapter 1: Python Basics
-
 Python is a programming language. When you run Python, you first will have trouble finding out what is going on. The more programs you write and the more you engage in programming, the easier it will get.
-When you run `python`, the so-called IDLE (Integrated Development Environment) opens.
 
+## Getting started
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
+
+On Linux or Mac open the Terminal and run `python` in order to start the python *interpreter* in the Terminal.
+Under windows go to *Start -> Run* and type in `python`
 
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
@@ -12,11 +14,11 @@ Traditionally, in programming, the first thing to do when learning a new program
 ```python
 >>> print "Hello, world!"
 ```
-... and that is it! In order to run your program, hit `Enter`. Already, for this simple program to work, a lot of things are going on. `print` does a very simple thing. It just tries to display the contents inside the parentheses. More about this in later exercises.
+... and that is it! In order to run your program, hit `Enter`. Already, for this simple program to work, a lot of things are going on. `print` does a very simple thing. It just tries to display the contents inside the quotation marks. More about this in later exercises.
 
 **Try it out!**
 
-Congratulations on your (potentially) first program ever written! If you want to, try changing the text inside the `print` statement. What happens if you do `print "Hello, world!"` i.e. leaving out the quotation marks?
+Congratulations on your (potentially) first program ever written! If you want to, try changing the text inside the `print` statement.
 
 ## Variables and statements
 Now, finally that we have an idea on how to use `print`, we can advance to more interesting programs. A very important aspect of programming are something called **variables**. Just like in Mathematics, we can assign values to things. Try it out, write the following statements, one by one:
