@@ -36,9 +36,9 @@ while True:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       sys.exit()
-      
+
   ballrect = ballrect.move(speed)
-  
+
   if ballrect.left < 0 or ballrect.right > width:
     speed[0] = -speed[0]
   if ballrect.top < 0 or ballrect.bottom > height:
@@ -75,25 +75,25 @@ The following is the constructor for class `Entity`:
 ```python
 def __init__(self, x, y, dx, dy, image, gameWidth, gameHeight):
     super(Entity, self).__init__()
-    
+
     self.x = x
     self.y = y
     self.dx = dx
     self.dy = dy
-    
+
     self.image = pygame.image.load(image)
     self.width = self.image.get_width()
     self.height= self.image.get_height()
-    
+
     self.rect = self.image.get_rect()
     self.rect.x = self.x
     self.rect.y = self.y
-    
+
     self.posBoundaryLeft = 20 + self.width/2
     self.posBoundaryRight= gameWidth - (20 + self.width/2)
-    
+
     self.consider = True
-    
+
     self.gameWidth = gameWidth
     self.gameHeight = gameHeight
 ```
@@ -124,7 +124,7 @@ def checkBoundaries(self):
   if self.x < self.posBoundaryLeft:
     self.x = self.posBoundaryLeft
     self.dx = - self.dx
-    
+
   '''checks if the position is too far left:
   Is x smaller than posBoundaryLeft?
   If so, set the position of the object to the boundary
@@ -619,3 +619,76 @@ Back in our `Game` class, we just add the following line in the constructor:
 ```python
 self.shotEngine = ShotEngine(width, height)
 ```
+
+Now that we are done with shooting, let's finalise our game. We now only need to:
+
+* Display the current score of the game
+* Display the amount of lives the player has
+
+For this, we create a last class called `Display`. Here is the skeleton for its file:
+
+```python
+import pygame, copy
+
+topDist = 150
+liveXDist = 30
+white = 255, 255, 255
+black = 0, 0, 0
+
+class Display():
+    def __init__():
+        self.lifeImage = pygame.image.load("img/heart.png")
+        self.font = pygame.font.SysFont("monospace", 20)
+        self.text = self.font.render("SCORE", 1, white)
+        self.textpos = self.text.get_rect()
+        self.textpos.x = 20
+        self.textpos.y = 30
+        self.scorepos = copy.copy(self.textpos)
+        self.scorepos.x = self.scorepos.x + self.text.get_width() + 20
+        self.scorepos.y = self.scorepos.y
+```
+
+Because pygame is weird, we need to carefully store the font in a separate instance variable. Similarly for the positions of the text.
+
+Now, let's add a function to draw all of the text, given the current score of the game and a screen to render it onto:
+
+```python
+    def drawAllText(self, screen, score):
+        screen.fill(black)
+        screen.blit(self.font.render(`self.score`, 30, white), self.scorepos)
+        screen.blit(self.text, self.textpos)
+```
+
+... and likewise a function to draw the lives the player has:
+
+```python
+    def drawLives(self, screen, numLives):
+        for i in range(numLives):
+            livesRect = self.lifeImage.get_rect()
+            livesRect.x = self.textpos.x + topDist + i * liveXDist
+            livesRect.y = self.textpos.y
+            screen.blit(self.lifeImage, livesRect)    
+```
+
+Finally, we add a function to call both drawing functions together. Fill in the rest:
+
+```python
+
+    def drawAll(self, screen, score, numLives):
+        draw all text
+        draw lives
+```
+
+Finally, in our `Game` class, we add the instance variable for `Display` in our constructor:
+
+```python
+self.display = Display()
+```
+
+In the `update` function, we add:
+
+```python
+self.display.drawAll(screen, score, self.lives)
+```
+
+And we're done! Congratulations, you just implemented Space Invaders!
