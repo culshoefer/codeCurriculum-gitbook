@@ -4,9 +4,9 @@ Python is a programming language. When you run Python, you first will have troub
 ## Getting started
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
 
-Just start `IDLE` on your machine.
+For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs. However for complex ones we are going to use IDLE, which automatically highlights our code written and thus makes it more readable.
 
-For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
+If you want to launch Python console, open your terminal and type `python`. However, launching IDLE is different; if you are using Windows, you need to find it under `Start > All Programs > Python > Python IDLE`; on Mac and Linux open your Terminal and type `idle-python2.7`.
 
 ## Hello, world!
 Traditionally, in programming, the first thing to do when learning a new programming language is `Hello, world!`. In Python, this is very simple (you do not have to copy `>>>`, that is just to indicate that it is written in the Python interpreter). Just type
