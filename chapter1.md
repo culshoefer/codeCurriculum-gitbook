@@ -617,7 +617,7 @@ Example of using these methods:
 
 ### Tuples
 
-Tuples in Python are **immutable** lists. You will probably not use them very often, but it's good to know about them. Basically, the difference between tuples and lists is that tuples cannot be changed, and tuples uses parentheses, while lists use square brackets.
+Tuples in Python are **immutable** lists (we cannot change their values). You will probably not use them very often, but it's good to know about them. Basically, the difference between tuples and lists is that tuples cannot be changed, and tuples use parentheses, while lists use square brackets.
 
 ```python
 tup = (4, 5, 'crocodile')
@@ -643,14 +643,14 @@ This is because otherwise, Python would have a hard time understanding whether y
 
 2. Given a list of numbers like `[2, 5.4, -1.7, 45, 13]`, write a Python program to calculate the sum of the numbers. **Challenge**: calculate the average.
 
-3. Write a Python program that takes a list of lists (a matrix) like `[[1,2,3],[4,5,6],[7,8,9]]` and prints it on screen in the following way:
+3. Write a Python program that takes a list of lists with the same number of elements in each list (a matrix) like `[[1,2,3],[4,5,6],[7,8,9]]` and prints it on screen in the following way:
 ```
       1 2 3  
       4 5 6  
       7 8 9
 ```
 
-4. Write a Python program that takes two matrixes of the same size, adds their elements together and prints the result on screen. **Challenge**: print the matrices along with their result like this:
+4. Write a Python program that takes two matrices of the same size, adds their elements together and prints the result on screen. **Challenge**: print the matrices along with their result like this:
 ```
       1 2 3     4 0 3     5 2 6
       4 5 6  +  1 2 2  =  5 7 8
