@@ -31,7 +31,7 @@ Functions have the following properties:
 ```python
 def function_name(argument1, argument2, ...):
   do_something()
-  
+
   return
 ```
 
@@ -211,7 +211,7 @@ def addNumber(n):
 
 ## Object-oriented programming
 
-As we have seen in previous sections, Python lets us store data (in variables), and also change that data (using functions). What we usually see (especially when writing larger programs) is that some of our functions kind of mix-up or "go together" with some of the variables. For example, when making games, we often have code like this:
+As we have seen in previous sections, Python lets us store data (in variables), and also change that data (using functions). What we usually see (especially when writing larger programs) is that some of our functions get kind of mixed-up or "go together" with some of the variables. For example, when making games, we often have code like this:
 
 ```python
 spaceship_position = (30, 270)
@@ -229,12 +229,11 @@ def move_spaceship(delta):
 def damage_spaceship(damage):
     spaceship_health -= damage
 
-if __name__ == '__main__':
-    move_spaceship(10, -30)
-    damage_spaceship(100)
+move_spaceship(10, -30)
+damage_spaceship(100)
 ```
 
-In this code, `spaceship_position` and `spaceship_health` (which are variables), are changed by the `move_spaceship` and `return_spaceship_to_base` functions, so they "go together". This isn't a big problem when we have only one spaceship, but it becomes awful to manage when we want to add more ships.
+In this code, `spaceship_position` and `spaceship_health` (which are variables), are changed by the `move_spaceship` and `damage_spaceship` functions, so they "go together". This isn't a big problem when we have only one spaceship, but it becomes awful to manage when we want to add more ships.
 
 Imagine if we had two spaceships. We'd need variables for the position and health of each of them and we'd have to change the `move_spaceship` and `damage_spaceship` functions so they act on the appropriate variable. But then, what if we now want three spaceships? Or four? Or 70,000? We'd have to change everything again. It quickly becomes impractical.
 
@@ -288,7 +287,7 @@ There are quite a few new things to digest in this example, so let's take them o
 
 `def __init__(self, name, position, health)` is a special kind of function called a **constructor**. Constructors belong to the class and are used to *instantiate* (create) new objects. Notice the special name. We will see how to use constructors shortly.
 
-Also notice the special name `self`, which is the first argument of every method – Python passes it automatically, you don't have to do it yourself – and is also used to access attributes. `self` is used to reference attributes and methods belonging to the "current object", as opposed to those belonging to a different object.
+Also notice the special name `self`, which is the first argument of every method – Python passes it automatically, you don't have to do it yourself – and is also used to access attributes. Note that we still have to include it in every method. `self` is used to reference attributes and methods belonging to the "current object", as opposed to those belonging to a different object.
 
 ### Instantiating objects
 
@@ -356,7 +355,7 @@ class Spaceship(object):
         self.health -= damage
 ```
 
-We told you that because `object` is written in brackets when we declared the `Spaceship` class, that means that `Spaceship` is a kind of `object`. Another way of saying the same is thing is that `Spaceship` *inherits from* `object`.
+We told you that because `object` is written in brackets when we declared the `Spaceship` class, that means that `Spaceship` is a kind of `object`. Another way of saying the same thing is that `Spaceship` *inherits from* `object`.
 
 Wait, wait, wait. Inherits from? What does that even *mean*?
 
@@ -392,7 +391,7 @@ class StarDestroyer(Spaceship):
 
 Let's go through this carefully, because there's quite a bit to explain.
 
-We've created a new class, `StarDestroyer`, which inherits from (is a kind of) a `Spaceship`. Basically, this means that a `StarDestroyer` is everything a `Spaceship` is: it has the same **attributes** (`name`, `position`, `health`) and the same **methods** (`move`, `take_damage`) – and, on top of these, we add some of our own (`shields_strength`, `fighters_in_bay`, `launch_fighter`) and change some of the already existing methods to do different things (`take_damage` and `__init__`).
+We've created a new class, `StarDestroyer`, which inherits from (is a kind of) a `Spaceship`. Basically, this means that a `StarDestroyer` is everything a `Spaceship` is: it has the same **attributes** (`name`, `position`, `health`) and the same **methods** (`move`, `take_damage`) – and, on top of these, we add some attributes and methods on our own (`shields_strength`, `fighters_in_bay`, `launch_fighter`) and change some of the already existing methods to do different things (`take_damage` and `__init__`).
 
 Let's look at `__init__`. Obviously, `Spaceship` also had an `__init__` of its own, so what's going on here? Well, we are **overriding** (replacing) the old version of `__init__` with a new one. But we're also doing something a bit special:
 
@@ -400,14 +399,14 @@ Let's look at `__init__`. Obviously, `Spaceship` also had an `__init__` of its o
 super(StarDestroyer, self).__init__("Star Destroyer", position, health)
 ```
 
-In this new `__init__` method that belongs to `StarDestroyer` we also call the constructor of `StarDestroyer`'s **superclass** (the class it inherits from – `Spaceship`). Since a `StarDestroyer` is a `Spaceship`, it must first be initialised with what makes it a `Spaceship` before we can initialise it with what makes it a `StarDestroyer`. That's what this line of code does.
+In this new `__init__` method that belongs to `StarDestroyer`, we also call the constructor of `StarDestroyer`'s **superclass** (the class it inherits from – `Spaceship`). Since a `StarDestroyer` is a `Spaceship`, it must first be initialised with what makes it a `Spaceship` before we can initialise it with what makes it a `StarDestroyer`. That's what this line of code does.
 
 We're also **overriding** the `take_damage` method so `StarDestroyer` shields (something a regular `Spaceship` doesn't have) absorb damage, and creating a new method called `launch_fighter`.
 
 Inheritance makes programming easier in a few ways:
 
 * it enables **code reuse** (a `StarDestroyer` uses the exact same code for `move` as a `Spaceship`)
-* it enables **polymorphism**: for example, if we have an array of `Spaceships`, we can just do `for ship in ships: ship.take_damage(10)`, and it will work and do the right thing even if some of them are `Spaceship`s, some are `StarDestroyer`s and some are `TieFighter`s (since all of those are a kind of `Spaceship`, so they must have a `take_damage` method)
+* it enables **polymorphism**: for example, if we have a list of `Spaceships`, we can just do `for ship in ships: ship.take_damage(10)`, and it will work and do the right thing even if some of them are `Spaceship`s, some are `StarDestroyer`s and some are `TieFighter`s (since all of those are a kind of `Spaceship`, so they must have a `take_damage` method, no matter what it actually does)
 
 
 ### Public, private, protected
@@ -420,7 +419,7 @@ In Python, there are three different kinds of **visibility** for class attribute
 
 Visibility helps in **information hiding**, which is an important part of the idea of **abstraction**. We're not going to labour the point, however, as it is not very relevant to us.
 
-Just keep in mind that some of the methods in our source files are protected – so you will not be able to access them from completely different classes. You should be able to  complete all the exercises without needing to change visibility for any of the methods or attributes.
+Just keep in mind that some of the methods in our source files are protected – so you will not be able to access them from completely different classes. You should be able to complete all the exercises without needing to change visibility for any of the methods or attributes.
 
 ### Quick review
 
@@ -430,9 +429,9 @@ Just keep in mind that some of the methods in our source files are protected –
 
 `__init__` is a special kind of function called a **constructor**, which is used to create new objects.
 
-`self` – a way for objects to refer to themselves
+`self` – a way for objects to refer to themselves (e.g. to call methods on itself by doing `self.method()`)
 
-Another way of saying "create a new object" is saying **instantiate** a new object.
+Another way of saying "create a new object" is saying we **instantiate** a new object.
 
 **Abstraction** allows us to hide away the unnecessary details and concentrate on the big picture instead.
 
@@ -446,7 +445,7 @@ Another way of saying "create a new object" is saying **instantiate** a new obje
 
 #### Easy exercises
 
-1. Write a `Song` class that is initialised using an array of lines called `lyrics` and has a method called `play` which prints the lyrics of the song, line by line.
+1. Write a `Song` class that is initialised using a list of lines called `lyrics` and has a method called `play` which prints the lyrics of the song, line by line.
 
 2. In [`snake.py`](exercises/Chapter_2/snake.py), complete the task at the beginning of the file, starting at line 13: add the `collisionWithSnake` function. Afterwards, run `python snake.py` to play the game.
 
@@ -456,11 +455,11 @@ For the following exercises, unzip the [`pacman.zip`](exercises/Chapter_2/pacman
 
 4. The `Pacman` class has a `is_accessible` method. Normally, Pacman cannot enter the ghosts' den at the middle of the map. Change the `is_accessible` method so Pacman can go there. Alternatively, change the method so Pacman can walk through walls. ([`pacman.py`](exercises/Chapter_2/pacman.py))
 
-5. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and eatable by the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her. Then, go into Clyde's class file `pacman/clyde.py`, add `from .superghost import SuperGhost` at the beginning and also make `Clyde` inherit from `SuperGhost` instead of `Ghost`. ([`superghost.py`](exercises/Chapter_2/superghost.py))
+5. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and edible for the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her. Then, go into Clyde's class file `pacman/clyde.py`, add `from .superghost import SuperGhost` at the beginning and also make `Clyde` inherit from `SuperGhost` instead of `Ghost`. ([`superghost.py`](exercises/Chapter_2/superghost.py))
 
 #### Challenging exercises
 
 `level.py` contains the `Level` class, which constructs the level in memory using the image in the `levels/` folder. The code in this file can be quite difficult to understand.
 
-1. The level is constructed in memory in `Level`'s constructor, and the surface (image) which is drawn on screen is created in the `get_surface` method. There's also a `get_next_cell_in_direction` method which tells you which cell you move to from the current one.  
+1. The level is constructed in memory in `Level`'s constructor, and the surface (image), which is drawn on screen, is created in the `get_surface` method. There's also a `get_next_cell_in_direction` method which tells you which cell you move to from the current one.  
 Change the class's constructor, `get_surface` and `get_next_cell_in_direction` methods to create a special teleporter wall: a place on the map (drawn as a wall) that teleports you to another place on the map when you walk into it. **Extra challenge**: make it work only for Pacman (and not the ghosts). ([`level.py`](exercises/Chapter_2/level.py))

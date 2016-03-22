@@ -4,7 +4,7 @@ Welcome to chapter 4! If you made it here, congratulations! That means you alrea
 
 ## Rules
 The rules of Whack-A-Mole are as follows:
- 
+
  * The board has 16 holes
  * When the game starts, a random number of moles should pop up
  * Every time the player hits a mole, the mole that was hit should disappear and
@@ -14,7 +14,7 @@ The rules of Whack-A-Mole are as follows:
 
 ## Solution
 
-We've attached a solution written in pseudoce below. The game logic is split into 3 parts: we have our Mole object, which represents each mole on the board, the `check_win()` function which checks if all the moles are gone from the board and lastly, we have the actual main loop which reads user input and carries out the appropiate action based on that – if the clicked hole has a mole in it, we remove it and flip the state of all surrounding holes (if there's a mole, remove it; if there's no mole, add one).
+We've attached a solution written in pseudocode below. The game logic is split into 3 parts: we have our Mole object, which represents each mole on the board, the `check_win()` function which checks if all the moles are gone from the board and lastly, we have the actual main loop which reads user input and carries out the appropriate action based on that – if the clicked hole has a mole in it, we remove it and flip the state of all surrounding holes (if there's a mole, remove it; if there's no mole, add one).
 
 ```pseudo
 class Mole:
@@ -23,18 +23,19 @@ class Mole:
     rect = get image's rectangle
     set rect's x and y coordinates to x and y
     visible = False
-    
+
   show(visibility):
-    visible = visibiltiy
+    visible = visibility
 
 check_win():
   if all moles on the board are not visible:
     for every row in the board:
       for every mole in the row:
         remove mole from all sprites
-    
+
     draw winning screen
-    
+
+--code outside of the Mole class
 initialise pygame engine
 initialise board
 for every row in the board
@@ -42,16 +43,16 @@ for every row in the board
     if random value is higher than our threshold
       initialise a Mole at the position
       add it into pygame sprites
-      
+
 while True:
   for each event received from pygame:
     if we placed a mole (check for left mouse button):
       get the position of the click on the board
       get the closest field there
-      
+
       if the position is occupied by a mole:
         remove it
-        
+
       check if we won
       if yes:
         show end game screen
@@ -61,7 +62,7 @@ while True:
             remove it
           else:
             add a mole there
-  
+
   check if we won
   redraw all changes
 ```
