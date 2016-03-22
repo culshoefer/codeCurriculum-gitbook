@@ -8,6 +8,8 @@ pygame.init()
 ##                Edit this code                     ##
 ##                                                   ##
 #######################################################
+
+
 # In this exercise, we'll write a function called
 # "collisionWithSnake" which takes two arguments. 
 # Call the first snake, the second should be a 
@@ -19,11 +21,9 @@ pygame.init()
 # is within the array "arr" inside the body of the 
 # snake object. If it is, return True, otherwise False
 
-def collisionWithSnake(snake, position):
-    for pos in snake.body.arr:
-            if pos == position:
-                return True
-    return False
+
+# Insert function here!
+
 
 #######################################################
 #######################################################

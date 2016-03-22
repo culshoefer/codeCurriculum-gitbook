@@ -448,15 +448,19 @@ Another way of saying "create a new object" is saying **instantiate** a new obje
 
 1. Write a `Song` class that is initialised using an array of lines called `lyrics` and has a method called `play` which prints the lyrics of the song, line by line.
 
-2. `Ghost`s have an attribute called `speed`, which determines how fast they move. `Clyde` is a `Ghost`. Change Clyde's constructor so that it moves twice as fast as other ghosts.
+2. In [`snake.py`](exercises/Chapter_2/snake.py), complete the task at the beginning of the file, starting at line 13: add the `collisionWithSnake` function. Afterwards, run `python snake.py` to play the game.
 
-3. The `Pacman` class has a `is_accessible` method. Normally, Pacman cannot enter the ghosts' den at the middle of the map. Change the `is_accessible` method so Pacman can go there. Alternatively, change the method so Pacman can walk through walls. 
+For the following exercises, unzip the [`pacman.zip`](exercises/Chapter_2/pacman.zip) in `exercises/Chapter_2`. Copy the appropriate file into the `pacman/` subfolder of the extracted archive and then edit it to solve the task. Afterwards, run `python game.py` to play the game.
 
-4. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and eatable by the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her. Then, go into Clyde's class file `pacman/clyde.py`, add `from .superghost import SuperGhost` at the beginning and also make `Clyde` inherit from `SuperGhost` instead of `Ghost`.
+3. `Ghost`s have an attribute called `speed`, which determines how fast they move. `Clyde` is a `Ghost`. Change Clyde's constructor in so that it moves twice as fast as other ghosts. ([`clyde.py`](exercises/Chapter_2/clyde.py))
+
+4. The `Pacman` class has a `is_accessible` method. Normally, Pacman cannot enter the ghosts' den at the middle of the map. Change the `is_accessible` method so Pacman can go there. Alternatively, change the method so Pacman can walk through walls. ([`pacman.py`](exercises/Chapter_2/pacman.py))
+
+5. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and eatable by the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her. Then, go into Clyde's class file `pacman/clyde.py`, add `from .superghost import SuperGhost` at the beginning and also make `Clyde` inherit from `SuperGhost` instead of `Ghost`. ([`superghost.py`](exercises/Chapter_2/superghost.py))
 
 #### Challenging exercises
 
 `level.py` contains the `Level` class, which constructs the level in memory using the image in the `levels/` folder. The code in this file can be quite difficult to understand.
 
 1. The level is constructed in memory in `Level`'s constructor, and the surface (image) which is drawn on screen is created in the `get_surface` method. There's also a `get_next_cell_in_direction` method which tells you which cell you move to from the current one.  
-Change the class's constructor, `get_surface` and `get_next_cell_in_direction` methods to create a special teleporter wall: a place on the map (drawn as a wall) that teleports you to another place on the map when you walk into it. **Extra challenge**: make it work only for Pacman (and not the ghosts).
+Change the class's constructor, `get_surface` and `get_next_cell_in_direction` methods to create a special teleporter wall: a place on the map (drawn as a wall) that teleports you to another place on the map when you walk into it. **Extra challenge**: make it work only for Pacman (and not the ghosts). ([`level.py`](exercises/Chapter_2/level.py))
