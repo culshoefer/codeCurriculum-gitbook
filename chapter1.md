@@ -436,7 +436,7 @@ Well, with this loop, all I can say is...
 You see, when you try running the program, obviously it will never end - because of that - never execute `print str`.
 
 #### Exercises
-1) Write a program that writes out all of the numbers between two numbers specified by the user. Use the `input()` and the `int()` function to get values. A dialogue should look something like this:
+1. Write a program that writes out all of the numbers between two numbers specified by the user. Use the `input()` and the `int()` function to get values. A dialogue should look something like this:
 ``` python
 Please enter the lower boundary:
 5
@@ -447,33 +447,16 @@ Values:
 6
 7
 ```
-For this program, note that the loop might not necessarily be executed if the lower boundary is bigger than the upper boundary.
+For this program, note that the loop might not necessarily be executed if the lower boundary is bigger than the upper boundary. **Challenge**: Use another while-loop to check if the lower boundary is indeed lower than the upper boundary. If it isn't, just display the input dialogue again.
 
-*Challenge*: Use another while-loop to check if the lower boundary is indeed lower than the upper boundary. If it isn't, just display the input dialogue again.
+2. Write the "guessing game"! Ask the user for a range of numbers and tell them to pick a number within that range. Make the program try to guess the number. Do that by repeatedly asking the user if the number they chose is bigger or smaller than the number you guessed. Adjust your prediction accordingly.
 
-2) Write the `guessing game`! Ask the user for a range of numbers. Then try to guess the number he chose within that range. Do that by repeatedly asking him if the number he chose is bigger or smaller than the number you guessed. Adjust your prediction accordingly.
-3) Write a program which asks person for a number and then will display all divisors of the number.
-```
-1) Check if the number is equal to one (or smaller). If not, then continue the loop.
-2) You can calculate the remainder of a division with the % operator.
-E.g. 5 % 3 = 2 (since 5 = 1 * 3 + 2)
-If the remainder is zero, then the current number is a factor. Print it!
-3) In any case, decrease the number by one and check again.
+3. Write a program that reads a number and prints all of its divisors. A number `x` is divisible by `y` if `x % y == 0`.
 
-```
 An example interaction would be:
 ```python
-Please enter your nice number:
-24
-24 has the following factors:
-24
-12
-8
-6
-4
-3
-2
-1
+Please enter your number number: 24
+24 has the following divisors: 1 2 3 4 6 8 12 24
 ```
 
 ## Lists
