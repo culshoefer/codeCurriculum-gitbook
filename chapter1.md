@@ -155,7 +155,7 @@ youAreCool = False
 As integers hold - well - integers and booleans true or false, integers literally cannot handle the truth. HAH!
 
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
-Later more about booleans (or *bools*, in computer science speak). For now, just remember their existence.
+Later more about booleans (or *bools*, in Computer Science speak). For now, just remember their existence.
 
 ## Exercises on variables and type
 For these exercises, we desperately need two more functions: `int()` and `input()`. `int()` tries to convert a value to an integer (who would have guessed?) and `input()` prompts the user to input something.
@@ -164,11 +164,12 @@ A simple program using these two functions which adds two numbers and prints the
 ```python
 #the output from input() goes to int() which takes exactly one value
 firstInput = input()
-firstInt = int(firstInput) #convert to integer
-secondInput = input()
-secondInt = int(secondInput)
+firstInt = int(firstInput) # converts firstInput to integer
+secondInput = input() # reads a second Input
+secondInt = int(secondInput) # converts secondInput into an integer
 print(firstInt + secondInt)
 ```
+
 Ok, now we can do some exercises. For now, these are not yet games, but do not turn away just yet: As we teach you more, you will be better programmers and able to do more!
 
 1. Make a program that displays the following, storing the values of 5 and 58337 internally and then storing the sum, the product and the division in a different variable. After that, print the result to the screen using the newly-learned technique of appending strings:
@@ -192,18 +193,6 @@ z = x * y
 x = x / 3 + 3 / 2 * z
 ```
 ... and that's it. You made it through the first part, congratulations! Next up: Conditional statements (for which we definitely need bools and input, so keep these in your head!)
-
-
-*Solution for the teacher*
-```python
-x = 5 # x = 5
-y = 5.0 - 3 # 2.0
-x /= y # x = 2.5
-z = x * y # z = 5.0
-x = x /3 + 3 / 2 * z # x = 35 / 6 = 5.8333333333
-print x # will print 5.833333333335
-```
-(5.83333333333333333 -> 35/6 Computers can only store a finite number of decimal spaces. That is the reason why with bigger numbers, floats can often get inaccurate -  they have only a limited amount of space.)
 
 ## Conditional statements
 
