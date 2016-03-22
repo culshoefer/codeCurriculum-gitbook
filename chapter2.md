@@ -3,8 +3,8 @@
 ## Functions
 ### Writing better structured code
 
-Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would loops to do that. Similarly, we used if-statements to to select which parts of the code to execute in what cases.
-However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages (and, because of that also in Python), we have functions as well. Instead of consisting of terms like a + b - c, we can just include **code** in functions. However, the basic principle is the same. Here's a little diagram to help you.
+Previously, if we wanted to carry out actions twice or (even!) three times in a row, we would use loops to do that or if-statements to select which parts of the code to execute in what cases.
+However, we might want to reuse some functionality in different parts of the code, or provide similar sections of code. In Mathematics, you should have come across functions. In programming languages we have functions as well. In Maths functions consist out of terms like a + b - c, in Python (and other programming languages) we include **code** inside them. However, the basic principle is the same. Here's a little diagram to help you.
 
 ![Input -> Function body -> Output](img/function.png)
 
@@ -16,7 +16,7 @@ f(x) = x * 2
 ```
 Here, `f` is our *function name*, `x` our argument (input), and we return `x * 2`, i.e. double the value of the input.
 
-In Python, we create functions by using the `def` keyword. Here is the above example in Python code:
+In Python, we define functions by using the `def` keyword. Here is the above example in Python code:
 ```python
 def getDouble(number):
   return number * 2
@@ -50,8 +50,8 @@ def isNameThere(name):
   return False
 
 def getAction():
-  print("1: See if name is in list")
-  print("2: Quit")
+  print "1: See if name is in list"
+  print "2: Quit"
   return int(input())
 
 def decide(choice):
@@ -65,25 +65,25 @@ def decide(choice):
     decide(getAction())
 
 def displayFind():
-  print("Please enter a string to see if it is in our list.")
-  n = raw_input() # raw_input always interprets input as strings
+  print "Please enter a string to see if it is in our list."
+  n = raw_input()  # raw_input always interprets input as strings
   if isNameThere(n):
-    print("It is indeed in our list!")
+    print "It is indeed in our list!"
   else:
     print "Sorry, not known to me."
 
 def displayError():
-  print("Sorry, did not quite get that.")
+  print "Sorry, did not quite get that."
 
 def displayQuit():
-  print("Goodbye!")
+  print "Goodbye!"
 
 decide(getAction()) # actual program that we execute
 ```
 
 A couple of things here:
-1. Notice how the functions each show a single thought? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Oftentimes, what programmers do, they end up writing code and writing code and suddenly, they have a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
-2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but it is more about discussing what good code is about. So no final solution is provided.
+1. Notice each function carries out a small step? This is crucial. Even if you only call your function a few times (or even once), it makes sense to keep functions **VERY** short (and by that we mean six lines or less, if possible). Often programmers end up writing code over and over, resulting in a huge program with lots of duplicate code. On another note: Once they see their code later, they won't remember what they wrote because the code is so messy and complicated. In Computer Science slang, this is called *spaghetti code* or we say code has a *smell*.
+2. There are a couple of things in the above code that don't quite make sense. Can you spot these? How might you design a better program? Note: Here, it's not about who is right or wrong, but about discussing what good code is about. Therefore no final solution is provided.
 
 ### Recursion
 Functions can actually call themselves! However, at some point, the function has to stop calling itself. Consider the following functions, which calculate the product of all numbers from 1 to n:
