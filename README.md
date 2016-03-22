@@ -43,11 +43,11 @@ Download the *Mac OS X 32-bit i386/PPC* installer - this is the version which ru
 Pygame can be downloaded at [www.pygame.org/downloads.shtml](www.pygame.org/downloads.shtml). Again, there are multiple version available, but for the purpose of this tutorial we will use *Pygame 1.9.1*. Since we are using *Python 2.7*, we need download the version of Pygame compatible with our Python version, named `pygame-1.9.1release-python.org-32bit-py2.7-macosx10.3.dmg` (which is Pygame 1.9.1. for Python 2.7).
 
 ### Installation requirements for Linux
-*Python 2.7* is preinstalled at all Linux computers, therefore we can directly install PyGame.
+*Python 2.7* is preinstalled at all Linux computers, however we need to install IDLE (Integrated Development Environment being used) and PyGame.
 
 Open your Terminal and then:
 
- * If you are using *Ubuntu*, enter `sudo apt-get install python-pygame`.
- * If you are using *ArchLinux*, enter `sudo pacman install python-pygame`.
+ * If you are using *Ubuntu*, enter `sudo apt-get install idle-python2.7 python-pygame`.
+ * If you are using *ArchLinux*, enter `sudo pacman install idle-python2.7 python-pygame`.
 
 It might ask your a password, in that case enter it to start the installation.
