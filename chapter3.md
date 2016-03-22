@@ -230,7 +230,7 @@ class Player(AliveEntity):
 ```
 
 
- ##Continuing our game: The "Game" class
+ ##The "Game" class: The main access point to our game
  Now, let's create the main class of our Game, logically called Game. In here, all the basic functionality is carried out:
  * We draw all of our entities
  * We compute input
