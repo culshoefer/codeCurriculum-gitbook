@@ -450,9 +450,9 @@ Another way of saying "create a new object" is saying **instantiate** a new obje
 
 2. `Ghost`s have an attribute called `speed`, which determines how fast they move. `Clyde` is a `Ghost`. Change Clyde's constructor so that it moves twice as fast as other ghosts.
 
-3. The `Pacman` class has a `is_accessible` method. Normally, Pacman cannot enter the ghosts' den at the middle of the map. Change the `is_accessible` method so Pacman can go there. Alternatively, change the method so Pacman can walk through walls.0
+3. The `Pacman` class has a `is_accessible` method. Normally, Pacman cannot enter the ghosts' den at the middle of the map. Change the `is_accessible` method so Pacman can go there. Alternatively, change the method so Pacman can walk through walls. 
 
-4. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and eatable by the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her.
+4. `Ghost`s have a method called `handle_collision`, which determines what happens when that ghost hits the player, and a `frighten` method which makes it turn blue and eatable by the player. Create a new `SuperGhost` class, which can't be frightened and always eats the player if it touches him/her. Then, go into Clyde's class file `pacman/clyde.py`, add `from .superghost import SuperGhost` at the beginning and also make `Clyde` inherit from `SuperGhost` instead of `Ghost`.
 
 #### Challenging exercises
 
