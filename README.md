@@ -1,4 +1,4 @@
-Introduction to Python and small-scale game development with PyGame
+Introduction to Python and PyGame
 =======
 
 This introduction to Programming in Python (and PyGame) is divided into four distinct chapters.

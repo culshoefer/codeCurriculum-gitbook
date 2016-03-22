@@ -148,7 +148,7 @@ One last data type: **Boolean** (why this weird name? Because George Boole inven
 iAmCool = True
 youAreCool = False
 ```
-<img src="img/boolean-to-integer.jpg"/>
+![Boolean to integer](img/boolean-to-integer.jpg)
 
 As integers hold - well - integers and booleans true or false, integers literally cannot handle the truth. HAH!
 
@@ -429,7 +429,7 @@ while True:
 print str
 ```
 
-<img src="img/while-loop.jpg"/>
+![While loop](img/while-loop.jpg)
 
 Well, with this loop, all I can say is...
 
