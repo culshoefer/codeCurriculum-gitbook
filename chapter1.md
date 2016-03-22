@@ -7,7 +7,7 @@ There are two different ways to write Python code: By writing single-line comman
 
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
-## Hello, world! 
+## Hello, world!
 Traditionally, in programming, the first thing to do when learning a new programming language is `Hello, world!`. In Python, this is very simple (you do not have to copy `>>>`, that is just to indicate that it is written in the Python interpreter). Just type
 ```python
 >>> print "Hello, world!"
@@ -160,13 +160,15 @@ For these exercises, we desperately need two more functions: `int()` and `input(
 
 A simple program using these two functions which adds two numbers and prints the result:
 ```python
-firstInput = input() #the output from input() goes to int() which takes exactly one value
+#the output from input() goes to int() which takes exactly one value
+firstInput = input()
 firstInt = int(firstInput) #convert to integer
 secondInput = input()
 secondInt = int(secondInput)
 print(firstInt + secondInt)
 ```
 Ok, now we can do some exercises. For now, these are not yet games, but do not turn away just yet: As we teach you more, you will be better programmers and able to do more!
+
 1. Make a program that displays the following, storing the values of 5 and 58337 internally and then storing the sum, the product and the division in a different variable. After that, print the result to the screen using the newly-learned technique of appending strings:
 
 `The sum of 5 and 58337 is 58342, their product is 291685, and 58337/2 is 29168.5 `
@@ -203,12 +205,12 @@ print x # will print 5.833333333335
 
 ## Conditional statements
 
-Let's take a look at one of the fundamental *statements* in programming - **conditional statements**. But what are conditional statesments? A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
+Let's take a look at one of the fundamental *statements* in programming - **conditional statements**. But what are conditional statements? A `conditional statement` is usually an *if-then* statement. Meaning you check a condition and *if* the condition is true *then* do something.
 
 ### `if` statements
 Lets jump into the code and try the following:
-We assing a variable `age`, and the person is 18, we print "The person is eighteen years old":
-```python 
+We assign a variable `age`, and if the person is 18, we print "The person is eighteen years old":
+```python
 >>> age = 18
 >>> if age == 18:
 ...     print "the person is eighteen years old"
@@ -219,20 +221,20 @@ output:
 the person is eighteen years old
 ```
 Ok, here are a couple of new things:
-We write `if age == 18:` 
+We write `if age == 18:`
 The `==` means `equal to`, hence the statement is ` if age equals to 18 then print "the person is eighteen years old`
-You probably also noticed that the print-statement is shifted to the right with the help of a tabulator. This is very important. If you don't do that, python will throw you an error like `IndentationError: expected an indented block`.
-The tabulator tells python, that everything what comes after the `if-statement` is executed if the condition of the `if-statement` holds.
+You probably also noticed that the print-statement is shifted to the right with the help of a tabulator (the weird key that should be left to the Q key). This is very important. If you don't do that, python will throw an error like `IndentationError: expected an indented block`.
+The tabulator tells python that everything what comes after the `if-statement` is executed if the condition of the `if-statement` holds.
 
 But what happens if somebody is not 18 years old? Well, in our case nothing happens! Just try:
-```python 
+```python
 >>> age = 17
 >>> if age == 18:
 ...     print "the person is eighteen years old"
 ...
 >>>
 ```
-Neat... 
+Neat...
 
 ### `else` statements
 Let's write a small program that checks if somebody is allowed to buy alcohol:
@@ -252,7 +254,7 @@ NOT allowed, you must be at least 18yrs old
 
 Here we introduced a new part of *conditions*: the `else` statement. Basically that does what the word stands for: if the first condition doesn't hold, we execute what is written in the `else` block.
 
-But what, if you have to differentiate more...?
+But what, if you have to have more choices...?
 Like if somebody is a baby, child, teenager or adult?
 One way to do that is:
 ```python
@@ -264,11 +266,11 @@ File "<stdin>", line 3
     if age < 13:
      ^
 SyntaxError: invalid syntax
-``` 
-Wait what?
+```
+Wait what? Error?
 ![But Why?](img/butwhy.jpg)
 
-The reason is, since you are still in the `if` mode, Python expects you to use the tabulator for each folling statement. Let's try it:
+The reason is, since you are still in the `if` mode, Python expects you to use the tabulator for each following statement. Let's try it:
 ```python
 >>> age = 12
 >>> if age < 7:
@@ -278,7 +280,7 @@ The reason is, since you are still in the `if` mode, Python expects you to use t
 ...
 ```
 It should print `child` shouldn't it? But it prints... nothing?
-The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible. 
+The reason is, that we first checked, if the age is less than 7 years, and than later checked, if it is smaller than 13, which isn't possible.
 
 ### `elif` statements
 
@@ -311,7 +313,7 @@ Nice, it works... Here we'll introduced a new keywords, `elif`, which is short f
  * `<` – smaller than (`2.5 < 10`)
  * `>=` – larger than or equal to (`2 >= 2`)
  * `<=` – smaller than or equal to ('6 <= 7`)
- 
+
 ### Boolean operators
 
  * `and` – logical and  (`True and False == False`)
@@ -331,8 +333,8 @@ Membership operators:
 
  * `in` – member in collection (`3 in [3, 4, 5] == True`)
  * `not in` – not a member in collection
- 
-**Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`.
+
+**Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`. But more about that later
 
 ## Loops
 
@@ -407,11 +409,11 @@ while *expression*:
 other code
 ```
 
-Important note that the spaces at the beginning of the line show that the code after that belongs to the loop. In other programming languages, you might have different ways to express that you are inside a loop. In Python, however, this is very simple: Just make sure that you have *spaces at the beginning of the line* and that the number of spaces inside the same loop works.
+Important: Note the spaces at the beginning of the line. Just like with if-conditionals, we use the tabulator to show we are in a while-loop. In other programming languages, you might have different ways to express you are inside a loop. In Python, however, this is very simple: Just make sure that you have *spaces at the beginning of the line* and that the number of spaces inside the same loop are the same.
 
-That said, let's analyze what we have written in the first example: The `while` keyword says to python: Alright, the thing after this is a boolean expression. In this case, this is `i < 5`. At the start, `i = 1`. Even if you are not good at Maths, you may find that `1 < 5`, so the boolean expression is `true`, meaning the code after that gets executed. The colon at the end (similarly to conditionals) is just a feature of Python to indicate the end of the statement (think of it as writing headlines).
+That said, let's see what we have written in the first example: The `while` keyword says to python: Alright, the thing after this is a boolean expression. In this case, this is `i < 5`. At the start, `i = 1`. Even if you are not good at Maths, you may find that `1 < 5`, so the boolean expression is `True`, meaning the code after that gets executed. The colon at the end (similarly to conditionals) is just a feature of Python to show the end of the statement.
 
-Now, each time the loop gets executed, the variables `i` and `sum` get updated. Ok. So far so good. Let's look at some special cases (try the examples out for yourself):
+Now, each time the loop gets executed, the variables `i` and `sum` get updated. The loop repeats until `i = 5`, in this case `5 < 5` is `False` and the loop finishes. Ok. So far so good. Let's look at some special cases (try the examples out for yourself):
 
 ```python
 i = 13
@@ -449,7 +451,7 @@ For this program, note that the loop might not necessarily be executed if the lo
 
 *Challenge*: Use another while-loop to check if the lower boundary is indeed lower than the upper boundary. If it isn't, just display the input dialogue again.
 
-2) Write the `guessing game`! 
+2) Write the `guessing game`! Ask the user for a range of numbers. Then try to guess the number he chose within that range. Do that by repeatedly asking him if the number he chose is bigger or smaller than the number you guessed. Adjust your prediction accordingly.
 3) Write a program which asks person for a number and then will display all divisors of the number.
 ```
 1) Check if the number is equal to one (or smaller). If not, then continue the loop.
@@ -524,7 +526,7 @@ things = [5, 1.7, 134]
 
 for i in range(len(things)):
     things[i] += 5
-    
+
 >>> things
 [10, 6.7, 139]
 ```
@@ -545,7 +547,7 @@ We can refer to a *slice* (portion) of this list, as follows:
 big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
 
 # Elements from index 0 up to index 3 (non-inclusive)
->>> big_list[:3] 
+>>> big_list[:3]
 [3, 45, 'flip flops']
 
 # Elements from index 2 up to index 6 (non-inclusive)
@@ -668,14 +670,14 @@ If we want to add a entry into an existing dictionary we just type a _not_ exist
 >>> pons = {}
 >>> pons['car'] = 'Auto'
 >>> pons['window'] = 'Fenster'
->>> pons['horse'] = 'Pferd' 
+>>> pons['horse'] = 'Pferd'
 >>> pons['car']
 ```
 output:
 ```
 'Auto'
 ```
-Yay! 
+Yay!
 
 ### Loop through a dictionary
 In order to loop through a dictionary we can just use a `for`:
@@ -683,14 +685,14 @@ In order to loop through a dictionary we can just use a `for`:
 >>> pons = {}
 >>> pons['car'] = 'Auto'
 >>> pons['window'] = 'Fenster'
->>> pons['horse'] = 'Pferd' 
+>>> pons['horse'] = 'Pferd'
 >>> for key in pons:
 ...     print key, ":", pons[key]
 ...
 
 ```
 output
-``` 
+```
 Auto
 Fenster
 Pferd
@@ -703,7 +705,7 @@ We can simply check this by writing `key in dict`:
 >>> pons = {}
 >>> pons['car'] = 'Auto'
 >>> pons['window'] = 'Fenster'
->>> 
+>>>
 >>> 'car' in pons
 ```
 output
@@ -760,5 +762,5 @@ window : Fenster
 
 ## Exercise Chapter One - Hangman
 
-In this exercise we are going build a small, simple version of 
+In this exercise we are going build a small, simple version of
 hangman. We'll provide you with the basic code and you have to complete the code in the end of the file. Download the [file](exercises/hangman.py) and complete the code after line 47.
