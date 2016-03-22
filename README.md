@@ -19,7 +19,8 @@ After all, Computer Science is a very important subject having many industrial a
 
 ## Our team
 We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum and had a big influence on our decision to study it formally.
-All four of us are very passionate about programming and we want to help more kids getting involved into Computer Science.
+All four of us are very passionate about programming and we want to help more students getting involved into Computer Science.
+Our special interests mainly lie in Machine Learning, Professional Software Development and Teamwork. 
 
 ## Installing Python and Pygame
 
