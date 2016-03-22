@@ -360,7 +360,7 @@ We told you that because `object` is written in brackets when we declared the `S
 
 Wait, wait, wait. Inherits from? What does that even *mean*?
 
-<img src="img/star-destroyer.jpg"/>
+![Star Destroyer](img/star-destroyer.jpg)
 
 It's easier to give an example and then explain what's going on, so let's inherit a `Spaceship`:
 

@@ -148,7 +148,7 @@ One last data type: **Boolean** (why this weird name? Because George Boole inven
 iAmCool = True
 youAreCool = False
 ```
-<img src="img/boolean-to-integer.jpg"/>
+![Boolean to integer](img/boolean-to-integer.jpg)
 
 As integers hold - well - integers and booleans true or false, integers literally cannot handle the truth. HAH!
 
@@ -429,7 +429,7 @@ while True:
 print str
 ```
 
-<img src="img/while-loop.jpg"/>
+![While loop](img/while-loop.jpg)
 
 Well, with this loop, all I can say is...
 
@@ -479,12 +479,22 @@ Please enter your nice number:
 ## Lists
 
 We've already seen how variables work and looked at some of the types of data they can store: integers, floating-point numbers and strings. But Python has many more data types, and one we will be using very often is **lists**.
+Let's see it in action:
 
 ```python
 things = [5, 1.7, 'crocodile']
 ```
 
 In this case, `things` is a list made up of three elements. Notice that the elements of a list don't need to have the same type: a list can store anything! In this example, `things` stores an integer, a floating-point number and a string.
+
+We show the bounds of a list with the two square brackets, and separate each element by comma. Here are two more examples:
+
+```python
+moreThings = ['blue', True, None]
+empty = []
+```
+
+The last example is the `empty list`. We will come to it later.
 
 Lists are so cool, they can even store other lists:
 
@@ -504,9 +514,11 @@ things = [5, 1.7, 'crocodile']
 'crocodile'
 ```
 
-In Python (and most programming languages), we start numbering elements in a list from 0, rather than 1. There are very good reasons for this, as Edsger Dijkstra, a very influential computer scientist, [famously argued](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html). It takes a while to get used to the idea, though.
+In Python (and most programming languages), we start numbering elements in a list from 0, rather than 1. This is good as it is, like Edsger Dijkstra, a very influential computer scientist, [ argued](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html). It takes a while to get used to the idea, though.
 
 Just to drive the point home, the first element of a list is the one at *index* (position) 0, the second is at index 1, the third is at index 2 and so on.
+
+What happens if we try to access elements not in the list? Say we have the list above and try to print `things[3]`? Try it out for yourself to see what happens.
 
 ### Looping over lists
 
@@ -531,7 +543,7 @@ for i in range(len(things)):
 [10, 6.7, 139]
 ```
 
-`range(n)` gives you back a list with the numbers [0, 1, ..., n-1]. `len(list)` returns how many elements that particular list has, so `len(things)` is 3, because `things` has three elements.
+`range(n)` gives back a list with the numbers [0, 1, ..., n-1]. `len(list)` returns how many elements that particular list has, so `len(things)` is 3, because `things` has three elements.
 
 ### Slicing
 
@@ -546,11 +558,11 @@ We can refer to a *slice* (portion) of this list, as follows:
 ```python
 big_list = [3, 45, 'flip flops', 2.5, 'crocodile', -5.34]
 
-# Elements from index 0 up to index 3 (non-inclusive)
+# Elements from index 0 up to index 3 (not including 3)
 >>> big_list[:3]
 [3, 45, 'flip flops']
 
-# Elements from index 2 up to index 6 (non-inclusive)
+# Elements from index 2 up to index 6 (not including 6)
 >>> big_list[2:6]
 ['flip flops', 2.5, 'crocodile', -5.34]
 
@@ -579,12 +591,12 @@ From the [Python documentation](https://docs.python.org/2/tutorial/datastructure
 * **list.extend(L)** – Extends the list by appending all the items in the given list.
 * **list.remove(x)** – Removes the first item from the list whose value is x. It is an error if there is no such item.
 * **list.index(x)** – Returns the index in the list of the first item whose value is x. It is an error if there is no such item.
-* **list.reverse()** – Reverses the elements of the list, in place.
+* **list.reverse()** – Reverses the elements of the list, and store it in the list.
 
 Example of using these methods:
 
 ```python
->>> a = []
+>>> a = [] #aha! An empty list
 >>> a.append('test')
 >>> a.append(1)
 >>> a.append(4)
@@ -605,7 +617,7 @@ Example of using these methods:
 
 ### Tuples
 
-Tuples in Python are **immutable** lists. You will probably not use them very often, but it's good to know about them. Basically, the difference between tuples and lists is that tuples cannot be changed, and tuples uses parentheses, while lists use square brackets.
+Tuples in Python are **immutable** lists (we cannot change their values). You will probably not use them very often, but it's good to know about them. Basically, the difference between tuples and lists is that tuples cannot be changed, and tuples use parentheses, while lists use square brackets.
 
 ```python
 tup = (4, 5, 'crocodile')
@@ -631,14 +643,14 @@ This is because otherwise, Python would have a hard time understanding whether y
 
 2. Given a list of numbers like `[2, 5.4, -1.7, 45, 13]`, write a Python program to calculate the sum of the numbers. **Challenge**: calculate the average.
 
-3. Write a Python program that takes a list of lists (a matrix) like `[[1,2,3],[4,5,6],[7,8,9]]` and prints it on screen in the following way:
+3. Write a Python program that takes a list of lists with the same number of elements in each list (a matrix) like `[[1,2,3],[4,5,6],[7,8,9]]` and prints it on screen in the following way:
 ```
       1 2 3  
       4 5 6  
       7 8 9
 ```
 
-4. Write a Python program that takes two matrixes of the same size, adds their elements together and prints the result on screen. **Challenge**: print the matrices along with their result like this:
+4. Write a Python program that takes two matrices of the same size, adds their elements together and prints the result on screen. **Challenge**: print the matrices along with their result like this:
 ```
       1 2 3     4 0 3     5 2 6
       4 5 6  +  1 2 2  =  5 7 8
