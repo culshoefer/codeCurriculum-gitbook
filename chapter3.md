@@ -1,38 +1,44 @@
-#Chapter 3: Programming games in PyGame
+# Chapter 3: Programming Space Invaders with PyGame
 
-##Space invaders!
-Now, let's start with proper game development, shall we? Let's start with one of the greatest games ever invented: SPACE INVADERS!
-In practice, we have the following rules:
-1) The player can move from left to right
-2) Aliens move from right to left as well but not as often as the player
-3) The player can shoot from time to time to take out the aliens and score points
-4) The aliens shoot randomly and may harm the player (who has three lives)
-5) The game ends if either no more aliens are present or the player doesn't have any more lives
-6) If you're lucky, a different kind of alien can appear, moving fast but earning you loads of points if you shoot it
+We now know enough Python and we're finally able to start doing some proper game development. In this chapter, we are going to look at implementing one of the greatest computer games of all time: SPACE INVADERS!
 
-##So how do we start?
-In this tutorial, I will only provide you with so-called *pseudocode*, that is code that looks almost like full-on code, but you have to do all the coding yourself. We have done all the thinking for you.
+#### Space Invaders Rules
 
-Let me first explain a bit how PyGame works.
-In PyGame, we use something called **sprites** and a **display**. We draw sprites on the display (our screen).
-Let's start with some example code:
+1. The player can move left-right
+2. Aliens move left-right as well, but not as often as the player
+3. The player can shoot from time to time to take out the aliens and score points
+4. The aliens shoot randomly and may harm the player (who has three lives)
+5. The games ends if either all the aliens are dead or the player doesn't have any more lives
+6. If you're lucky, a different kind of alien (a fast-moving one) can appear; killing it gives you loads of points
+
+In this tutorial, we will only give you *pseudocode* – that is, code that looks almost like full-on code, but isn't actually Python (or any other programming language). You'll have to write the Python code itself, as the pseudocode only gives you the strucutre.
+
+## Getting started
+
+PyGame is a Python module (package) which implements a lot of the *boilerplate* code that are absolutely necessary for computer games (loading images, setting up GUI windows, drawing to screen, keeping track of time etc.), but are very boring to write. Using PyGame, we can concentrate on the fun parts: actually making games!
+
+In PyGame, we use something called **sprites** and a **display**. We draw the sprites on the display (our screen). Let's start with some example code, straight from the [PyGame tutorial](http://www.pygame.org/docs/tut/intro/intro.html):
+
 ```python
-#from http://www.pygame.org/docs/tut/intro/intro.html,
-#yes I know shamelessly copied
 import sys, pygame
 
 pygame.init()
+
 size = width, height = 320, 240
 speed = [2, 2]
 black = 0, 0, 0
+
 screen = pygame.display.set_mode(size)
-ball = pygame.image.load("ball.bmp") #self-explanatory
+ball = pygame.image.load("ball.bmp")
 ballrect = ball.get_rect()
-while 1:
+
+while True:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       sys.exit()
+      
   ballrect = ballrect.move(speed)
+  
   if ballrect.left < 0 or ballrect.right > width:
     speed[0] = -speed[0]
   if ballrect.top < 0 or ballrect.bottom > height:
@@ -42,50 +48,62 @@ while 1:
   screen.blit(ball, ballrect)
   pygame.display.flip()
 ```
-A couple of things here. You might have noticed that there is a `pygame` object which we modify when we load images etc. Also notice the big `while`-loop, that goes forever (seemingly). So how does pygame draw stuff? Look at the last three lines: We first fill the screen black, then we draw the ball (`blit()` is a very weird function, just be fine with passing the image and its rectangle and position to it). Finally, the `flip()` method: This finally accepts all changes and presents them to the viewer.
 
-If we did not have the flip function, we would be unable to see our changes. Since it is very expensive to always draw stuff on the screen, it is better to have a lot of changes and then call `flip()` only once to set them free.
+Let's take this slowly. You might have noticed that we import `pygame` and then call functions belonging to it to change settings, load images etc. The [PyGame reference](http://www.pygame.org/docs/ref/pygame.html) is an invaluable resource – use it as often as you can.
 
-##Entity: Our first class for space invaders
-![The video game classic](img/space_invaders.png)
-We start with a **Entity** class, that is responsible for one, well, entity (so aliens, player...).
-It has the following attributes:
+Also notice the big `while` loop that seemingly goes forever. That's where everything in the game happens. And don't worry – the loop actually ends when the game receives the `pygame.QUIT` event (closing the window triggers this, for example)!
+
+So how does PyGame draw stuff? Look at the last three lines: we first fill the screen black (to overwrite anything we drew previously and get a "blank slate"), then we draw the ball ([`blit`](http://www.pygame.org/docs/ref/surface.html#pygame.Surface.blit) basically means "draw an image on top of another" – it takes two arguments: the image to be drawn, and the position where it should be drawn). Finallly, [`pygame.display.flip()`](http://www.pygame.org/docs/ref/display.html#pygame.display.flip) updates the content of the entire display with what's now in our screen object.
+
+If we did not have the flip function, we would be unable to see our changes. Since it is very expensive to update the display, it is better to pile up a lot of changes in a `screen` object and then call `flip()` on the display only once to set them free.
+
+## Creating PyGame classes: `Entity`
+
+![The video game classic](img/space_invaders.png) Let's start by writing an `Entity` class that is responsible for one, *well*, entity (aliens, the player, the super-alien). It has the following attributes:
+
 ```python
-x, y, #the entities position as coordinates
-dx, dy, #the change in coordinates in one update
-image, #the image of the entity
-width, height, #width and height of the entity
-rect, #just an instance variable for the rect of the image
-# because we need that quite often
-posBoundaryLeft, posBoundaryRight,
-#left and right boundaries in which the entity is restricted to move in
-consider, #whether we actually draw the entity or not
-gameWidth, gameHeight
-#for orientation the game's width and height.
+x, y    # the entity's position as coordinates
+dx, dy  # the change in coordinates in one update
+image   # the image of the entity
+width, height   # width and height of the entity
+rect    # stores the "bounding box" of the entity
+posBoundaryLeft, posBoundaryRight   # boundaries the entity is restricted to
+consider    # whether we actually draw the entity or not
+gameWidth, gameHeight   # for orientation the game's width and height.
 ```
 The following is the constructor for class `Entity`:
 ```python
 def __init__(self, x, y, dx, dy, image, gameWidth, gameHeight):
-b        super(Entity, self).__init__()
+    super(Entity, self).__init__()
+    
     self.x = x
     self.y = y
     self.dx = dx
     self.dy = dy
+    
     self.image = pygame.image.load(image)
     self.width = self.image.get_width()
     self.height= self.image.get_height()
+    
     self.rect = self.image.get_rect()
     self.rect.x = self.x
     self.rect.y = self.y
+    
     self.posBoundaryLeft = 20 + self.width/2
     self.posBoundaryRight= gameWidth - (20 + self.width/2)
+    
     self.consider = True
+    
     self.gameWidth = gameWidth
     self.gameHeight = gameHeight
 ```
-Ok, so far so good, don't leave me just yet! As you can see, posBoundaryLeft and posBoundaryRight are by default set to be 20 pixels from the edges of the screen (plus half of the Entity's width). Please do go to the PyGame example (with the ball) and rewrite it using the Entity class.
 
-There, we will now add more methods. Please do fill in the blanks where necessary:
+OK, so far so good. Let's continue!
+
+As you can see, `posBoundaryLeft` and `posBoundaryRight` are by default set to be 20 pixels from the edges of the screen plus half of the `Entity`'s width. Go to the PyGame example at the beginning of this chapter (the one with the ball) and rewrite it to use the `Entity` class.
+
+We need to add a few more methods. Please fill in the blanks as necessary:
+
 ```python
 def update(self):
   '''this is just a function to both move the entity,
@@ -106,11 +124,12 @@ def checkBoundaries(self):
   if self.x < self.posBoundaryLeft:
     self.x = self.posBoundaryLeft
     self.dx = - self.dx
+    
   '''checks if the position is too far left:
   Is x smaller than posBoundaryLeft?
   If so, set the position of the object to the boundary
   and revert the direction in x-dimension (dx),
-  similarly for the right side! Fill in this part!'''
+  **similarly for the right side! Fill in this part!**'''
 
 def isInScreen(self):
   #return true if it is in screen (within game dimensions)
@@ -126,12 +145,18 @@ def draw(self, screen):
   '''if to consider the object and it is inscreen then
     call screen.blit on the objects image and its rect'''
 ```
-###Exercise: Ball collision
-With this new class, start writing a small game in which we have two balls. For this, use the example code above and start shaping it with our fresh Entity class. If the two balls should collide, print "Oh no!" on the screen!
+#### Exercise: ball collision
 
-##AliveEntity: Adding scores and lives to Entity
-Well, that's nice and fine, but I want a game!
-Don't worry just for now! Let's add ANOTHER class, just for the sake of it to **inherit** from our Entity class, let's call it AliveEntity. Since we have both entities that need scores and those which don't, we need have two separate classes for them. Although we essentially don't add much more to it, we still need different classes. Here is the constructor of `AliveEntity` (and the start of the class):
+With this new class, write a small game in which we have two balls. Use the example code at the beginning of the chapter and start shaping it with our newly-made `Entity` class. If the balls collide, print "Oh no!" on the screen.
+
+## Giving life to `Entity`: `AliveEntity`
+
+Well, that's all nice and fine, but I want a game!
+
+What do we do when we need to add some new kind of object that builds upon an already existing kind? It's simple. We create a new class and **inherit** from the existing one. Let's do that now.
+
+From our `Entity` class, let's create a new class called `AliveEntity`. Since we have two kinds of entities (some that need scores and some that don't), we need to have two separate classes for them. Even though we aren't adding that much new stuff, we still need to create a new, different class. Here is a skeleton for the `AliveEntity` class, including the constructor:
+
 ```python
 class AliveEntity(Entity):
     def __init__(self, score, x, y, dx, dy, image, lives, gameWidth, gameHeight):
@@ -139,16 +164,18 @@ class AliveEntity(Entity):
         self.score = score
         self.lives = lives
 ```
-If you know say "wow that is weird", just bare with me one more moment. Because now, we can **override** the `update()` method from the `Entity` class:
 
-Since for aliens, we don't want them to move around too often, hence we need one method where the objects update and one method where the objects update AND where they move.
+Why should we do that, you ask? Bare with me for a moment. Since we have a new class inheriting from the old one, we can now **override** the `update()` method:
 
-Additionally, we also add a check if the number of lives is smaller than zero. If so, we do not consider the entity.
-Lastly, we add an option to remove a life (this might seem superfluous to you, but it helps us focus on the more important bits later on).
+For aliens, we don't want them to move around too often, so we need one method where the objects update without moving, and one method where they update AND where they move.
 
- Here's the rest of the pseudocode for AliveEntity, for you to fill in:
+Additionally, we also check if the entity has any lives left. If it doesn't, we simply don't consider the entity.
 
- ```
+Lastly, we add an option to remove a life (this might seem superfluous now, but it will help us focus on the more important bits later on).
+
+Here's the rest of the pseudocode for AliveEntity, for you to fill in:
+
+```python
  def update(self):
    check boundaries of objects
    set the object's rectangle to the position (like above)
@@ -161,23 +188,30 @@ def updateWithMove(self):
 
 def removeLife(self):
     subtract 1 from lives
- ```
+```
+
  ...that's it! Now, up for an exercise:
 
- ##Exercise: Displaying an array of entities
- Use the AliveEntity class to create a multidimensional array. In a new file called `spaceinvaders.py`, import pygame and the new class by
- ```python
- from AliveEntity import AliveEntity
- ```
- and then create said array. In each element, there should be an entity. Just download some image from the internet to represent the entities. The goal of this exercise is to successfully render the entities on screen how they show up in your array. See below picture for help.
+##### Exercise: displaying an array of entities
 
- ![Array indeces](img/array_indeces.png)
- The "lowest" element should be on the top-left, then right to it, [0][1]... etc. In order to do this, create two for-loops: The first one just goes through all the "rows", the second one through all the elements in that row.
+Create a multidimensional array of `AliveEntity`s. In a new file called `spaceinvaders.py`, import PyGame and the new class:
 
- Make sure that you position the elements correctly, with enough spacing. For drawing, just loop through the entire array, each time calling `draw()` on each element.
+```python
+import pygame
+from AliveEntity import AliveEntity
+```
 
- It should look like this. Please do expand the code so that you end up with moving entities between specified boundaries, similar to how original space invaders works:
- ```Python
+and then create said array. Each element of the array should be an entity. Download any image you like from the Internet to represent the entities, or just use [this one](img/special_alien.png). The goal of this exercise is to display the entities on screen in a grid-like fashion. See the picture below for help.
+
+![Array indeces](img/array_indeces.png)
+
+The "lowest" element should be on the top-left, then right to it, [0][1]... etc. In order to do this, create two for-loops: the first one just goes through all the "rows", the second one through all the elements in that row.
+
+Make sure that you position the elements correctly, with enough spacing. For drawing, just loop through the entire array, calling `draw()` on each element.
+
+Here's some skeleton code for you to modify:
+
+```python
 def createAliens(cols, rows):
     aliens = []
     for i in range(cols):
@@ -193,15 +227,17 @@ def drawAliens(self, aliens):
         for alien in row:
             if alien is not None:
                 alien.draw
- ```
+```
 
-##PyGame keyboard input and the Player class
+## PyGame keyboard input and the `Player` class
 
-Now, we create the class representing the player. Why a special class for player, you ask? Well, the player has some special responsibilities:
+Now, let's create the class representing the player. Why do we need a special class for the player, you ask? Well, the player has some special responsibilities (that simple `AliveEntity` objects don't have):
+
 * If the user presses the left key, the player moves left
 * If the user presses the right key, the player moves right
 * Each time the player updates, it has to reset its speed to 0, if no button is pressed
-These functions will be separate methods. Obviously, Player inherits from AliveEntity. Here is the class in Pseudocode:
+
+These functions will be implemented in separate methods. Obviously, `Player` inherits from `AliveEntity`. Here's a skeleton of the `Player` class:
 
 ```python
 import pygame
@@ -229,31 +265,29 @@ class Player(AliveEntity):
         set dx to zero
 ```
 
+## The `Game` class: the main access point to our game
 
- ##The "Game" class: The main access point to our game
- Now, let's create the main class of our Game, logically called Game. In here, all the basic functionality is carried out:
+Now, let's create the main class of our game, logically called `Game`. In here, all the basic functionality is carried out:
+
  * We draw all of our entities
- * We compute input
+ * We process input
  * We see if the game is over
  * We carry out all the other game rules
 
- So, for this, create a new file called (you wouldn't have guessed) Game.py
+So, for this, create a new file called (you wouldn't have guessed) `Game.py`.
 
-At the top, we import the following modules:
+Here's a skeleton for the file:
 ```python
-import pygame
-import random
+
+import pygame, random
 from AliveEntity import AliveEntity
-```
-Here's the pseudocode:
-```python
 
 class Game():
     def __init__(self, startScore, aliens, player, width, height, size):
         self.score = startScore
         self.ticks = 0
-        self.player= player
-        self.aliens= aliens
+        self.player = player
+        self.aliens = aliens
         self.running = True
         self.aliensExist = True
         self.screen = pygame.display.set_mode(size)
@@ -269,12 +303,10 @@ class Game():
     def checkGameStop(self, event):
         if event.type == pygame.QUIT:
             self.running = False
-        There is really no explaining for this: We come to this later
 
     def computeInput(self):
         for event in pygame.event.get():
             self.checkGameStop(event)
-        same here
 
     def drawAlien(self, alien):
         if self.ticks % 200 == 0:
@@ -306,9 +338,10 @@ class Game():
     def isRunning(self):
         return self.running
 ```
-Please complete the pseudocode accordingly.
-##Exercise
-In order to use this game, we expand our spaceinvaders.py a bit.
+
+Please complete the code accordingly.
+
+In order to use this game, we expand our `spaceinvaders.py` file a bit.
 
 ```python
 import pygame
@@ -379,28 +412,30 @@ while True:
     clock.tick(300)
 pygame.quit()
 ```
-You see the part after `print("END")`? This part just displays a nice end message to the user. Feel free to customize everything.
 
-##Modify our Game class to work with the player
-Since we now have the Player ready, we can modify our Game class to pass on keyboard presses and to control the player ...would you think! But in fact, we don't have to because we have overridden the `update()` function, which automatically deals with everything..
+You see the part after `print("END")`? This part just displays a nice end message to the user. Feel free to customize anything.
 
-... so no need to do anything
+## Adding randomness
 
-##Time for some more randomness
-If you want to look up in this document, you will find out that every once in a while, we want an alien to come up in our game and to sweep right at a high speed. For this, we add things to our Game class:
-In our constructor, we add
+If you've read the description carefully, you remember that we want an alien to appear every once in a while and to sweep right at a high speed (the so-called special alien). For this to happen, we need to add some things to our `Game` class:
+
+In our constructor, we add:
+
 ```python
-self.specialAlien = AliveEntity(0, 0, 0, 0, 0, "img/shot.png", 0, width, height) #this is just a dummy assignment..
+self.specialAlien = AliveEntity(0, 0, 0, 0, 0, "img/shot.png", 0, width, height)
 self.specialAlien.consider = False
 ```
-More down in the code, let's add one more method:
+
+Further down in the code, let's add one more method:
+
 ```python
 def spawnSpecialAlien(self):
-  print("SPECIALALIEN")
   self.specialAlien = AliveEntity(100, 100, 90, 2, 0, "img/sprite8.png", 1, self.width, self.height)
   self.specialAlien.posBoundaryRight = self.width + 40
 ```
+
 In this method, we just set the instance variable to a new entity with the following properties:
+
 ```
 score: 100
 position x: 100
@@ -412,38 +447,52 @@ lives: 1
 width: width of game
 height: height of game
 ```
-Easy! In addition to that, if it moves further right than `width + 40`, will it stop? Yes, according to how we specified in our AliveEntity class, as soon as it goes out of bounds.
 
-As you can see, this is quite basic here. This is because we have done all the hard work before, now we just need to fill in the blanks.
+Easy! In addition to that, if the alien moves further right than `width + 40`, will it stop? Yes, according to how we specified in our AliveEntity class, as soon as it goes out of bounds.
 
-Now, we can create a function in our Game class that combines both functions:
+As you can see, this is quite basic here. Because we've done all the hard work already, now we just need to fill in the blanks.
+
+Create a function in our `Game` class that combines both functions:
+
 ```python
 def dealWithSpecialAlien():
   self.specialAlien.updateWithMove()
   self.specialAlien.draw()
 ```
-In our `update()` function, we have to call this function after we draw the player.
 
-One last thing: So far, we don't add the special alien at all. To adjust this, we add more code at the end of our `update()` function to call our `spawnSpecialAlien()` function if we are lucky. Let's do this, add:
+In our `update()` function, we have to call `dealWithSpecialAlien()` after we draw the player.
+
+One last thing: so far, we don't add the special alien at all. To adjust this, we add more code at the end of our `update()` function to call our `spawnSpecialAlien()` function if we are lucky. Let's do this. Add:
+
 ```python
 if(self.isLucky(0.99999)):
     self.spawnSpecialAlien()
 ```
-Done!! Feel free to set the value in parentheses to a lower value, if you want the special alien to spawn more often.
 
-##Now, let's add some bang to our application
-###Shooting player
+Done! Feel free to set the value in parentheses to a lower value, if you want the special alien to spawn more often.
+
+## Shooting!
+
 Let's start with the following rules:
-* The player can shoot shots which can hit aliens and destroy them
-* The aliens randomly shoot at the player and can reduce the amount of lives the player has
-For this, we don't need a whole class to encapsulate a shot.
-It is enough that we just use our existing `Entity` class. Convenient! In our player class, let's add a couple of functions.
 
-1. We have to account for shooting quickly: We only want the player to be able to shoot say every 200 ticks, so we have to keep track of the previous shot. We do so, by adding a simple instance variable in the Player class. To our constructor, add
+* The player can fire shots which can hit aliens and destroy them
+* The aliens randomly shoot at the player and can reduce the amount of lives the player has
+
+For this, we don't need a whole class to encapsulate a shot.
+It is enough that we just use our existing `Entity` class. Convenient!
+
+### Making the player shoot
+
+In our player class, let's add a couple of functions.
+
+1. We have to account for shooting quickly: we only want the player to be able to shoot, say, every 200 ticks, so we have to keep track of the previous shot. We do so by adding a simple instance variable in the `Player` class. To our constructor, add:
+
 ```python
 self.last_shot = 0
 ```
-2. We need a separate function to check for if the player should shoot because we need to pass the current ticks from the game. This gives us the function
+
+2. We need a separate function to check if the player is shooting. Two conditions need to be met: the spacebar key has to be pressed and the time passed since the last shot should be at least 200 ticks. This gives us:
+
 ```
 def checkShoot(self, pressed_keys, ticks):
   shot = None
@@ -451,16 +500,20 @@ def checkShoot(self, pressed_keys, ticks):
     create shot
   return shot
 ```
-For now, just do `print("Shooting!")` to check if your code is working correctly.
-3. Add the code for creating a shot. This means we create two functions: One for all of the business around shooting and one for actually creating the shot. This leaves us with two functions, `shoot()` and `makeShot()`.
-For shoot, the function should look like this (add in the blanks!)
+
+For now, just replace `create shot` with `print("Shooting!")` to check that your code works correctly.
+
+3. Add the code for creating a shot. This means we create two functions: one for all of the shooting logic (`shoot()`) and one for actually creating the shot (`makeShot()`). For `shoot`, the function should look like this (complete the blanks):
+
 ```python
 def shoot(self, ticks):
   shot = self.makeShot()
   set last shot to the ticks specified
   return shot
 ```
-For actually shooting, we have to specify what we want our Shot to actually look like. We want it to have the following properties:
+
+We want to specify the shot:
+
 ```
 x position: self.x
 y position: self.y
@@ -470,25 +523,28 @@ image: "img/shot.png"
 width: self.gameWidth
 height: self.gameHeight
 ```
-Now, we can specify the `makeShot()` function. If you can figure it out yourself, please don't look at the code below!
+Now, we can write the `makeShot()` function. If you can figure it out yourself, please don't look at the code below!
+
 ```python
 def makeShot(self):
   shot = Entity(self.x, self.y, 0, -1.25, "img/shot.png", self.gameWidth, self.gameHeight)
   return shot
 ```
-Back in our function `checkShoot()`, we can now call the `shoot()` function with the correct arguments.
+Back in our `checkShoot()` function, we can now call the `shoot()` function with the correct arguments. Change your code to do so.
 
-ONE MORE THING THOUGH!
-In our `Game` class, let's add code to (maybe) shoot in our `computeInput()` function:
-At the bottom, add
+**ONE MORE THING, THOUGH!**
+
+In the `Game` class, in the `computeInput()` function, at the bottom, add:
+
 ```python
 shot = self.player.checkShoot(pressed_keys, self.ticks)
 ```
-... else it doesn't work!
+... to make shooting work.
 
-###Shooting aliens (oh noooooo!)
-This is some serious business, when aliens shoot. Let's create a class for it. Since this won't be the only time that we have to perform functions on the shots, we just summarise it as **ShotEngine**.
-The class (including imports) looks like this (again, fill in the blanks!):
+### Making the aliens shoot
+
+This is some serious business, when aliens shoot. Let's create a class for it. Since this won't be the only time that we have to perform functions on the shots, we just summarise it as `ShotEngine`. The class (including imports) looks like this (again, fill in the blanks!):
+
 ```python
 import pygame
 import random
@@ -558,10 +614,8 @@ class ShotEngine():
         make random shots
         draw alien shots on screen
 ```
+
 Back in our `Game` class, we just add the following line in the constructor:
 ```python
 self.shotEngine = ShotEngine(width, height)
 ```
-
-```
-##Todo: ShotEngine (Shooting aliens), Display,
