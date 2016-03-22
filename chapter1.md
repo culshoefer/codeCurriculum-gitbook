@@ -4,8 +4,7 @@ Python is a programming language. When you run Python, you first will have troub
 ## Getting started
 There are two different ways to write Python code: By writing single-line commands in the *interpreter* or via running whole scripts.
 
-On Linux or Mac open the Terminal and run `python` in order to start the python *interpreter* in the Terminal.
-Under windows go to *Start -> Run* and type in `python`
+Just start `IDLE` on your machine.
 
 For very simple programs, it is enough to use the Python interpreter. See the three `>>>`? This is where we will start to write programs.
 
@@ -124,7 +123,7 @@ Solution for the question on parentheses:
 (a) 2 (b) 5 (c) 5
 
 ##Simple Python Scripts and input
-So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window`. A new empty window should open. In this window, you can type commands, just like in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each line until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before. The last program would look something like this:
+So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window` in `IDLE`. A new empty window should open. In this window, you can type commands, just like in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each line until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before. The last program would look something like this:
 
 ```python
 someString = ':'
