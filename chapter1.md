@@ -267,10 +267,10 @@ File "<stdin>", line 3
      ^
 SyntaxError: invalid syntax
 ```
-Wait what?
+Wait what? Error?
 ![But Why?](img/butwhy.jpg)
 
-The reason is, since you are still in the `if` mode, Python expects you to use the tabulator for each folling statement. Let's try it:
+The reason is, since you are still in the `if` mode, Python expects you to use the tabulator for each following statement. Let's try it:
 ```python
 >>> age = 12
 >>> if age < 7:
@@ -334,7 +334,7 @@ Membership operators:
  * `in` – member in collection (`3 in [3, 4, 5] == True`)
  * `not in` – not a member in collection
 
-**Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`.
+**Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`. But more about that later
 
 ## Loops
 
@@ -409,11 +409,11 @@ while *expression*:
 other code
 ```
 
-Important note that the spaces at the beginning of the line show that the code after that belongs to the loop. In other programming languages, you might have different ways to express that you are inside a loop. In Python, however, this is very simple: Just make sure that you have *spaces at the beginning of the line* and that the number of spaces inside the same loop works.
+Important: Note the spaces at the beginning of the line. Just like with if-conditionals, we use the tabulator to show we are in a while-loop. In other programming languages, you might have different ways to express you are inside a loop. In Python, however, this is very simple: Just make sure that you have *spaces at the beginning of the line* and that the number of spaces inside the same loop are the same.
 
-That said, let's analyze what we have written in the first example: The `while` keyword says to python: Alright, the thing after this is a boolean expression. In this case, this is `i < 5`. At the start, `i = 1`. Even if you are not good at Maths, you may find that `1 < 5`, so the boolean expression is `true`, meaning the code after that gets executed. The colon at the end (similarly to conditionals) is just a feature of Python to indicate the end of the statement (think of it as writing headlines).
+That said, let's see what we have written in the first example: The `while` keyword says to python: Alright, the thing after this is a boolean expression. In this case, this is `i < 5`. At the start, `i = 1`. Even if you are not good at Maths, you may find that `1 < 5`, so the boolean expression is `True`, meaning the code after that gets executed. The colon at the end (similarly to conditionals) is just a feature of Python to show the end of the statement.
 
-Now, each time the loop gets executed, the variables `i` and `sum` get updated. Ok. So far so good. Let's look at some special cases (try the examples out for yourself):
+Now, each time the loop gets executed, the variables `i` and `sum` get updated. The loop repeats until `i = 5`, in this case `5 < 5` is `False` and the loop finishes. Ok. So far so good. Let's look at some special cases (try the examples out for yourself):
 
 ```python
 i = 13
@@ -451,7 +451,7 @@ For this program, note that the loop might not necessarily be executed if the lo
 
 *Challenge*: Use another while-loop to check if the lower boundary is indeed lower than the upper boundary. If it isn't, just display the input dialogue again.
 
-2) Write the `guessing game`!
+2) Write the `guessing game`! Ask the user for a range of numbers. Then try to guess the number he chose within that range. Do that by repeatedly asking him if the number he chose is bigger or smaller than the number you guessed. Adjust your prediction accordingly.
 3) Write a program which asks person for a number and then will display all divisors of the number.
 ```
 1) Check if the number is equal to one (or smaller). If not, then continue the loop.
