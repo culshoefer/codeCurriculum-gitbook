@@ -5,9 +5,11 @@ This introduction to Programming in Python (and PyGame) is divided into four dis
 
 ## Intended audience and learning outcome
 
-These resources are different from many other tutorials on Python or PyGame. We believe that the most valuable lessons are those which actually have a practical application. We want students to experience fast feedback and  include a final project into our curriculum.
+There are many tutorials online for learning Python or PyGame, but we wanted to create something different. We believe that the most valuable lessons are those which actually have a practical component, an end-product that students can work towards and, once finished, show to others.
 
-Throughout the course, we aim to move to PyGame as quickly as possible while still being able to understand what is going on. This is because we believe that students can get quite frustrated quickly if concepts are not properly introduced. At the same time, it means that the learning curve is steep. Finally, this is why this curriculum is intended for **16 years and up**.
+We structured our curriculum so students get to apply the concepts they've learned as quickly as possible, and, at the end, we encourage students to complete a final project.
+
+Throughout the course, our aim is to introduce Python concepts thoroughly, but quickly move towards practical applications using PyGame. This is because we believe that students can quickly get frustated if they don't see why what they are learning is useful. However, this means that the learning curve for this course is *steep*. That's why this curriculum is intended for students **16 years and up**.
 
 We want to keep it close to the application, without any additional distraction (apart from the occasional motivational funny picture to loosen up). As the audience is quite mature, therefore we do not want to include a framework story, but rather stick to the topic and provide guidance throughout. From our perspective, in this age, it is more about **discovering your own capabilities** rather than adapting the given framework. In our opinion students should be expected to jump directly into coding in order to keep them interested.
 
@@ -22,11 +24,11 @@ All that said, the students are encouraged to work on their own with these mater
 Finally, we tried to make these teaching materials suitable for multiple levels. In the first chapters, for a lot of the exercises, there are challenge questions which the more advanced students can tackle. At parts of these exercises, the student is also encouraged to expand the exercise content by himself.
 
 ## Our team
-We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum and had a big influence on our decision to study it formally.
-All four of us are very passionate about programming and we want to help more students getting involved into Computer Science.
-Our special interests mainly lie in Machine Learning, Professional Software Development and Teamwork.
+We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum and this had a big influence on our decision to study it formally. All four of us are very passionate about programming and we want to help more students get involved into Computer Science. Our special interests mainly lie in Machine Learning and Professional Software Development.
 
 All things aside, we love programming very much and want to pass on some of that enthusiasm! One more tip from us: Something that we all experience when programming is frustration. Don't let that frustration get the better of you. Just carry on, it will all be fine. That said, have fun exploring the world of Python!
+
+Something we all share is a great passion for fun stuff. That is why we decided to make these materials as enjoyable as possible. However, we can only do so much. So dear novice, please take this advice: Programming is super frustrating. If you find that your program is not working after you tried for HOURS, don't give up. In the end, you will come out smarter!
 
 ## Installing Python and Pygame
 
