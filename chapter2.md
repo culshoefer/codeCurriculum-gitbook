@@ -156,6 +156,8 @@ Use two for loops for this exercise.
 
 Use your function `triangle()` to do this task quickly.
 
+5. **Challenge** Can you write functions to draw other shapes like parallelograms/rhomboids? Do so! Think of your own shapes (e.g. proper triangles with two corners at the bottom instead of one) and try to write functions to draw them.
+
 ### Exercises on recursion
 
 1. Write a recursive function `fib(n)` that returns Fibonacci numbers. The Fibonacci function is defined like this:
@@ -164,7 +166,7 @@ Use your function `triangle()` to do this task quickly.
   ```
   0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89
   ```
-  Calculate `fib(20)`. What is the largest Fibonacci number you can calculate with this funcion that stops running within 30 seconds? (HINT: It is probably quite close to fib(20)).
+  Calculate `fib(20)`. What is the largest Fibonacci number you can calculate with this function that stops running within 30 seconds? (HINT: It is probably quite close to fib(20)).
 
 2. Write a recursive function of `triangle()` that writes out the triangle.
 
@@ -188,7 +190,7 @@ In order to make our code readable and easily understandable by others as well, 
 ###Scope: local vs. global
 In programming languages there is a notion of **scope** which is **the area in which a variable is valid**.
 What this means is the following:
-1. If you declare a variable outside of a function, it is considered to be **global**. Example:
+If you declare a variable outside of a function, it is considered to be **global**. Example:
 
 ```python
 glob = 13

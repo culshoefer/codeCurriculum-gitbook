@@ -157,7 +157,7 @@ As integers hold - well - integers and booleans true or false, integers literall
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
 Later more about booleans (or *bools*, in Computer Science speak). For now, just remember their existence.
 
-## Exercises on variables and type
+### Exercises on variables and type
 For these exercises, we desperately need two more functions: `int()` and `input()`. `int()` tries to convert a value to an integer (who would have guessed?) and `input()` prompts the user to input something.
 
 A simple program using these two functions which adds two numbers and prints the result:
@@ -303,7 +303,7 @@ Nice, it works... Here we'll introduced a new keywords, `elif`, which is short f
  * `>` – larger than (`9 > 5`)
  * `<` – smaller than (`2.5 < 10`)
  * `>=` – larger than or equal to (`2 >= 2`)
- * `<=` – smaller than or equal to ('6 <= 7`)
+ * `<=` – smaller than or equal to (`6 <= 7`)
 
 ### Boolean operators
 
@@ -326,6 +326,14 @@ Membership operators:
  * `not in` – not a member in collection
 
 **Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`. But more about that later
+
+## Exercises on conditionals
+
+1. Write a program to take in two numbers, then to ask the user if he wants to 1) add numbers 2) subtract numbers 3) multiply numbers 4) divide numbers. Then, depending on the user's choice, display the sum, difference, product or quotient.
+
+2. Write a program of a *vending machine*. It works like this: At the start, ask the user how old they are. If they are older than 18, show a different selection. If they are below 10 years old, also show a different selection. In any case, for each product in the vending machine (e.g. coke, water, orange juice), ask the user if he wants to have the drink. Each drink should be assigned a price. Then, finally, display the user's selection together with the price.
+
+3. **Challenge** Can you write a personality quiz? The user should answer different questions (with `yes` and `no`, or to select a choice `1`, `2`, `3`, `4`...). After answering some questions, show them their personality! E.g. `Are you introverted?` - `yes`, `Do you often say wise things?` - `yes` - `Here's the result: Your personality resembles Yoda!`
 
 ## Loops
 

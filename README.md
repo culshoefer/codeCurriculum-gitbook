@@ -17,10 +17,16 @@ What we want from students is to be able to understand the very core concepts of
 
 After all, Computer Science is a very important subject having many industrial applications. Apart from that, without it we would not be able to enjoy the lovely games that we play, the apps that we use or even write an email. This wide usage of Computer Science makes it so compelling to study. A particularly fun application is game development. The simplest way to convey that is via the extremely widely used language `Python` and one of its libraries `PyGame`.
 
+All that said, the students are encouraged to work on their own with these materials. The role of the teacher here is to stand by the students should they have questions, experience problems with the exercises etc. We also recommend having a period at the start of the class in which problems from the last time are explained or where the teacher goes through solutions of exercises.
+
+Finally, we tried to make these teaching materials suitable for multiple levels. In the first chapters, for a lot of the exercises, there are challenge questions which the more advanced students can tackle. At parts of these exercises, the student is also encouraged to expand the exercise content by himself.
+
 ## Our team
 We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum and had a big influence on our decision to study it formally.
 All four of us are very passionate about programming and we want to help more students getting involved into Computer Science.
-Our special interests mainly lie in Machine Learning, Professional Software Development and Teamwork. 
+Our special interests mainly lie in Machine Learning, Professional Software Development and Teamwork.
+
+All things aside, we love programming very much and want to pass on some of that enthusiasm! One more tip from us: Something that we all experience when programming is frustration. Don't let that frustration get the better of you. Just carry on, it will all be fine. That said, have fun exploring the world of Python!
 
 ## Installing Python and Pygame
 
