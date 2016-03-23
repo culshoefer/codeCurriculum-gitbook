@@ -245,7 +245,8 @@ from AliveEntity import AliveEntity
 
 class Player(AliveEntity):
     def __init__(self, score, lives, gameWidth, gameHeight):
-        super(Player, self).__init__(score, gameWidth/2, 400, 0, 0, "img/player.png", lives, gameWidth, gameHeight)
+        super(Player, self).__init__(score, gameWidth/2, 400, 0, 0, "img/player.png",
+         lives, gameWidth, gameHeight)
 
     def checkKeyboardInput(self, pressed_keys):
         self.checkGoLeft(pressed_keys)
@@ -298,7 +299,8 @@ class Game():
         add the amount there to the score
 
     def isLucky(self, chance):
-        see if random.random() is greater than change, If you want to find out what random.random() does, google it!
+        see if random.random() is greater than change
+        if you want to find out what random.random() does, google it!
 
     def checkGameStop(self, event):
         if event.type == pygame.QUIT:
@@ -333,7 +335,8 @@ class Game():
             self.running = False
 
     def isGameOver(self):
-        return true if the player doesnt have any more lives or if there are no more aliens
+        return true if the player doesn't have any more lives
+        or if there are no more aliens
 
     def isRunning(self):
         return self.running
@@ -366,7 +369,10 @@ def spawnNewAlien(xpos, ypos):
     return newAlien
 
 def createAliens(cols, rows):
-    here the code for creating the array of aliens. For every alien, it should create the alien and add it to the array. We do this to pass the array to our Game class later. The code below should look similar to the one above, except for one point:
+    code for creating the array of aliens; we do this to pass the array
+    to our Game class later. the code here should look similar to the
+    one in drawAliens(), except for one point
+
     aliens = []
     for i in range(cols):
         row = []
@@ -430,7 +436,8 @@ Further down in the code, let's add one more method:
 
 ```python
 def spawnSpecialAlien(self):
-  self.specialAlien = AliveEntity(100, 100, 90, 2, 0, "img/sprite8.png", 1, self.width, self.height)
+  self.specialAlien = AliveEntity(100, 100, 90, 2, 0, "img/sprite8.png",
+   1, self.width, self.height)
   self.specialAlien.posBoundaryRight = self.width + 40
 ```
 

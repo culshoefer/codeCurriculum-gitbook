@@ -70,7 +70,7 @@ This works fine. But what about division?
 ```
 Huh. What happened here? Well. Normal division in Python simply slices off what would be after the dot in a division. This is because Python variables have something called *type*. We say a **variable is of a certain type**.
 
-##Python types
+## Types
 We have already seen whole numbers, i.e. 5, 3, 9, 14275855431 or -3014. These numbers are of type **integer** (or *int*). Similarly, Python has numbers with positions after the dot, so-called **floating-point numbers** (computer scientists call them *float*). The good thing about division with floats is that Python is able to do division with positions after the dot. Already, we see that Python tries to understand the statements that we write and interpret them in the most intelligent way it can: If a variable is of type **integer**, division stops before the dot, otherwise,the result is no integer any more! Similarly with floats: Division with floats will always (actually, only in most cases) ending in floats.
 ```python
 >>> print 4.0 / 5
@@ -122,7 +122,8 @@ Variables have a *type* such as integer, float or String (in fact, there are man
 Solution for the question on parentheses:
 (a) 2 (b) 5 (c) 5
 
-##Simple Python Scripts and input
+## Simple scripts
+
 So far, we have used the python interpreter to print things on-screen. However, if we want to create more complex programs (games!!!) then we have to turn to scripts. To create a new Python script, simply click on `File -> New Window` in `IDLE`. A new empty window should open. In this window, you can type commands, just like in the interpreter. When Python goes through your commands, it does so by starting at the top and working its way through each line until it reaches the end of the file. So, to familiarize yourself with the new environment, just try out what we did before. The last program would look something like this:
 
 ```python
@@ -157,7 +158,8 @@ As integers hold - well - integers and booleans true or false, integers literall
 Please note here that `True` and `False` are also written in capital letters. If you type in these boolean values with lowercase letters, you  get an error. This is because in most programming languages, there are *reserved words*. `None`, `True`, `False`, are all reserved words that have a specific meaning, which means that you cannot create variables with such names.
 Later more about booleans (or *bools*, in Computer Science speak). For now, just remember their existence.
 
-### Exercises on variables and type
+### Exercises
+
 For these exercises, we desperately need two more functions: `int()` and `input()`. `int()` tries to convert a value to an integer (who would have guessed?) and `input()` prompts the user to input something.
 
 A simple program using these two functions which adds two numbers and prints the result:
@@ -259,6 +261,7 @@ File "<stdin>", line 3
 SyntaxError: invalid syntax
 ```
 Wait what? Error?
+
 ![But Why?](img/butwhy.jpg)
 
 The reason is, since you are still in the `if` mode, Python expects you to use the tabulator for each following statement. Let's try it:
@@ -327,7 +330,7 @@ Membership operators:
 
 **Note**: `in` can also be used for iterating over elements of a collection – `for x in range(10)`. But more about that later
 
-## Exercises on conditionals
+### Exercises
 
 1. Write a program to take in two numbers, then to ask the user if he wants to 1) add numbers 2) subtract numbers 3) multiply numbers 4) divide numbers. Then, depending on the user's choice, display the sum, difference, product or quotient.
 
@@ -434,7 +437,8 @@ Well, with this loop, all I can say is...
 
 You see, when you try running the program, obviously it will never end - because of that - never execute `print str`.
 
-#### Exercises
+### Exercises
+
 1. Write a program that writes out all of the numbers between two numbers specified by the user. Use the `input()` and the `int()` function to get values. A dialogue should look something like this:
 ``` python
 Please enter the lower boundary:
@@ -483,6 +487,8 @@ Lists are so cool, they can even store other lists:
 ```python
 cool_list = [[5, 1.7, 'crocodile'], 2, None, 45]
 ```
+
+![Lists can hold *anything*](img/all-the-things.jpg)
 
 ### Indexing
 
@@ -674,7 +680,7 @@ output:
 ```
 Yay!
 
-### Loop through a dictionary
+### Looping through a dictionary
 In order to loop through a dictionary we can just use a `for`-loop:
 ```python
 >>> oxfordDict = {}
@@ -710,7 +716,7 @@ True
 
 As you can see, using dictionaries is very straightforward.
 
-### Delete an entry
+### Deleting an entry
 In order to delete a key-value pair in a dictionary we just use the `del` command:
 
 ```python
@@ -755,7 +761,7 @@ output
 car : Auto
 ```
 
-## Exercise Chapter One - Hangman
+#### Exercise
 
 In this exercise we are going build a small, simple version of
 hangman. We'll provide you with the basic code and you have to complete the code in the end of the file. Download the [file](exercises/hangman.py) and complete the code after line 47.
