@@ -5,9 +5,11 @@ This introduction to Programming in Python (and PyGame) is divided into four dis
 
 ## Intended audience and learning outcome
 
-These resources are different from many other tutorials on Python or PyGame. We believe that the most valuable lessons are those which actually have a practical application. We want students to experience fast feedback and  include a final project into our curriculum.
+There are many tutorials online for learning Python or PyGame, but we wanted to create something different. We believe that the most valuable lessons are those which actually have a practical component, an end-product that students can work towards and, once finished, show to others.
 
-Throughout the course, we aim to move to PyGame as quickly as possible while still being able to understand what is going on. This is because we believe that students can get quite frustrated quickly if concepts are not properly introduced. At the same time, it means that the learning curve is steep. Finally, this is why this curriculum is intended for **16 years and up**.
+We structured our curriculum so students get to apply the concepts they've learned as quickly as possible, and, at the end, we encourage students to complete a final project.
+
+Throughout the course, our aim is to introduce Python concepts thoroughly, but quickly move towards practical applications using PyGame. This is because we believe that students can quickly get frustated if they don't see why what they are learning is useful. However, this means that the learning curve for this course is *steep*. That's why this curriculum is intended for students **16 years and up**.
 
 We want to keep it close to the application, without any additional distraction (apart from the occasional motivational funny picture to loosen up). As the audience is quite mature, therefore we do not want to include a framework story, but rather stick to the topic and provide guidance throughout. From our perspective, in this age, it is more about **discovering your own capabilities** rather than adapting the given framework. In our opinion students should be expected to jump directly into coding in order to keep them interested.
 
@@ -18,9 +20,7 @@ What we want from students is to be able to understand the very core concepts of
 After all, Computer Science is a very important subject having many industrial applications. Apart from that, without it we would not be able to enjoy the lovely games that we play, the apps that we use or even write an email. This wide usage of Computer Science makes it so compelling to study. A particularly fun application is game development. The simplest way to convey that is via the extremely widely used language `Python` and one of its libraries `PyGame`.
 
 ## Our team
-We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum and had a big influence on our decision to study it formally.
-All four of us are very passionate about programming and we want to help more students getting involved into Computer Science.
-Our special interests mainly lie in Machine Learning, Professional Software Development and Teamwork. 
+We are a team of four first-year Computer Science students at University College London. All four of us have done programming in high school, either through self-study or because it was in the curriculum and this had a big influence on our decision to study it formally. All four of us are very passionate about programming and we want to help more students get involved into Computer Science. Our special interests mainly lie in Machine Learning, Professional Software Development and Teamwork.
 
 ## Installing Python and Pygame
 
