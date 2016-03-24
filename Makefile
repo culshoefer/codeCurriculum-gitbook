@@ -5,6 +5,7 @@ name = "Introduction to Python and PyGame"
 all: html pdf
 
 html : $(SOURCES)
+	generate-md --layout mixu-bootstrap-2col --input ./ --output ./html/
 	pandoc --toc --toc-depth=3 --self-contained --standalone -t html5 -f markdown -o $(name).html $(SOURCES)
 
 pdf : $(SOURCES)

@@ -764,4 +764,4 @@ car : Auto
 #### Exercise
 
 In this exercise we are going build a small, simple version of
-hangman. We'll provide you with the basic code and you have to complete the code in the end of the file. Download the [file](exercises/hangman.py) and complete the code after line 47.
+hangman. We'll provide you with the basic code and you have to complete the code in the end of the file. Download the [file](exercises/Chapter_1/hangman.py) and complete the code after line 47.
